@@ -27,8 +27,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/openssl/openssl.git
-        tag: OpenSSL_1_1_1v
-        commit: 9398e4038c27d5ef15111c61e984d4d2be8a52a8
+        tag: OpenSSL_1_1_1w
+        commit: e04bd3433fd84e1861bf258ea37928d9845e6a86
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
