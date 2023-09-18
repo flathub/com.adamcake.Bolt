@@ -1,0 +1,52 @@
+diff --git a/gn/build/gen.py b/gn/build/gen.py
+index adb622a9..a802a992 100755
+--- a/gn/build/gen.py
++++ b/gn/build/gen.py
+@@ -226,10 +226,8 @@ def main(argv):
+ 
+ def GenerateLastCommitPosition(host, header):
+   ROOT_TAG = 'initial-commit'
+-  describe_output = subprocess.check_output(
+-      ['git', 'describe', 'HEAD', '--abbrev=12', '--match', ROOT_TAG],
+-      shell=host.is_windows(), cwd=REPO_ROOT)
+-  mo = re.match(ROOT_TAG + '-(\d+)-g([0-9a-f]+)', describe_output.decode())
++  describe_output = 'initial-commit-2121-g991530ce394e'
++  mo = re.match(ROOT_TAG + '-(\d+)-g([0-9a-f]+)', describe_output)
+   if not mo:
+     raise ValueError(
+         'Unexpected output from git describe when generating version header')
+diff --git a/build/config/gclient_args.gni b/build/config/gclient_args.gni
+new file mode 100644
+index 0000000000000..f141e7513bdce
+--- a/build/config/gclient_args.gni
++++ b/build/config/gclient_args.gni
+@@ -0,0 +1,13 @@
++# Generated from 'DEPS'
++build_with_chromium = true
++checkout_android = false
++checkout_android_prebuilts_build_tools = false
++checkout_android_native_support = false
++checkout_ios_webkit = false
++checkout_nacl = true
++checkout_openxr = false
++checkout_rts_model = false
++checkout_src_internal = false
++cros_boards = ""
++cros_boards_with_qemu_images = ""
++generate_location_tags = true
+diff --git a/build/util/LASTCHANGE b/build/util/LASTCHANGE
+new file mode 100644
+index 0000000000000..349b67a6122ff
+--- a/build/util/LASTCHANGE
++++ b/build/util/LASTCHANGE
+@@ -0,0 +1,2 @@
++LASTCHANGE=fb29c8ed87323e1dd02b71f2d4cffbb5a818b49d-refs/branch-heads/5735@{#1397}
++LASTCHANGE_YEAR=2023
+diff --git a/build/util/LASTCHANGE.committime b/build/util/LASTCHANGE.committime
+new file mode 100644
+index 0000000000000..4e37dea9a31cf
+--- a/build/util/LASTCHANGE.committime
++++ b/build/util/LASTCHANGE.committime
+@@ -0,0 +1 @@
++1687565614
+\ No newline at end of file
