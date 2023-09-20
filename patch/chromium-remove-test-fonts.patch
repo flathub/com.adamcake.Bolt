@@ -1,5 +1,4 @@
 diff --git a/third_party/test_fonts/BUILD.gn b/third_party/test_fonts/BUILD.gn
-index 47bfb8cce24c0..7852b201438e3 100644
 --- a/third_party/test_fonts/BUILD.gn
 +++ b/third_party/test_fonts/BUILD.gn
 @@ -4,38 +4,7 @@

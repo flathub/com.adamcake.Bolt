@@ -1,5 +1,4 @@
 diff --git a/third_party/node/node.py b/third_party/node/node.py
-index 2471ca1474f2e..b65182024a84d 100755
 --- a/third_party/node/node.py
 +++ b/third_party/node/node.py
 @@ -11,14 +11,7 @@ import os
@@ -18,8 +17,7 @@ index 2471ca1474f2e..b65182024a84d 100755
  
  def RunNode(cmd_parts, stdout=None):
    cmd = [GetBinaryPath()] + cmd_parts
-diff --git a/scripts/devtools_paths.py b/scripts/devtools_paths.py
-index bfa7d17354..6228869f99 100644
+diff --git a/third_party/devtools-frontend/src/scripts/devtools_paths.py b/third_party/devtools-frontend/src/scripts/devtools_paths.py
 --- a/third_party/devtools-frontend/src/scripts/devtools_paths.py
 +++ b/third_party/devtools-frontend/src/scripts/devtools_paths.py
 @@ -38,14 +38,7 @@ def third_party_path():
@@ -39,7 +37,6 @@ index bfa7d17354..6228869f99 100644
  def devtools_root_path():
      return path.dirname((path.dirname(path.abspath(__file__))))
 diff --git a/third_party/lottie/minify_lottie.py b/third_party/lottie/minify_lottie.py
-index 9867a2b51314b..222836713663d 100755
 --- a/third_party/lottie/minify_lottie.py
 +++ b/third_party/lottie/minify_lottie.py
 @@ -12,16 +12,14 @@ _SRC_PATH = os.path.normpath(os.path.join(_HERE_PATH, '..', '..'))
@@ -61,7 +58,6 @@ index 9867a2b51314b..222836713663d 100755
            '--compress',
            '--mangle', 'reserved=[\'$\',\'onmessage\',\'postMessage\']',
 diff --git a/tools/typescript/tsconfig_base.json b/tools/typescript/tsconfig_base.json
-index a6e700aa492c2..538aee97eecfb 100644
 --- a/tools/typescript/tsconfig_base.json
 +++ b/tools/typescript/tsconfig_base.json
 @@ -4,7 +4,7 @@

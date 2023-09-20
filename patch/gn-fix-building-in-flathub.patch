@@ -1,5 +1,4 @@
 diff --git a/gn/build/gen.py b/gn/build/gen.py
-index adb622a9..a802a992 100755
 --- a/gn/build/gen.py
 +++ b/gn/build/gen.py
 @@ -226,10 +226,8 @@ def main(argv):
@@ -16,8 +15,6 @@ index adb622a9..a802a992 100755
      raise ValueError(
          'Unexpected output from git describe when generating version header')
 diff --git a/build/config/gclient_args.gni b/build/config/gclient_args.gni
-new file mode 100644
-index 0000000000000..f141e7513bdce
 --- a/build/config/gclient_args.gni
 +++ b/build/config/gclient_args.gni
 @@ -0,0 +1,13 @@
@@ -35,16 +32,12 @@ index 0000000000000..f141e7513bdce
 +cros_boards_with_qemu_images = ""
 +generate_location_tags = true
 diff --git a/build/util/LASTCHANGE b/build/util/LASTCHANGE
-new file mode 100644
-index 0000000000000..349b67a6122ff
 --- a/build/util/LASTCHANGE
 +++ b/build/util/LASTCHANGE
 @@ -0,0 +1,2 @@
 +LASTCHANGE=fb29c8ed87323e1dd02b71f2d4cffbb5a818b49d-refs/branch-heads/5735@{#1397}
 +LASTCHANGE_YEAR=2023
 diff --git a/build/util/LASTCHANGE.committime b/build/util/LASTCHANGE.committime
-new file mode 100644
-index 0000000000000..4e37dea9a31cf
 --- a/build/util/LASTCHANGE.committime
 +++ b/build/util/LASTCHANGE.committime
 @@ -0,0 +1 @@

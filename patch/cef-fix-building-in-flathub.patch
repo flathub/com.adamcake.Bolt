@@ -1,5 +1,4 @@
 diff --git a/BUILD.gn b/BUILD.gn
-index 3271460b0..13a9e68f1 100644
 --- a/BUILD.gn
 +++ b/BUILD.gn
 @@ -255,9 +255,6 @@ if (is_linux) {
@@ -13,7 +12,6 @@ index 3271460b0..13a9e68f1 100644
    # Enable Widevine CDM host verification and storage ID.
    assert(enable_cdm_host_verification)
 diff --git a/tools/gclient_hook.py b/tools/gclient_hook.py
-index c525984e3..0184fc488 100644
 --- a/tools/gclient_hook.py
 +++ b/tools/gclient_hook.py
 @@ -6,17 +6,20 @@
@@ -49,7 +47,6 @@ index c525984e3..0184fc488 100644
      cmd.extend(os.environ['GN_ARGUMENTS'].split(' '))
    RunAction(src_dir, cmd)
 diff --git a/tools/gn_args.py b/tools/gn_args.py
-index 0359f2feb..795ad32ce 100644
 --- a/tools/gn_args.py
 +++ b/tools/gn_args.py
 @@ -291,8 +291,6 @@ def GetRequiredArgs():
