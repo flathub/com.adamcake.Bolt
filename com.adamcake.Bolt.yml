@@ -358,6 +358,7 @@ modules:
         path: patch/cef-fix-building-in-flathub.patch
         options:
           - --directory=cef
+      - third-party-node-modules.yaml
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
