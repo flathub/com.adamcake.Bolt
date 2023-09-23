@@ -353,10 +353,6 @@ modules:
         url: https://chromium.googlesource.com/linux-syscall-support.git
         commit: ce877209e11aa69dcfffbd53ef90ea1d07136521
         dest: third_party/lss
-      - type: git
-        url: https://github.com/Maratyszcza/pthreadpool.git
-        commit: 1787867f6183f056420e532eec640cba25efafea
-        dest: third_party/pthreadpool/src
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
