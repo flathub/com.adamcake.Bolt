@@ -353,6 +353,10 @@ modules:
         url: https://chromium.googlesource.com/linux-syscall-support.git
         commit: ce877209e11aa69dcfffbd53ef90ea1d07136521
         dest: third_party/lss
+      - type: git
+        url: https://github.com/Maratyszcza/FXdiv.git
+        commit: 63058eff77e11aa15bf531df5dd34395ec3017c8
+        dest: third_party/fxdiv/src
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
