@@ -407,10 +407,6 @@ modules:
         url: https://github.com/google/emoji-segmenter.git
         commit: 242460e9cbee7453880725be5b9bf352d1882a9f
         dest: third_party/emoji-segmenter/src
-      - type: git
-        url: https://github.com/Maratyszcza/pthreadpool.git
-        commit: 1787867f6183f056420e532eec640cba25efafea
-        dest: third_party/pthreadpool/src
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
