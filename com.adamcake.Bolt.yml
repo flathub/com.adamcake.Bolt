@@ -357,6 +357,18 @@ modules:
         url: https://github.com/Maratyszcza/FXdiv.git
         commit: 63058eff77e11aa15bf531df5dd34395ec3017c8
         dest: third_party/fxdiv/src
+      - type: git
+        url: https://gitlab.com/libeigen/eigen.git
+        commit: 554fe02ae3f3fbc2fd320c26a522f1e59b2d6342
+        dest: third_party/eigen3/src
+      - type: git
+        url: https://github.com/Maratyszcza/FP16.git
+        commit: 0a92994d729ff76a58f692d3028ca1b64b145d91
+        dest: third_party/fp16/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/gemmlowp.git
+        commit: 13d57703abca3005d97b19df1f2db731607a7dc2
+        dest: third_party/gemmlowp/src
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
