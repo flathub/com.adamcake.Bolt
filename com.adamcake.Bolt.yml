@@ -6,6 +6,13 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
   - org.freedesktop.Sdk.Extension.node18
 command: bolt
+build-options:
+  cflags: -O3
+  cflags-override: true
+  cppflags: -O3
+  cppflags-override: true
+  cxxflags: -O3
+  cxxflags-override: true
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -52,8 +59,8 @@ modules:
       - cmake --build llvm17/build -j $FLATPAK_BUILDER_N_JOBS 
       - cmake --install llvm17/build --prefix llvm17/install
       - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
-      - python3 gn/build/gen.py
-      - ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
+      - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
+      - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
       - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
       - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
       - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --output-dir=binary_distrib/
