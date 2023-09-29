@@ -52,10 +52,10 @@ modules:
       - cmake --build llvm17/build -j $FLATPAK_BUILDER_N_JOBS 
       - cmake --install llvm17/build --prefix llvm17/install
       - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ python3 gn/build/gen.py
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ python3 cef/tools/gclient_hook.py
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - python3 gn/build/gen.py
+      - ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
       - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --output-dir=binary_distrib/
       - mkdir -p /app/cef/dist
       - mv ./binary_distrib/cef_binary_114.0.0+gdc18c54+chromium-114.0.5735.201_linux32_minimal/* /app/cef/dist/
