@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
   - org.freedesktop.Sdk.Extension.node18
-command: bolt-run
+command: bolt
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -416,17 +416,13 @@ modules:
           - --directory=cef
       - type: patch
         path: patch/fix-x509-certificate-forward-declaration-error.patch
+      - type: patch
+        path: patch/flatpak-Add-initial-sandbox-support.patch
+      - type: patch
+        path: patch/flatpak-Adjust-paths-for-the-sandbox.patch
       - third-party-node-modules.yaml
-  - name: zypak
-    sources:
-      - type: git
-        url: https://github.com/refi64/zypak.git
-        tag: v2022.04
-        commit: 55a60d110301e8dd37b631503c3524ab7baaf7aa
   - name: bolt
     buildsystem: cmake-ninja
-    build-commands:
-      - install bolt-run /app/bin
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBOLT_META_NAME=com.adamcake.Bolt
@@ -441,12 +437,6 @@ modules:
       - install -Dm644 icon/256.png /app/share/icons/hicolor/256x256/apps/com.adamcake.Bolt.png
       - install -Dm644 com.adamcake.Bolt.desktop -t /app/share/applications/
     sources:
-      - type: script
-        dest-filename: bolt-run
-        commands: 
-          - #!/bin/bash
-          - cd /app/opt/bolt-launcher
-          - zypak-wrapper ./bolt "$@"
       - type: git
         url: https://github.com/nmlynch94/Bolt.git
         # tag: 0.1.3
