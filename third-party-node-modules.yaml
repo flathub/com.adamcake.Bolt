@@ -251,10 +251,6 @@
   sha512: 76c004fb8c2cef95b99a6366219ec8299c2fe1b733e4680fb80f3bbbe324d42795581ea0ed9c017e2cd1c016437b23b5d914b1a14dcd9516bc8e02d841e4991a
   dest: third_party/node/node_modules/@types/dom-webcodecs
 - type: archive
-  url: https://registry.npmjs.org/@types/emscripten/-/emscripten-1.39.6.tgz
-  sha512: 1fdd1aa329cd8619103fa0d1c1e123269e6f7d455d223eed74f2ecbbba6af3dbce0c3fe572e80a7d93ac7e0c29bcce9751ec04a7637974283551fdd07b9e4372
-  dest: third_party/node/node_modules/@types/emscripten
-- type: archive
   url: https://registry.npmjs.org/@types/filesystem/-/filesystem-0.0.32.tgz
   sha512: 62e7f88d1e5860c4760d5830b8288fd75b34c6e551c8f2a6cfcbe8e87058dc219d78c8fc69ff77085657f93f36f950f5f94a873b14eadf594eecc23b95ea41b5
   dest: third_party/node/node_modules/@types/filesystem

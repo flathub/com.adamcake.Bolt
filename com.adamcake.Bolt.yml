@@ -6,6 +6,13 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
   - org.freedesktop.Sdk.Extension.node18
 command: bolt
+build-options:
+  cflags: -O3
+  cflags-override: true
+  cppflags: -O3
+  cppflags-override: true
+  cxxflags: -O3
+  cxxflags-override: true
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -14,6 +21,19 @@ finish-args:
   - --device=dri
   - --env=JAVA_HOME=/app/jre
 modules:
+  - name: krb5
+    buildsystem: simple
+    build-commands:
+      - autoreconf
+      - ./configure --prefix=/app
+      - make -j $FLATPAK_BUILDER_N_JOBS
+      - make install
+    subdir: src
+    sources:
+      - type: git
+        url: https://github.com/krb5/krb5.git
+        tag: krb5-1.21.2-final
+        commit: 835f6e3d819beb7ee1046f01afb284b54ad54c5f
   - name: openjdk
     buildsystem: simple
     build-commands:
@@ -33,16 +53,22 @@ modules:
   - name: chromium
     buildsystem: simple
     build-commands:
+      - patch -p1 --directory=third_party/node < third_party/node/typescript.patch
+      - patch -p1 --directory=third_party/node/node_modules/@types/d3 < third_party/node/chromium_d3_types_index.patch
       - cmake -S llvm17/llvm -B llvm17/build -G Ninja -DLLVM_ENABLE_PROJECTS='clang;lld' -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host -DLLVM_PARALLEL_LINK_JOBS=1
       - cmake --build llvm17/build -j $FLATPAK_BUILDER_N_JOBS 
       - cmake --install llvm17/build --prefix llvm17/install
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ python3 gn/build/gen.py
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ python3 cef/tools/gclient_hook.py
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef
+      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
+      - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
+      - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --output-dir=binary_distrib/
+      - mkdir -p /app/cef/dist
+      - mv ./binary_distrib/cef_binary_114.0.0+gdc18c54+chromium-114.0.5735.201_linux32_minimal/* /app/cef/dist/
     build-options:
       env:
-        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm17/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_basic_printing=true enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_print_preview=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=true exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding="Chrome" forbid_non_component_debug_builds=false google_api_key="" google_default_client_id="" google_default_client_secret="" icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0 target_cpu="x64" treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gnome_keyring=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=false use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
+        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=true chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm17/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_basic_printing=true enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_print_preview=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=true exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding="Chrome" forbid_non_component_debug_builds=false google_api_key="" google_default_client_id="" google_default_client_secret="" icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=1 symbol_level=0 target_cpu="x64" treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gnome_keyring=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=false use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
     sources:
       - type: git
         url: https://github.com/chromium/chromium.git
@@ -369,6 +395,18 @@ modules:
         url: https://chromium.googlesource.com/external/github.com/google/gemmlowp.git
         commit: 13d57703abca3005d97b19df1f2db731607a7dc2
         dest: third_party/gemmlowp/src
+      - type: git
+        url: https://chromium.googlesource.com/chromiumos/platform2/system_api.git
+        commit: 73d6b816cacd86b886b4cc1e60f12ac1960f1d90
+        dest: third_party/cros_system_api
+      - type: git
+        url: https://chromium.googlesource.com/chromium/cdm.git
+        commit: fef0b5aa1bd31efb88dfab804bdbe614f3d54f28
+        dest: media/cdm/api
+      - type: git
+        url: https://github.com/google/emoji-segmenter.git
+        commit: 242460e9cbee7453880725be5b9bf352d1882a9f
+        dest: third_party/emoji-segmenter/src
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
@@ -379,6 +417,24 @@ modules:
         path: patch/cef-fix-building-in-flathub.patch
         options:
           - --directory=cef
+      - type: patch
+        path: patch/cef-fix-build-dir-suffix-for-flatpak.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-arm64-requires-sysroots.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-doesn-t-detect-aarch64.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/fix-x509-certificate-forward-declaration-error.patch
+      - type: patch
+        path: patch/flatpak-Add-initial-sandbox-support.patch
+      - type: patch
+        path: patch/flatpak-Adjust-paths-for-the-sandbox.patch
       - third-party-node-modules.yaml
   - name: bolt
     buildsystem: cmake-ninja
@@ -386,10 +442,17 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
-      - -DBOLT_SHAREDIR=app/share
-      - -DCEF_ROOT=/run/build/chromium/cef/binary_distrib/dist
+      - -DBOLT_SHAREDIR=/app/share
+      - -DCEF_ROOT=/app/cef/dist
+    post-install:
+      - install -Dm644 com.adamcake.Bolt.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 icon/16.png /app/share/icons/hicolor/16x16/apps/com.adamcake.Bolt.png
+      - install -Dm644 icon/32.png /app/share/icons/hicolor/32x32/apps/com.adamcake.Bolt.png
+      - install -Dm644 icon/64.png /app/share/icons/hicolor/64x64/apps/com.adamcake.Bolt.png
+      - install -Dm644 icon/256.png /app/share/icons/hicolor/256x256/apps/com.adamcake.Bolt.png
+      - install -Dm644 com.adamcake.Bolt.desktop -t /app/share/applications/
     sources:
       - type: git
-        url: https://github.com/Adamcake/Bolt.git
-        tag: 0.2.0
-        commit: c5ad7a5423a47c71496b6809c552d4f44a8166b6
+        url: https://github.com/nmlynch94/Bolt.git
+        # tag: 0.1.3
+        commit: 0ee61399048839c1c61b458a8d8ac16d6b930e6d
