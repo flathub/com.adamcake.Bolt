@@ -426,6 +426,10 @@ modules:
         options:
           - --directory=cef
       - type: patch
+        path: patch/cef-fix-doesn-t-detect-aarch64.patch
+        options:
+          - --directory=cef
+      - type: patch
         path: patch/fix-x509-certificate-forward-declaration-error.patch
       - type: patch
         path: patch/flatpak-Add-initial-sandbox-support.patch
