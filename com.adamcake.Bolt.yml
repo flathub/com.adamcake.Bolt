@@ -20,6 +20,8 @@ finish-args:
   - --share=network
   - --device=dri
   - --env=JAVA_HOME=/app/jre
+cleanup:
+  - /cef
 modules:
   - name: krb5
     buildsystem: simple
@@ -63,9 +65,7 @@ modules:
       - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
       - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
       - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
-      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --output-dir=binary_distrib/
-      - mkdir -p /app/cef/dist
-      - mv ./binary_distrib/cef_binary_114.0.0+gdc18c54+chromium-114.0.5735.201_linux32_minimal/* /app/cef/dist/
+      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-archive --output-dir=/app/cef
     build-options:
       env:
         GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=true chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm17/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_basic_printing=true enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_print_preview=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=true exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding="Chrome" forbid_non_component_debug_builds=false google_api_key="" google_default_client_id="" google_default_client_secret="" icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=1 symbol_level=0 target_cpu="x64" treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gnome_keyring=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=false use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'

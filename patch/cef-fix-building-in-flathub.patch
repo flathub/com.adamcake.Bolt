@@ -130,6 +130,44 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
  def GetConfigFileContents(args):
 --- a/tools/make_distrib.py
 +++ b/tools/make_distrib.py
+@@ -639,36 +639,17 @@ else:
+   binary_arch = 'x86'
+ 
+ # output directory
+-output_dir_base = 'cef_binary_' + cef_ver
+-
+-if options.distribsubdir == '':
+-  if platform == 'mac':
+-    # For backwards compatibility keep the old default directory name on mac.
+-    platform_name = 'macos' + ('x' if platform_arch == '64' else '')
+-  else:
+-    platform_name = platform
+-
+-  output_dir_name = output_dir_base + '_' + platform_name + platform_arch
+-  if options.distribsubdirsuffix != '':
+-    output_dir_name += '_' + options.distribsubdirsuffix
+-else:
+-  output_dir_name = options.distribsubdir
++output_dir_name = 'dist'
+ 
+ if options.minimal:
+   mode = 'minimal'
+-  output_dir_name = output_dir_name + '_minimal'
+ elif options.client:
+   mode = 'client'
+-  output_dir_name = output_dir_name + '_client'
+ elif options.sandbox:
+   mode = 'sandbox'
+-  output_dir_name = output_dir_name + '_sandbox'
+ else:
+   mode = 'standard'
+ 
+-if options.ozone:
+-  output_dir_name = output_dir_name + '_ozone'
+-
+ output_dir = create_output_dir(output_dir_name, options.outputdir)
+ 
+ # create the README.TXT file
 @@ -687,14 +687,7 @@ cef_paths2 = cef_paths2['variables']
  
  # Determine the build directory suffix. CEF uses a consistent directory naming
