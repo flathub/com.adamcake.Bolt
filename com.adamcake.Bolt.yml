@@ -418,10 +418,6 @@ modules:
         options:
           - --directory=cef
       - type: patch
-        path: patch/cef-fix-build-dir-suffix-for-flatpak.patch
-        options:
-          - --directory=cef
-      - type: patch
         path: patch/cef-fix-arm64-requires-sysroots.patch
         options:
           - --directory=cef
