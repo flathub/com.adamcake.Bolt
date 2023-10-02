@@ -426,11 +426,23 @@ modules:
         options:
           - --directory=cef
       - type: patch
-        path: patch/fix-x509-certificate-forward-declaration-error.patch
-      - type: patch
-        path: patch/flatpak-Add-initial-sandbox-support.patch
-      - type: patch
-        path: patch/flatpak-Adjust-paths-for-the-sandbox.patch
+        paths:
+          - org.chromium.Chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
+          - org.chromium.Chromium/patches/chromium/flatpak-Expose-Widevine-into-the-sandbox.patch
+          - org.chromium.Chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
+          - org.chromium.Chromium/patches/chromium/Import-chromium-71.0.3578.98-widevine-r3.patch.patch
+          - org.chromium.Chromium/patches/chromium/x11-Set-_NET_WM_BYPASS_COMPOSITOR-for-fullscreen.patch
+          - org.chromium.Chromium/patches/chromium/memory-Enable-the-tab-discards-feature.patch
+          - org.chromium.Chromium/patches/chromium/Enable-accelerated-mjpeg-decode-on-Linux.patch
+          - org.chromium.Chromium/patches/chromium/ffmpeg-Don-t-lie-about-AAC-and-H264-decoders-when-not-avai.patch
+          - org.chromium.Chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
+          - org.chromium.Chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
+          - org.chromium.Chromium/patches/chromium/Enable-new-dtags-on-non-component-builds.patch
+          - org.chromium.Chromium/patches/chromium/Add-support-for-respecting-system-proxy-settings-when-runn.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Disable-hwasan.patch
+          - org.chromium.Chromium/patches/chromium/clang-build-script-Support-disabling-the-bundled-libxml2.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
+          - org.chromium.Chromium/patches/chromium/Ignore-useless-warnings-from-the-Asahi-driver.patch
       - third-party-node-modules.yaml
   - name: bolt
     buildsystem: cmake-ninja
