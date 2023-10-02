@@ -453,6 +453,6 @@ modules:
       - install -Dm644 com.adamcake.Bolt.desktop -t /app/share/applications/
     sources:
       - type: git
-        url: https://github.com/nmlynch94/Bolt.git
-        # tag: 0.1.3
-        commit: 0ee61399048839c1c61b458a8d8ac16d6b930e6d
+        url: https://github.com/Adamcake/Bolt.git
+        tag: 0.2.0
+        commit: c5ad7a5423a47c71496b6809c552d4f44a8166b6
