@@ -1,3 +1,6 @@
 [submodule "shared-modules"]
 	path = shared-modules
 	url = https://github.com/flathub/shared-modules.git
+[submodule "org.chromium.Chromium"]
+	path = org.chromium.Chromium
+	url = https://github.com/flathub/org.chromium.Chromium.git
