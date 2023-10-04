@@ -1,0 +1,47 @@
+diff --git a/patches/core/ungoogled-chromium/fix-building-without-safebrowsing.patch b/patches/core/ungoogled-chromium/fix-building-without-safebrowsing.patch
+--- a/patches/core/ungoogled-chromium/fix-building-without-safebrowsing.patch
++++ b/patches/core/ungoogled-chromium/fix-building-without-safebrowsing.patch
+@@ -51,9 +51,9 @@
+        "//chrome/browser/profile_resetter:profile_reset_report_proto",
+        "//chrome/browser/resource_coordinator:intervention_policy_database_proto",
+ @@ -6117,10 +6104,6 @@ static_library("browser") {
++     sources += [
++       "enterprise/chrome_browser_main_extra_parts_enterprise.cc",
+        "enterprise/chrome_browser_main_extra_parts_enterprise.h",
+-       "enterprise/connectors/analysis/content_analysis_sdk_manager.cc",
+-       "enterprise/connectors/analysis/content_analysis_sdk_manager.h",
+ -      "enterprise/connectors/analysis/local_binary_upload_service.cc",
+ -      "enterprise/connectors/analysis/local_binary_upload_service.h",
+ -      "enterprise/connectors/analysis/local_binary_upload_service_factory.cc",
+diff --git a/patches/extra/ungoogled-chromium/add-flag-to-hide-side-panel-button.patch b/patches/extra/ungoogled-chromium/add-flag-to-hide-side-panel-button.patch
+--- a/patches/extra/ungoogled-chromium/add-flag-to-hide-side-panel-button.patch
++++ b/patches/extra/ungoogled-chromium/add-flag-to-hide-side-panel-button.patch
+@@ -1,11 +1,11 @@
+ --- a/chrome/browser/ui/views/toolbar/toolbar_view.cc
+ +++ b/chrome/browser/ui/views/toolbar/toolbar_view.cc
+-@@ -314,7 +314,8 @@ void ToolbarView::Init() {
++@@ -332,7 +332,8 @@ void ToolbarView::Init() {
+  
+    std::unique_ptr<SidePanelToolbarButton> side_panel_button;
+    std::unique_ptr<SidePanelToolbarContainer> side_panel_toolbar_container;
+--  if (browser_view_->unified_side_panel()) {
+-+  if (browser_view_->unified_side_panel() &&
++-  if (browser_view_->unified_side_panel() && BUTTON_VISIBLE(kSidePanel)) {
+++  if (browser_view_->unified_side_panel() && BUTTON_VISIBLE(kSidePanel) &&
+ +      !base::CommandLine::ForCurrentProcess()->HasSwitch("hide-sidepanel-button")) {
+      if (base::FeatureList::IsEnabled(
+              companion::features::kSidePanelCompanion)) {
+diff --git a/patches/extra/ungoogled-chromium/add-flag-for-incognito-themes.patch b/patches/extra/ungoogled-chromium/add-flag-for-incognito-themes.patch
+--- a/patches/extra/ungoogled-chromium/add-flag-for-incognito-themes.patch
++++ b/patches/extra/ungoogled-chromium/add-flag-for-incognito-themes.patch
+@@ -6,8 +6,8 @@
+  bool BrowserFrame::ShouldUseDarkTheme() const {
+ +  if (base::CommandLine::ForCurrentProcess()->HasSwitch("enable-incognito-themes"))
+ +    return false;
+-   return browser_view_->browser()->profile()->IsIncognitoProfile();
+- }
++   if (!browser_view_)
++     return false;
+ --- a/chrome/browser/ui/webui/ntp/ntp_resource_cache.cc
+ +++ b/chrome/browser/ui/webui/ntp/ntp_resource_cache.cc
+ @@ -426,7 +426,9 @@ void NTPResourceCache::CreateNewTabIncog
