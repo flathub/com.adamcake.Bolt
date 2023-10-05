@@ -46,7 +46,7 @@ modules:
     build-commands:
       - ./config --prefix=/app --openssldir=/app/ssl shared zlib
       - make -j $FLATPAK_BUILDER_N_JOBS
-      - make install
+      - make install_sw
     sources:
       - type: git
         url: https://github.com/openssl/openssl.git
