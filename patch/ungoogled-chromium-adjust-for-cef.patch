@@ -13,7 +13,7 @@ diff --git a/patches/core/ungoogled-chromium/fix-building-without-safebrowsing.p
  -      "enterprise/connectors/analysis/local_binary_upload_service.cc",
  -      "enterprise/connectors/analysis/local_binary_upload_service.h",
  -      "enterprise/connectors/analysis/local_binary_upload_service_factory.cc",
-@@ -2646,3 +2662,27 @@
+@@ -2646,3 +2662,45 @@
       "//components/safe_browsing/content/browser/web_ui",
       "//components/safe_browsing/content/common:interfaces",
       "//components/safe_browsing/content/renderer:throttles",
