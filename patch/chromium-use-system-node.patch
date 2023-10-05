@@ -1,0 +1,71 @@
+diff --git a/third_party/node/node.py b/third_party/node/node.py
+--- a/third_party/node/node.py
++++ b/third_party/node/node.py
+@@ -11,14 +11,7 @@ import os
+ 
+ 
+ def GetBinaryPath():
+-  darwin_name = ('node-darwin-arm64' if platform.machine() == 'arm64' else
+-                 'node-darwin-x64')
+-  return os_path.join(os_path.dirname(__file__), *{
+-    'Darwin': ('mac', darwin_name, 'bin', 'node'),
+-    'Linux': ('linux', 'node-linux-x64', 'bin', 'node'),
+-    'Windows': ('win', 'node.exe'),
+-  }[platform.system()])
+-
++  return '/usr/lib/sdk/node18/bin/node'
+ 
+ def RunNode(cmd_parts, stdout=None):
+   cmd = [GetBinaryPath()] + cmd_parts
+diff --git a/third_party/devtools-frontend/src/scripts/devtools_paths.py b/third_party/devtools-frontend/src/scripts/devtools_paths.py
+--- a/third_party/devtools-frontend/src/scripts/devtools_paths.py
++++ b/third_party/devtools-frontend/src/scripts/devtools_paths.py
+@@ -38,14 +38,7 @@ def third_party_path():
+ 
+ # This points to the node binary downloaded as part of the checkout.
+ def node_path():
+-    try:
+-        old_sys_path = sys.path[:]
+-        sys.path.append(path.join(third_party_path(), 'node'))
+-        import node
+-    finally:
+-        sys.path = old_sys_path
+-    return node.GetBinaryPath()
+-
++    return '/usr/lib/sdk/node18/bin/node'
+ 
+ def devtools_root_path():
+     return path.dirname((path.dirname(path.abspath(__file__))))
+diff --git a/third_party/lottie/minify_lottie.py b/third_party/lottie/minify_lottie.py
+--- a/third_party/lottie/minify_lottie.py
++++ b/third_party/lottie/minify_lottie.py
+@@ -12,16 +12,14 @@ _SRC_PATH = os.path.normpath(os.path.join(_HERE_PATH, '..', '..'))
+ 
+ sys.path.append(os.path.join(_SRC_PATH, 'third_party', 'node'))
+ import node
+-import node_modules
+ 
+ def main(argv):
+   parser = argparse.ArgumentParser()
+   parser.add_argument('--out_folder', required=True)
+   args = parser.parse_args(argv)
+ 
+-  node.RunNode([node_modules.PathToTerser(),
++  node.RunNode(['/run/build/chromium/third_party/node/node_modules/terser/bin/terser',
+           os.path.join(_HERE_PATH, 'lottie_worker.js'),
+-          '--ascii_only=true',
+           '-b', 'beautify=false',
+           '--compress',
+           '--mangle', 'reserved=[\'$\',\'onmessage\',\'postMessage\']',
+diff --git a/tools/typescript/tsconfig_base.json b/tools/typescript/tsconfig_base.json
+--- a/tools/typescript/tsconfig_base.json
++++ b/tools/typescript/tsconfig_base.json
+@@ -4,7 +4,7 @@
+     "target": "ESNext",
+     "useDefineForClassFields": false,
+ 
+-    "noEmitOnError": true,
++    "noEmitOnError": false,
+     "pretty": true,
+ 
+     "allowUnreachableCode": false,

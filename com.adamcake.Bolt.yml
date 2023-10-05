@@ -4,23 +4,38 @@ runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
+  - org.freedesktop.Sdk.Extension.node18
 command: bolt
+build-options:
+  cflags: -O3
+  cflags-override: true
+  cppflags: -O3
+  cppflags-override: true
+  cxxflags: -O3
+  cxxflags-override: true
 finish-args:
   - --share=ipc
   - --socket=x11
   - --socket=pulseaudio
   - --share=network
-  - --device=all
-  - --env=PATH=/app/bin:/usr/bin:/app/jre/bin
+  - --device=dri
+  - --env=JAVA_HOME=/app/jre
+cleanup:
+  - /cef
 modules:
-  - name: python-pillow
+  - name: krb5
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} pillow --no-build-isolation
+      - autoreconf
+      - ./configure --prefix=/app
+      - make -j $FLATPAK_BUILDER_N_JOBS
+      - make install
+    subdir: src
     sources:
-      - type: file
-        url: https://files.pythonhosted.org/packages/0f/8b/2ebaf9adcf4260c00f842154865f8730cf745906aa5dd499141fb6063e26/Pillow-10.0.0.tar.gz
-        sha256: 9c82b5b3e043c7af0d95792d0d20ccf68f61a1fec6b3530e718b688422727396
+      - type: git
+        url: https://github.com/krb5/krb5.git
+        tag: krb5-1.21.2-final
+        commit: 835f6e3d819beb7ee1046f01afb284b54ad54c5f
   - name: openjdk
     buildsystem: simple
     build-commands:
@@ -31,32 +46,429 @@ modules:
     build-commands:
       - ./config --prefix=/app --openssldir=/app/ssl shared zlib
       - make -j $FLATPAK_BUILDER_N_JOBS
-      - make install
+      - make install_sw
     sources:
       - type: git
         url: https://github.com/openssl/openssl.git
-        tag: OpenSSL_1_1_1v
-        commit: 9398e4038c27d5ef15111c61e984d4d2be8a52a8
+        tag: OpenSSL_1_1_1w
+        commit: e04bd3433fd84e1861bf258ea37928d9845e6a86
+  - name: chromium
+    buildsystem: simple
+    build-commands:
+      - patch -p1 --directory=third_party/node < third_party/node/typescript.patch
+      - patch -p1 --directory=third_party/node/node_modules/@types/d3 < third_party/node/chromium_d3_types_index.patch
+      - cmake -S llvm17/llvm -B llvm17/build -G Ninja -DLLVM_ENABLE_PROJECTS='clang;lld' -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host -DLLVM_PARALLEL_LINK_JOBS=1
+      - cmake --build llvm17/build -j $FLATPAK_BUILDER_N_JOBS 
+      - cmake --install llvm17/build --prefix llvm17/install
+      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
+      - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
+      - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
+      - ./ungoogled-chromium/utils/prune_binaries.py . ungoogled-chromium/pruning.list
+      - ./ungoogled-chromium/utils/patches.py apply . ungoogled-chromium/patches
+      - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm17/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
+    build-options:
+      env:
+        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm17/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_basic_printing=true enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_print_preview=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=true exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding="Chrome" forbid_non_component_debug_builds=false google_api_key="" google_default_client_id="" google_default_client_secret="" icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0 target_cpu="x64" treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gnome_keyring=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=false use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
+    sources:
+      - type: git
+        url: https://github.com/chromium/chromium.git
+        tag: 114.0.5735.201
+        commit: 555cc864c3507891449864e325b920224e1fe056
+      - type: git
+        url: https://github.com/chromiumembedded/cef.git
+        commit: dc18c542a2697ff352acaee10912724fc93c62f7
+        dest: cef
+      - type: git
+        url: https://gn.googlesource.com/gn
+        commit: 991530ce394efb58fcd848195469022fa17ae126
+        dest: gn
+      - type: git
+        url: https://github.com/llvm/llvm-project.git
+        tag: llvmorg-17.0.1
+        commit: e19b7dc36bc047b9eb72078d034596be766da350
+        dest: llvm17
+      - type: git
+        url: https://github.com/ungoogled-software/ungoogled-chromium.git
+        commit: 71323259c843288b9dba64dfaf941280c33a242c
+        dest: ungoogled-chromium
+      - type: git
+        url: https://chromium.googlesource.com/v8/v8.git
+        commit: 58516cf1b23f2e557e3972ec5f9ad6aaf7883da1
+        dest: v8
+      - type: git
+        url: https://chromium.googlesource.com/vulkan-deps
+        commit: a52479099cf2862650df9dbc12e2e202e345901e
+        dest: third_party/vulkan-deps
+      - type: git
+        url: https://github.com/KhronosGroup/SPIRV-Tools.git
+        commit: 25ad5e19f193429b737433d5f6151062ddbc1680
+        dest: third_party/vulkan-deps/spirv-tools/src
+      - type: git
+        url: https://github.com/KhronosGroup/SPIRV-Headers.git
+        commit: cfbe4feef20c3c0628712c2792624f0221e378ac
+        dest: third_party/vulkan-deps/spirv-headers/src
+      - type: git
+        url: https://github.com/KhronosGroup/Vulkan-Headers
+        commit: 8a397558c4d2a4bf9e64e900c45a7e65664c32b2
+        dest: third_party/vulkan-deps/vulkan-headers/src
+      - type: git
+        url: https://github.com/KhronosGroup/Vulkan-Loader
+        commit: f035e57c171ce9009f2c47b5488a66c653843501
+        dest: third_party/vulkan-deps/vulkan-loader/src
+      - type: git
+        url: https://github.com/KhronosGroup/glslang
+        commit: 9c7fd1a33e5cecbe465e1cd70170167d5e40d398
+        dest: third_party/vulkan-deps/glslang/src
+      - type: git
+        url: https://github.com/KhronosGroup/Vulkan-Tools
+        commit: df10a2759b4b60d59b735882217a749d8e5be660
+        dest: third_party/vulkan-deps/vulkan-tools/src
+      - type: git
+        url: https://chromium.googlesource.com/angle/angle.git
+        commit: f3e3810b917c12e2e69ae23b0e36c48b41f88e61
+        dest: third_party/angle
+      - type: git
+        url: https://dawn.googlesource.com/dawn.git
+        commit: 86628784160b0644a7ffebd1c647e18e2314485c
+        dest: third_party/dawn
+      - type: git
+        url: https://swiftshader.googlesource.com/SwiftShader.git
+        commit: 23e97b79fb9193bf88e79c16c6a577c680edb2d6
+        dest: third_party/swiftshader
+      - type: git
+        url: https://pdfium.googlesource.com/pdfium.git
+        commit: 9505810f66cc3dde86c30d072de53ca6fc8a45de
+        dest: third_party/pdfium
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/icu.git
+        commit: d8daa943f64cd5dd2a55e9baf2e655ab4bfa5ae9
+        dest: third_party/icu
+      - type: git
+        url: https://skia.googlesource.com/skia.git
+        commit: 93e7d305c32c17b3fa3e531dd967bc588948a080
+        dest: third_party/skia
+      - type: git
+        url: https://android.googlesource.com/platform/external/perfetto.git
+        commit: f2da6df2f144e41e1c1428f11e8b388eaf8a2209
+        dest: third_party/perfetto
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/sqlite.git
+        commit: f6752b7ed1fe3cc1491c0c47ec5804ee2bd0e59b
+        dest: third_party/sqlite/src
+      - type: git
+        url: https://chromium.googlesource.com/chromium/third_party/ffmpeg.git
+        commit: 8d21d41d8bec5c0b266ee305d1a708dc5c23b594
+        dest: third_party/ffmpeg
+      - type: git
+        url: https://chromium.googlesource.com/catapult.git
+        commit: cae7ec667dee9f5c012b54ee9ffee94eb7beda14
+        dest: third_party/catapult
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/libjpeg_turbo.git
+        commit: aa4075f116e4312537d0d3e9dbd5e31096539f94
+        dest: third_party/libjpeg_turbo
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/nasm.git
+        commit: 7fc833e889d1afda72c06220e5bed8fb43b2e5ce
+        dest: third_party/nasm
+      - type: git
+        url: https://webrtc.googlesource.com/src.git
+        commit: d20849d0710783142175551d81dfe0dcbffcf2b1
+        dest: third_party/webrtc
+      - type: git
+        url: https://chromium.googlesource.com/openscreen
+        commit: 0964c1e903264ae2c388fc0eda3309c22b46e1a2
+        dest: third_party/openscreen/src
+      - type: git
+        url: https://chromium.googlesource.com/libyuv/libyuv.git
+        commit: 77c2121f7e6b8e694d6e908bbbe9be24214097da
+        dest: third_party/libyuv
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/cld_3.git
+        commit: b48dc46512566f5a2d41118c8c1116c4f96dc661
+        dest: third_party/cld_3/src
+      - type: git
+        url: https://chromium.googlesource.com/devtools/devtools-frontend
+        commit: 3f60fe50e4790d1154659b9628e811bbcdf1aa4f
+        dest: third_party/devtools-frontend/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git
+        commit: ebe84bec02c041d28f902da0214bf442743fc907
+        dest: third_party/vulkan_memory_allocator
+      - type: git
+        url: https://github.com/KhronosGroup/Vulkan-ValidationLayers
+        commit: 3d530f6921f7a9defa297eec25fcef77c9b96282
+        dest: third_party/vulkan-deps/vulkan-validation-layers/src
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/flac.git
+        commit: 689da3a7ed50af7448c3f1961d1791c7c1d9c85c
+        dest: third_party/flac
+      - type: git
+        url: https://boringssl.googlesource.com/boringssl.git
+        commit: 4b6d950d8921d6dd5365de0797fcc97302b9561b
+        dest: third_party/boringssl/src
+      - type: git
+        url: https://chromium.googlesource.com/chromium/deps/libsrtp.git
+        commit: 5b7c744eb8310250ccc534f3f86a2015b3887a0a
+        dest: third_party/libsrtp
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx.git
+        commit: bff81b702ff4b7f74b1c0ed02a4bcf6c2744a90b
+        dest: buildtools/third_party/libc++/trunk
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi.git
+        commit: 307bd163607c315d46103ebe1d68aab44bf93986
+        dest: buildtools/third_party/libc++abi/trunk
+      - type: git
+        url: https://chromium.googlesource.com/external/anongit.freedesktop.org/git/wayland/wayland.git
+        commit: c7473676b8abc682e820546287044cee3bca9147
+        dest: third_party/wayland/src
+      - type: git
+        url: https://github.com/open-source-parsers/jsoncpp.git
+        commit: 42e892d96e47b1f6e29844cc705e148ec4856448
+        dest: third_party/jsoncpp/source
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/compact_enc_det.git
+        commit: ba412eaaacd3186085babcd901679a48863c7dd5
+        dest: third_party/ced/src
+      - type: git
+        url: https://quiche.googlesource.com/quiche.git
+        commit: 02c69dd28eef7ef2618782e8d54d53c14ae64382
+        dest: net/third_party/quiche/src
+      - type: git
+        url: https://chromium.googlesource.com/external/libphonenumber.git
+        commit: 140dfeb81b753388e8a672900fb7a971e9a0d362
+        dest: third_party/libphonenumber/dist
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/quic-trace.git
+        commit: caa0a6eaba816ecb737f9a70782b7c80b8ac8dbc
+        dest: third_party/quic_trace/src
+      - type: git
+        url: https://chromium.googlesource.com/external/anongit.freedesktop.org/git/wayland/wayland-protocols.git
+        commit: 4624cfaaf563cd7be5e2e2087c8de6d3a48ea867
+        dest: third_party/wayland-protocols/src
+      - type: git
+        url: https://github.com/GNOME/gtk.git
+        commit: 40ebed3a03aef096addc0af09fec4ec529d882a0
+        dest: third_party/wayland-protocols/gtk
+      - type: git
+        url: https://github.com/KDE/plasma-wayland-protocols.git
+        commit: 0b07950714b3a36c9b9f71fc025fc7783e82926e
+        dest: third_party/wayland-protocols/kde
+      - type: git
+        url: https://chromium.googlesource.com/webm/libvpx.git
+        commit: 27171320f5e36f7b18071bfa1d9616863ca1b4e8
+        dest: third_party/libvpx/source/libvpx
+      - type: git
+        url: https://github.com/cisco/openh264
+        commit: 09a4f3ec842a8932341b195c5b01e141c8a16eb7
+        dest: third_party/openh264/src
+      - type: git
+        url: https://aomedia.googlesource.com/aom.git
+        commit: 5a0903824082f41123e8365b5b99ddb6ced8971c
+        dest: third_party/libaom/source/libaom
+      - type: git
+        url: https://github.com/videolan/dav1d.git
+        commit: d426d1c91075b9c552b12dd052af1cd0368f05a2
+        dest: third_party/dav1d/libdav1d
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/crc32c.git
+        commit: fa5ade41ee480003d9c5af6f43567ba22e4e17e6
+        dest: third_party/crc32c/src
+      - type: git
+        url: https://skia.googlesource.com/external/github.com/google/wuffs-mirror-release-c.git
+        commit: fe9d08f2b6e80af691bfb1a718e144c49a1b9eba
+        dest: third_party/wuffs/src
+      - type: git
+        url: https://chromium.googlesource.com/webm/libwebm.git
+        commit: e4fbea0c9751ae8aa86629b197a28d8276a2b0da
+        dest: third_party/libwebm/source
+      - type: git
+        url: https://chromium.googlesource.com/webm/libwebp.git
+        commit: fd7b5d48464475408d32d2611bdb6947d4246b97
+        dest: third_party/libwebp/src
+      - type: git
+        url: https://chromium.googlesource.com/chromium/src/third_party/freetype2.git
+        commit: 0a3836c97d5e84d6721ac0fd2839e8ae1b7be8d9
+        dest: third_party/freetype/src
+      - type: git
+        url: https://chromium.googlesource.com/external/fontconfig.git
+        commit: 06929a556fdc39c8fe12965b69070c8df520a33e
+        dest: third_party/fontconfig/src
+      - type: git
+        url: https://chromium.googlesource.com/aosp/platform/system/core/libsync.git
+        commit: f4f4387b6bf2387efbcfd1453af4892e8982faf6
+        dest: third_party/libsync/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/re2.git
+        commit: 11073deb73b3d01018308863c0bcdfd0d51d3e70
+        dest: third_party/re2/src
+      - type: git
+        url: https://chromium.googlesource.com/external/leveldb.git
+        commit: 068d5ee1a3ac40dabd00d211d5013af44be55bea
+        dest: third_party/leveldatabase/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/snappy.git
+        commit: c9f9edf6d75bb065fa47468bf035e051a57bec7c
+        dest: third_party/snappy/src
+      - type: git
+        url: https://chromium.googlesource.com/codecs/libgav1.git
+        commit: cd53f7c0d6a1c005e38874d143c8876d375bae70
+        dest: third_party/libgav1/src
+      - type: git
+        url: https://github.com/material-foundation/material-color-utilities.git
+        commit: bd6537fb1c4aa2164d97f96e78a9c826e360a0ed
+        dest: third_party/material_color_utilities/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/highway.git
+        commit: 8f20644eca693cfb74aa795b0006b6779c370e7a
+        dest: third_party/highway/src
+      - type: git
+        url: https://github.com/khaledhosny/ots.git
+        commit: 46bea9879127d0ff1c6601b078e2ce98e83fcd33
+        dest: third_party/ots/src
+      - type: git
+        url: https://github.com/AOMediaCodec/libavif.git
+        commit: 1af8cea3d1b3a05ecbcb0e39d99a7f0183e6ce13
+        dest: third_party/libavif/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/XNNPACK.git
+        commit: b9d4073a6913891ce9cbd8965c8d506075d2a45a
+        dest: third_party/xnnpack/src
+      - type: git
+        url: https://github.com/pytorch/cpuinfo.git
+        commit: beb46ca0319882f262e682dd596880c92830687f
+        dest: third_party/cpuinfo/src
+      - type: git
+        url: https://github.com/Maratyszcza/pthreadpool.git
+        commit: 1787867f6183f056420e532eec640cba25efafea
+        dest: third_party/pthreadpool/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/flatbuffers.git
+        commit: a56f9ec50e908362e20254fcef28e62a2f148d91
+        dest: third_party/flatbuffers/src
+      - type: git
+        url: https://github.com/chromium/content_analysis_sdk.git
+        commit: b8744f00646d175057f0be7443c7c72a311b5381
+        dest: third_party/content_analysis_sdk/src
+      - type: git
+        url: https://chromium.googlesource.com/chromium/dom-distiller/dist.git
+        commit: 199de96b345ada7c6e7e6ba3d2fa7a6911b8767d
+        dest: third_party/dom_distiller_js/dist
+      - type: git
+        url: https://github.com/tensorflow/tensorflow.git
+        commit: ab14323eaf8522fa608fe047d99249bc844c47cd
+        dest: third_party/tflite/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/farmhash.git
+        commit: 816a4ae622e964763ca0862d9dbd19324a1eaf45
+        dest: third_party/farmhash/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/ruy.git
+        commit: 363f252289fb7a1fba1703d99196524698cb884d
+        dest: third_party/ruy/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/googletest.git
+        commit: af29db7ec28d6df1c7f0f745186884091e602e07
+        dest: third_party/googletest/src
+      - type: git
+        url: https://chromium.googlesource.com/external/smhasher.git
+        commit: e87738e57558e0ec472b2fc3a643b838e5b6e88f
+        dest: third_party/smhasher/src
+      - type: git
+        url: https://chromium.googlesource.com/external/libaddressinput.git
+        commit: e8712e415627f22d0b00ebee8db99547077f39bd
+        dest: third_party/libaddressinput/src
+      - type: git
+        url: https://chromium.googlesource.com/linux-syscall-support.git
+        commit: ce877209e11aa69dcfffbd53ef90ea1d07136521
+        dest: third_party/lss
+      - type: git
+        url: https://github.com/Maratyszcza/FXdiv.git
+        commit: 63058eff77e11aa15bf531df5dd34395ec3017c8
+        dest: third_party/fxdiv/src
+      - type: git
+        url: https://gitlab.com/libeigen/eigen.git
+        commit: 554fe02ae3f3fbc2fd320c26a522f1e59b2d6342
+        dest: third_party/eigen3/src
+      - type: git
+        url: https://github.com/Maratyszcza/FP16.git
+        commit: 0a92994d729ff76a58f692d3028ca1b64b145d91
+        dest: third_party/fp16/src
+      - type: git
+        url: https://chromium.googlesource.com/external/github.com/google/gemmlowp.git
+        commit: 13d57703abca3005d97b19df1f2db731607a7dc2
+        dest: third_party/gemmlowp/src
+      - type: git
+        url: https://chromium.googlesource.com/chromiumos/platform2/system_api.git
+        commit: 73d6b816cacd86b886b4cc1e60f12ac1960f1d90
+        dest: third_party/cros_system_api
+      - type: git
+        url: https://chromium.googlesource.com/chromium/cdm.git
+        commit: fef0b5aa1bd31efb88dfab804bdbe614f3d54f28
+        dest: media/cdm/api
+      - type: git
+        url: https://github.com/google/emoji-segmenter.git
+        commit: 242460e9cbee7453880725be5b9bf352d1882a9f
+        dest: third_party/emoji-segmenter/src
+      - type: patch
+        path: patch/chromium-remove-test-fonts.patch
+      - type: patch
+        path: patch/chromium-use-system-node.patch
+      - type: patch
+        path: patch/gn-fix-building-in-flathub.patch
+      - type: patch
+        path: patch/cef-fix-building-in-flathub.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-arm64-requires-sysroots.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-doesn-t-detect-aarch64.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
+        options:
+          - --directory=ungoogled-chromium
+      - type: patch
+        path: patch/ungoogled-chromium-adjust-for-cef.patch
+        options:
+          - --directory=ungoogled-chromium
+      - type: patch
+        paths:
+          - org.chromium.Chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
+          - org.chromium.Chromium/patches/chromium/flatpak-Expose-Widevine-into-the-sandbox.patch
+          - org.chromium.Chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
+          - org.chromium.Chromium/patches/chromium/Import-chromium-71.0.3578.98-widevine-r3.patch.patch
+          - org.chromium.Chromium/patches/chromium/x11-Set-_NET_WM_BYPASS_COMPOSITOR-for-fullscreen.patch
+          - org.chromium.Chromium/patches/chromium/memory-Enable-the-tab-discards-feature.patch
+          - org.chromium.Chromium/patches/chromium/Enable-accelerated-mjpeg-decode-on-Linux.patch
+          - org.chromium.Chromium/patches/chromium/ffmpeg-Don-t-lie-about-AAC-and-H264-decoders-when-not-avai.patch
+          - org.chromium.Chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
+          - org.chromium.Chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
+          - org.chromium.Chromium/patches/chromium/Enable-new-dtags-on-non-component-builds.patch
+          - org.chromium.Chromium/patches/chromium/Add-support-for-respecting-system-proxy-settings-when-runn.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Disable-hwasan.patch
+          - org.chromium.Chromium/patches/chromium/clang-build-script-Support-disabling-the-bundled-libxml2.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
+          - org.chromium.Chromium/patches/chromium/Ignore-useless-warnings-from-the-Asahi-driver.patch
+      - third-party-node-modules.yaml
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
-    post-install:
-      - install -Dm644 com.adamcake.Bolt.metainfo.xml -t /app/share/metainfo/
-      - install -Dm644 icon/16.png /app/share/icons/hicolor/16x16/apps/com.adamcake.Bolt.png
-      - install -Dm644 icon/32.png /app/share/icons/hicolor/32x32/apps/com.adamcake.Bolt.png
-      - install -Dm644 icon/64.png /app/share/icons/hicolor/64x64/apps/com.adamcake.Bolt.png
-      - install -Dm644 icon/256.png /app/share/icons/hicolor/256x256/apps/com.adamcake.Bolt.png
-      - install -Dm644 com.adamcake.Bolt.desktop -t /app/share/applications/
+      - -DBOLT_SHAREDIR=/app/share
+      - -DCEF_ROOT=/app/cef/dist
     sources:
-      - type: archive
-        only-arches:
-          - "x86_64"
-        dest: cef/dist
-        url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
-        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
       - type: git
         url: https://github.com/Adamcake/Bolt.git
-        tag: 0.1.3
-        commit: 4f719ff538c5b5a720ab415654fccb81a7d65d09
+        tag: 0.2.3
+        commit: 4b00e39ac901fd4e1267803a9f3dc3367686bc08
