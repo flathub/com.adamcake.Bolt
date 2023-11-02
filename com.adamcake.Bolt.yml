@@ -467,8 +467,9 @@ modules:
       - -DBOLT_BINDIR=bin
       - -DBOLT_SHAREDIR=/app/share
       - -DCEF_ROOT=/app/cef/dist
+      - -DBOLT_FLATHUB_BUILD=1
     sources:
       - type: git
         url: https://github.com/Adamcake/Bolt.git
-        tag: 0.2.3
-        commit: 4b00e39ac901fd4e1267803a9f3dc3367686bc08
+        tag: 0.3.0
+        commit: 484c597e75cd33874b257f55b0db3c8512132065
