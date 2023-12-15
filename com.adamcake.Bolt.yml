@@ -20,6 +20,7 @@ finish-args:
   - --share=network
   - --device=dri
   - --env=JAVA_HOME=/app/jre
+  - --talk-name=org.freedesktop.Notifications
 cleanup:
   - /cef
 modules:
@@ -52,6 +53,24 @@ modules:
         url: https://github.com/openssl/openssl.git
         tag: OpenSSL_1_1_1w
         commit: e04bd3433fd84e1861bf258ea37928d9845e6a86
+  - name: libnotify
+    buildsystem: meson
+    config-opts:
+      - -Dman=false
+      - -Dgtk_doc=false
+      - -Ddocbook_docs=false
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /lib/debug
+      - /lib/girepository-1.0
+      - /share/gtk-doc
+      - /share/gir-1.0
+    sources:
+      - type: git
+        url: https://github.com/GNOME/libnotify.git
+        tag: 0.8.3
+        commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
   - name: chromium
     buildsystem: simple
     build-commands:
