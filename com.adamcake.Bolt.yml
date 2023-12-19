@@ -16,11 +16,14 @@ build-options:
 finish-args:
   - --share=ipc
   - --socket=x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=network
   - --device=dri
   - --env=JAVA_HOME=/app/jre
   - --talk-name=org.freedesktop.Notifications
+  - --filesystem=xdg-data/icons:create
+  - --filesystem=xdg-run/app/com.discordapp.Discord
 cleanup:
   - /cef
 modules:
