@@ -109,8 +109,8 @@ modules:
         dest: gn
       - type: git
         url: https://github.com/llvm/llvm-project.git
-        tag: llvmorg-17.0.1
-        commit: e19b7dc36bc047b9eb72078d034596be766da350
+        tag: llvmorg-17.0.6
+        commit: 6009708b4367171ccdbf4b5905cb6a803753fe18
         dest: llvm17
       - type: git
         url: https://github.com/ungoogled-software/ungoogled-chromium.git
@@ -487,6 +487,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
+      # REMEMBER TO ADD BOLT_LIBDIR BEFORE YOU MAKE ANOTHER VERSION
       - -DBOLT_SHAREDIR=/app/share
       - -DCEF_ROOT=/app/cef/dist
       - -DBOLT_SKIP_LIBRARIES=1
