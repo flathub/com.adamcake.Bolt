@@ -153,6 +153,10 @@ modules:
         url: https://swiftshader.googlesource.com/SwiftShader.git
         commit: 23e97b79fb9193bf88e79c16c6a577c680edb2d6
         dest: third_party/swiftshader
+        sources:
+          - type: shell
+            commands:
+              - git -C $FLATPAK_BUILDER_BUILDDIR/third_party/swiftshader config http.postBuffer 524288000
       - type: git
         url: https://pdfium.googlesource.com/pdfium.git
         commit: 9505810f66cc3dde86c30d072de53ca6fc8a45de
