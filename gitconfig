@@ -1,0 +1,2 @@
+[http]
+	postBuffer = 16777216
