@@ -155,6 +155,7 @@ modules:
         url: https://swiftshader.googlesource.com/SwiftShader.git
         commit: 23e97b79fb9193bf88e79c16c6a577c680edb2d6
         dest: third_party/swiftshader
+        disable-fsckobjects: true
       - type: git
         url: https://pdfium.googlesource.com/pdfium.git
         commit: 9505810f66cc3dde86c30d072de53ca6fc8a45de
