@@ -33,7 +33,7 @@ modules:
   - name: openjdk
     buildsystem: simple
     build-commands:
-      - /usr/lib/sdk/openjdk17/install.sh
+      - /usr/lib/sdk/openjdk21/install.sh
   - shared-modules/gtk2/gtk2.json
   - name: openssl
     buildsystem: simple
