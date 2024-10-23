@@ -1,6 +1,6 @@
 app-id: com.adamcake.Bolt
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk21
@@ -40,7 +40,7 @@ modules:
     build-commands:
       - ./config --prefix=/app --openssldir=/app/ssl shared zlib
       - make -j $FLATPAK_BUILDER_N_JOBS
-      - make install_sw
+      - make install
     sources:
       - type: git
         url: https://github.com/openssl/openssl.git
@@ -85,6 +85,9 @@ modules:
         dest: cef/dist
         url: https://adamcake.com/cef/cef-114.0.5735.201-linux-aarch64-minimal-ungoogled-flatpak.tar.gz
         sha256: 8848387578784a1e2ead757e8a3b194d26bf5fd1f11bcbd3759cef16ec429ec7
+      - type: patch
+        path: cef-no-fortify.patch
+        dest: cef/dist
       - type: git
         url: https://github.com/Adamcake/Bolt.git
         tag: 0.10.0
