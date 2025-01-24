@@ -118,6 +118,8 @@ modules:
         tag: 126.0.6478.182-1
         commit: c407d7c81e38f80458997d26a164e968baa52e2e
         dest: ungoogled-chromium
+      - third-party-node-modules.yaml
+      - chromium-submodules.yaml
       - type: patch
         path: patch/chromium-remove-test-fonts.patch
       - type: patch
@@ -160,8 +162,6 @@ modules:
           - org.chromium.Chromium/patches/chromium/clang-build-script-Support-disabling-the-bundled-libxml2.patch
           - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
           - org.chromium.Chromium/patches/chromium/Clang-build-script-add-support-for-building-a-subset-of-ta.patch
-      - third-party-node-modules.yaml
-      - chromium-submodules.yaml
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
