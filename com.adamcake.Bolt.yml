@@ -16,6 +16,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --filesystem=xdg-data/icons:create
   - --filesystem=xdg-run/app/com.discordapp.Discord
+  - --filesystem=xdg-run/discord-ipc-0
 modules:
   - name: krb5
     buildsystem: simple
