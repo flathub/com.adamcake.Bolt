@@ -104,7 +104,7 @@ modules:
         commit: a5d51ba9db7ee74a523dc247bd09ec91ba4d7446
         dest: cef
       - type: git
-        url: dc18c542a2697ff352acaee10912724fc93c62f7
+        url: https://gn.googlesource.com/gn
         commit: ed1abc107815210dc66ec439542bee2f6cbabc00
         dest: gn
       - type: git
