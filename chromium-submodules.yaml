@@ -4,16 +4,6 @@
   dest: third_party/clang-format/script
   disable-submodules: true
 - type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/default_apps
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/resources/preinstalled_web_apps/internal
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/deps/xz
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/installer/mac/third_party/xz/xz
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx
   commit: e3b94d0e5b86883fd77696bf10dc33ba250ba99b
   dest: third_party/libc++/src
@@ -27,16 +17,6 @@
   url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libunwind
   commit: 419b03c0b8f20d6da9ddcb0d661a94a97cdd7dad
   dest: third_party/libunwind/src
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/test/captured_sites/autofill
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/autofill/captured_sites/artifacts
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/test/captured_sites/password
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/password/captured_sites/artifacts
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/chromium/canvas_bench
@@ -54,99 +34,14 @@
   dest: chrome/test/data/xr/webvr_info
   disable-submodules: true
 - type: git
-  url: https://chrome-internal.googlesource.com/clank/internal/apps
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: clank
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/website
   commit: b623150ede7e61bf949bd203b400f28012298274
   dest: docs/website
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/google/EarlGrey
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/earl_grey2/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/eDistantObject
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/edo/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/GTXiLib
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/gtx/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/airbnb/lottie-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/lottie/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-components/material-components-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_components_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-foundation/material-font-disk-loader-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_font_disk_loader_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-foundation/material-internationalization-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_internationalization_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-foundation/material-roboto-font-loader-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_roboto_font_loader_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-foundation/material-sprited-animation-view-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_sprited_animation_view_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-foundation/material-text-accessibility-ios
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/material_text_accessibility_ios/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-motion/motion-interchange-objc
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/motion_interchange_objc/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-motion/motion-animator-objc
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/motion_animator_objc/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/material-motion/motion-transitioning-objc
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/motion_transitioning_objc/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/hamcrest/OCHamcrest
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/ochamcrest/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/WebKit/webkit
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios/third_party/webkit/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/chromium/cdm
   commit: fef0b5aa1bd31efb88dfab804bdbe614f3d54f28
   dest: media/cdm/api
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/native_client/src/native_client
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: native_client
   disable-submodules: true
 - type: git
   url: https://quiche.googlesource.com/quiche
@@ -164,119 +59,9 @@
   dest: third_party/accessibility_test_framework/src
   disable-submodules: true
 - type: git
-  url: https://android.googlesource.com/platform/external/protobuf
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/android_protobuf/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/aosp/platform/frameworks/support/javascriptengine/javascriptengine/src
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/androidx_javascriptengine/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/angle/angle
   commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
   dest: third_party/angle
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/build
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/build
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/buildtools
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/buildtools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/clang-format/script
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/testing
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/testing
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/abseil-cpp
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/android_build_tools
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/android_build_tools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/android_deps
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/android_deps
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/android_platform
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/android_platform
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/android_sdk
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/android_sdk
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/ARM-software/astc-encoder
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/astc-encoder/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/catapult
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/catapult
-  disable-submodules: true
-- type: git
-  url: https://android.googlesource.com/platform/external/cherry
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/cherry
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/colorama
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/colorama/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/clspv
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/clspv/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/cpu_features
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/cpu_features/src
-  disable-submodules: true
-- type: git
-  url: https://dawn.googlesource.com/dawn
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/dawn
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/tools/depot_tools
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/depot_tools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/EGL-Registry
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/EGL-Registry/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/flatbuffers
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/flatbuffers/src
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/angle/es-cts
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/gles1_conform
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/glmark2/glmark2
@@ -284,209 +69,9 @@
   dest: third_party/angle/third_party/glmark2/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/googletest
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/ijar
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/ijar
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromiumos/third_party/libdrm
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libdrm
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/deps/libjpeg_turbo
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libjpeg_turbo
-  disable-submodules: true
-- type: git
-  url: https://android.googlesource.com/platform/external/libpng
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libpng/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/llvm/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/jinja2
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/jinja2
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/jsoncpp
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/jsoncpp
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libc++/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libc++abi/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libunwind
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/libunwind/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/markupsafe
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/markupsafe
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/Mesa3D/mesa
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/mesa/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/mesonbuild/meson
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/meson
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/deps/nasm
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/nasm
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/OpenCL-CTS
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/OpenCL-CTS/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/OpenCL-Docs
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/OpenCL-Docs/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/OpenCL-ICD-Loader
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/OpenCL-ICD-Loader/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/OpenGL-Registry
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/OpenGL-Registry/src
-  disable-submodules: true
-- type: git
-  url: https://android.googlesource.com/platform/external/perfetto
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/perfetto
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/protobuf
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/Python-Markdown
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/Python-Markdown
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/Tencent/rapidjson
   commit: 781a4e667d84aeedbeb8184b7b62425ea66ec59f
   dest: third_party/angle/third_party/rapidjson/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest.git
-  commit: 781a4e667d84aeedbeb8184b7b62425ea66ec59f
-  dest: third_party/rapidjson/src/thirdparty/gtest
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/kennethreitz/requests
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/requests/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/six
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/six
-  disable-submodules: true
-- type: git
-  url: https://swiftshader.googlesource.com/SwiftShader
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/SwiftShader
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/VK-GL-CTS
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/VK-GL-CTS/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/vulkan-deps
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/vulkan-deps
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/vulkan_memory_allocator
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/anongit.freedesktop.org/git/wayland/wayland
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/wayland
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/zlib
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/third_party/zlib
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/android
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/android
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/clang
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/clang
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/mb
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/mb
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/md_browser
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/md_browser
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/memory
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/memory
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/perf
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/perf
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/protoc_wrapper
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/protoc_wrapper
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/python
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/python
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/valgrind
-  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
-  dest: third_party/angle/tools/valgrind
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/google/anonymous-tokens
@@ -509,134 +94,14 @@
   dest: third_party/dawn
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/chromium/src/buildtools
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/buildtools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/clang-format/script
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/tools/depot_tools
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/depot_tools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/libc++/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/libc++abi/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/build
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/build
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/clang
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/tools/clang
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/rust
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/tools/rust
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/testing
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/testing
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/compiler-rt/lib/fuzzer
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/libFuzzer/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/googletest
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/catapult
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/catapult
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/benchmark
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/google_benchmark/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/jinja2
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/jinja2
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/markupsafe
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/markupsafe
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/glfw/glfw
   commit: 62e175ef9fae75335575964c845a302447c012c7
   dest: third_party/dawn/third_party/glfw
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/vulkan_memory_allocator
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/angle/angle
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/angle
-  disable-submodules: true
-- type: git
-  url: https://swiftshader.googlesource.com/SwiftShader
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/swiftshader
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/vulkan-deps
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/vulkan-deps
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/zlib
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/zlib
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/abseil-cpp
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/microsoft/DirectXShaderCompiler
   commit: b3c64851765c411b7147ac0269df2a2ce23d6f89
   dest: third_party/dawn/third_party/dxc
-  disable-submodules: true
-- type: git
-  url: https://github.com/KhronosGroup/SPIRV-Headers
-  commit: b3c64851765c411b7147ac0269df2a2ce23d6f89
-  dest: third_party/dxc/external/SPIRV-Headers
-  disable-submodules: true
-- type: git
-  url: https://github.com/KhronosGroup/SPIRV-Tools
-  commit: b3c64851765c411b7147ac0269df2a2ce23d6f89
-  dest: third_party/dxc/external/SPIRV-Tools
-  disable-submodules: true
-- type: git
-  url: https://github.com/microsoft/DirectX-Headers.git
-  commit: b3c64851765c411b7147ac0269df2a2ce23d6f89
-  dest: third_party/dxc/external/DirectX-Headers
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/microsoft/DirectX-Headers
@@ -664,59 +129,9 @@
   dest: third_party/dawn/third_party/webgpu-cts
   disable-submodules: true
 - type: git
-  url: https://github.com/nodejs/node-api-headers
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/node-api-headers
-  disable-submodules: true
-- type: git
-  url: https://github.com/nodejs/node-addon-api
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/node-addon-api
-  disable-submodules: true
-- type: git
-  url: https://github.com/gpuweb/gpuweb
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/gpuweb
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/protobuf
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/protoc_wrapper
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/tools/protoc_wrapper
-  disable-submodules: true
-- type: git
-  url: https://github.com/open-source-parsers/jsoncpp
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/jsoncpp
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/langsvr
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/langsvr
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator
-  commit: 13586d84cb6038b38bf769db815e59d3d152d474
-  dest: third_party/dawn/third_party/partition_alloc
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/highway
   commit: 8f20644eca693cfb74aa795b0006b6779c370e7a
   dest: third_party/highway/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/apache-portable-runtime
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/apache-portable-runtime/src
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/barhopper
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/barhopper
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/google/benchmark
@@ -754,16 +169,6 @@
   dest: third_party/chromium-variations
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/zorkow/speech-rule-engine
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/chromevox/third_party/sre/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromiumos/chromite
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/chromite
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/cld_3
   commit: b48dc46512566f5a2d41118c8c1116c4f96dc661
   dest: third_party/cld_3/src
@@ -789,21 +194,6 @@
   dest: third_party/crc32c/src
   disable-submodules: true
 - type: git
-  url: https://github.com/google/googletest.git
-  commit: fa5ade41ee480003d9c5af6f43567ba22e4e17e6
-  dest: third_party/crc32c/src/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/glog.git
-  commit: fa5ade41ee480003d9c5af6f43567ba22e4e17e6
-  dest: third_party/crc32c/src/third_party/glog
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/benchmark.git
-  commit: fa5ade41ee480003d9c5af6f43567ba22e4e17e6
-  dest: third_party/crc32c/src/third_party/benchmark
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/chromiumos/platform2/system_api
   commit: 8d58ca6b357e6827660dc26ca777c798f4426c2e
   dest: third_party/cros_system_api
@@ -812,11 +202,6 @@
   url: https://chromium.googlesource.com/crossbench
   commit: acbea986f40578f43c88239c78c797f61842e642
   dest: third_party/crossbench
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/crubit
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/crubit/src
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/chromium/tools/depot_tools
@@ -829,46 +214,6 @@
   dest: third_party/devtools-frontend/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/third_party/clang-format/script
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/extensions/cxx_debugging/third_party/llvm/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/lldb-eval
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/extensions/cxx_debugging/third_party/lldb-eval/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/buildtools
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/buildtools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/build
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/build
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/tools/depot_tools
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/third_party/depot_tools
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/deps/inspector_protocol
-  commit: c963f0c7472f41d9d4c3335fffdab4f9b8da25bb
-  dest: third_party/devtools-frontend/src/third_party/inspector_protocol
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/devtools/devtools-internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/devtools-frontend-internal
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/chromium/dom-distiller/dist
   commit: 199de96b345ada7c6e7e6ba3d2fa7a6911b8767d
   dest: third_party/dom_distiller_js/dist
@@ -877,11 +222,6 @@
   url: https://chromium.googlesource.com/external/gitlab.com/libeigen/eigen
   commit: e16d70bd4e9cdebd2fbdae63b1a4d86493fbbde6
   dest: third_party/eigen3/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/googlefonts/emoji-metadata
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/emoji-metadata/src
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/google/farmhash
@@ -924,134 +264,14 @@
   dest: third_party/grpc/src
   disable-submodules: true
 - type: git
-  url: https://github.com/abseil/abseil-cpp.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/abseil-cpp
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/benchmark
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/benchmark
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/bloaty.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/bloaty
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/boringssl.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/boringssl-with-bazel
-  disable-submodules: true
-- type: git
-  url: https://github.com/c-ares/c-ares.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/cares/cares
-  disable-submodules: true
-- type: git
-  url: https://github.com/envoyproxy/data-plane-api.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/envoy-api
-  disable-submodules: true
-- type: git
-  url: https://github.com/googleapis/googleapis.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/googleapis
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://github.com/libuv/libuv.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/libuv
-  disable-submodules: true
-- type: git
-  url: https://github.com/census-instrumentation/opencensus-proto.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/opencensus-proto
-  disable-submodules: true
-- type: git
-  url: https://github.com/open-telemetry/opentelemetry-proto.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/opentelemetry
-  disable-submodules: true
-- type: git
-  url: https://github.com/protocolbuffers/protobuf.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/re2.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/re2
-  disable-submodules: true
-- type: git
-  url: https://github.com/cncf/xds.git
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/xds
-  disable-submodules: true
-- type: git
-  url: https://github.com/madler/zlib
-  commit: 822dab21d9995c5cf942476b35ca12a1aa9d2737
-  dest: third_party/grpc/src/third_party/zlib
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/chromium/src/third_party/freetype2
   commit: a46424228f0998a72c715f32e18dca8a7a764c1f
   dest: third_party/freetype/src
   disable-submodules: true
 - type: git
-  url: https://github.com/nyorain/dlg.git
-  commit: a46424228f0998a72c715f32e18dca8a7a764c1f
-  dest: third_party/freetype/src/subprojects/dlg
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/freetype/freetype2-testing
   commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
   dest: third_party/freetype-testing/src
-  disable-submodules: true
-- type: git
-  url: https://gitlab.freedesktop.org/freetype/freetype.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/freetype2
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/glog.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/glog
-  disable-submodules: true
-- type: git
-  url: https://github.com/libarchive/libarchive.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/libarchive
-  disable-submodules: true
-- type: git
-  url: git://sourceware.org/git/bzip2.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/bzip2
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/brotli.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/brotli
-  disable-submodules: true
-- type: git
-  url: https://github.com/madler/zlib.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/zlib
-  disable-submodules: true
-- type: git
-  url: https://github.com/glennrp/libpng.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/libpng
-  disable-submodules: true
-- type: git
-  url: https://github.com/llvm/llvm-project.git
-  commit: 7a69b1a2b028476f840ab7d4a2ffdfe4eb2c389f
-  dest: third_party/freetype-testing/src/external/llvm-project
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/Maratyszcza/FXdiv
@@ -1069,11 +289,6 @@
   dest: third_party/instrumented_libs
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/Stuk/jszip
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/jszip/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/emoji-segmenter
   commit: 9ba6d25d0d9313569665d4a9d2b34f0f39f9a50e
   dest: third_party/emoji-segmenter/src
@@ -1089,34 +304,9 @@
   dest: third_party/libgav1/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/google/google-toolbox-for-mac
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/google_toolbox_for_mac/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/truth
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/google-truth/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/googletest
   commit: 33af80a883ddc33d9c0fac0a5b4578301efb18de
   dest: third_party/googletest/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/deps/gperf
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/gperf
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/googlevr/cardboard
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/cardboard/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google-ar/arcore-android-sdk
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/arcore-android-sdk/src
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries
@@ -1129,34 +319,14 @@
   dest: third_party/icu
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/c2nes/javalang
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/javalang/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp
   commit: 42e892d96e47b1f6e29844cc705e148ec4856448
   dest: third_party/jsoncpp/source
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/junit
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/junit/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/leveldb
   commit: 068d5ee1a3ac40dabd00d211d5013af44be55bea
   dest: third_party/leveldatabase/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest.git
-  commit: 068d5ee1a3ac40dabd00d211d5013af44be55bea
-  dest: third_party/leveldatabase/src/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/benchmark
-  commit: 068d5ee1a3ac40dabd00d211d5013af44be55bea
-  dest: third_party/leveldatabase/src/third_party/benchmark
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/compiler-rt/lib/fuzzer
@@ -1172,16 +342,6 @@
   url: https://chromium.googlesource.com/external/libaddressinput
   commit: e8712e415627f22d0b00ebee8db99547077f39bd
   dest: third_party/libaddressinput/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/tools/grit/
-  commit: e8712e415627f22d0b00ebee8db99547077f39bd
-  dest: third_party/libaddressinput/src/externals/grit
-  disable-submodules: true
-- type: git
-  url: https://github.com/miloyip/rapidjson.git
-  commit: e8712e415627f22d0b00ebee8db99547077f39bd
-  dest: third_party/libaddressinput/src/externals/rapidjson
   disable-submodules: true
 - type: git
   url: https://aomedia.googlesource.com/aom
@@ -1209,99 +369,14 @@
   dest: third_party/nearby/src
   disable-submodules: true
 - type: git
-  url: https://github.com/protocolbuffers/protobuf
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/gtest
-  disable-submodules: true
-- type: git
-  url: https://github.com/abseil/abseil-cpp
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/absl
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/tools/depot_tools.git
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/depot_tools
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/ukey2
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/ukey2/ukey2
-  disable-submodules: true
-- type: git
-  url: https://github.com/aappleby/smhasher
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/smhasher/smhasher
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/securemessage.git
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/securemessage/securemessage
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/google-toolbox-for-mac.git
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/google-toolbox-for-mac/google-toolbox-for-mac
-  disable-submodules: true
-- type: git
-  url: https://github.com/ARMmbed/mbedtls
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/mbedtls
-  disable-submodules: true
-- type: git
-  url: https://github.com/nlohmann/json
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/json/json
-  disable-submodules: true
-- type: git
-  url: https://github.com/kmackay/micro-ecc
-  commit: f26d25ed0106bd8946f8bb380bb67fb552e7390d
-  dest: third_party/nearby/src/third_party/micro-ecc
-  disable-submodules: true
-- type: git
   url: https://beto-core.googlesource.com/beto-core
   commit: 8bd72cfb219344308ee857bcbe65a27fe91acfe8
   dest: third_party/beto-core/src
   disable-submodules: true
 - type: git
-  url: https://github.com/abseil/abseil-cpp.git
-  commit: 8bd72cfb219344308ee857bcbe65a27fe91acfe8
-  dest: third_party/beto-core/src/third_party/abseil-cpp
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/benchmark.git
-  commit: 8bd72cfb219344308ee857bcbe65a27fe91acfe8
-  dest: third_party/beto-core/src/third_party/benchmark
-  disable-submodules: true
-- type: git
-  url: https://boringssl.googlesource.com/boringssl
-  commit: 8bd72cfb219344308ee857bcbe65a27fe91acfe8
-  dest: third_party/beto-core/src/third_party/boringssl
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/fuzztest.git
-  commit: 8bd72cfb219344308ee857bcbe65a27fe91acfe8
-  dest: third_party/beto-core/src/third_party/fuzztest
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/securemessage
   commit: fa07beb12babc3b25e0c5b1f38c16aa8cb6b8f84
   dest: third_party/securemessage/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/protocolbuffers/protobuf
-  commit: fa07beb12babc3b25e0c5b1f38c16aa8cb6b8f84
-  dest: third_party/securemessage/src/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest
-  commit: fa07beb12babc3b25e0c5b1f38c16aa8cb6b8f84
-  dest: third_party/securemessage/src/third_party/gtest
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/WebKit/Speedometer
@@ -1312,26 +387,6 @@
   url: https://chromium.googlesource.com/external/github.com/google/ukey2
   commit: 0275885d8e6038c39b8a8ca55e75d1d4d1727f47
   dest: third_party/ukey2/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/securemessage
-  commit: 0275885d8e6038c39b8a8ca55e75d1d4d1727f47
-  dest: third_party/ukey2/src/third_party/secure_message
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest
-  commit: 0275885d8e6038c39b8a8ca55e75d1d4d1727f47
-  dest: third_party/ukey2/src/third_party/gtest
-  disable-submodules: true
-- type: git
-  url: https://github.com/protocolbuffers/protobuf
-  commit: 0275885d8e6038c39b8a8ca55e75d1d4d1727f47
-  dest: third_party/ukey2/src/third_party/protobuf
-  disable-submodules: true
-- type: git
-  url: https://github.com/abseil/abseil-cpp
-  commit: 0275885d8e6038c39b8a8ca55e75d1d4d1727f47
-  dest: third_party/ukey2/src/third_party/absl
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/google3/cros_components
@@ -1384,11 +439,6 @@
   dest: third_party/libsync/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/libunwindstack
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/libunwindstack
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/webm/libvpx
   commit: 108f5128e2969451f77b1523ce30bebe545cdd58
   dest: third_party/libvpx/source/libvpx
@@ -1409,11 +459,6 @@
   dest: third_party/libyuv
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/chromium/deps/lighttpd
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/lighttpd
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/linux-syscall-support
   commit: ce877209e11aa69dcfffbd53ef90ea1d07136521
   dest: third_party/lss
@@ -1422,16 +467,6 @@
   url: https://chromium.googlesource.com/external/github.com/material-foundation/material-color-utilities
   commit: 13434b50dcb64a482cc91191f8cf6151d90f5465
   dest: third_party/material_color_utilities/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/material-design-icons
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/material_design_icons/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/microsoft/DirectX-Headers
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/microsoft_dxheaders/src
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/chromiumos/platform/minigbm
@@ -1449,16 +484,6 @@
   dest: third_party/neon_2_sse/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/netty-tcnative
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/netty-tcnative/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/netty4
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/netty4/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/cisco/openh264
   commit: 09a4f3ec842a8932341b195c5b01e141c8a16eb7
   dest: third_party/openh264/src
@@ -1474,94 +499,9 @@
   dest: third_party/openscreen/src/buildtools
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/chromium/src/build
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/build
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/clang-format/script
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/libprotobuf-mutator
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/libprotobuf-mutator/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/madler/zlib
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/zlib/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/jsoncpp/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/google/googletest
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/googletest/src
-  disable-submodules: true
-- type: git
-  url: https://boringssl.googlesource.com/boringssl
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/boringssl/src
-  disable-submodules: true
-- type: git
-  url: https://quiche.googlesource.com/quiche
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/quiche/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/instrumented_libraries
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/instrumented_libraries
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/intel/tinycbor
   commit: d393c16f3eb30d0c47e6f9d92db62272f0ec4dc7
   dest: third_party/openscreen/src/third_party/tinycbor/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/abseil/abseil-cpp
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/abseil/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/llvm-project/compiler-rt/lib/fuzzer
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/libfuzzer/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/libc++/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/libc++abi/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/src/third_party/modp_b64
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/modp_b64
-  disable-submodules: true
-- type: git
-  url: https://github.com/tristanpenman/valijson
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/valijson/src
-  disable-submodules: true
-- type: git
-  url: https://quiche.googlesource.com/googleurl
-  commit: 97d0a7fd9e51669930f8376e069599acc1c2de2e
-  dest: third_party/openscreen/src/third_party/googleurl/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/OpenXR-SDK
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/openxr/src
   disable-submodules: true
 - type: git
   url: https://pdfium.googlesource.com/pdfium
@@ -1572,11 +512,6 @@
   url: https://android.googlesource.com/platform/external/perfetto
   commit: 6aaa8a1fb15659d1b68179e20993e969d9f500f8
   dest: third_party/perfetto
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/chromium/deps/perl
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/perl
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/protocolbuffers/protobuf-javascript
@@ -1609,24 +544,9 @@
   dest: third_party/re2/src
   disable-submodules: true
 - type: git
-  url: https://chromium.googlesource.com/external/github.com/kennethreitz/requests
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/requests/src
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/google/ruy
   commit: c08ec529fc91722bde519628d9449258082eb847
   dest: third_party/ruy/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest
-  commit: c08ec529fc91722bde519628d9449258082eb847
-  dest: third_party/ruy/src/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://github.com/pytorch/cpuinfo
-  commit: c08ec529fc91722bde519628d9449258082eb847
-  dest: third_party/ruy/src/third_party/cpuinfo
   disable-submodules: true
 - type: git
   url: https://skia.googlesource.com/skia
@@ -1644,16 +564,6 @@
   dest: third_party/snappy/src
   disable-submodules: true
 - type: git
-  url: https://github.com/google/benchmark.git
-  commit: c9f9edf6d75bb065fa47468bf035e051a57bec7c
-  dest: third_party/snappy/src/third_party/benchmark
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest.git
-  commit: c9f9edf6d75bb065fa47468bf035e051a57bec7c
-  dest: third_party/snappy/src/third_party/googletest
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/chromium/deps/sqlite
   commit: 1ee793e63351333e2089d4b272e15574502ff0c2
   dest: third_party/sqlite/src
@@ -1662,51 +572,6 @@
   url: https://swiftshader.googlesource.com/SwiftShader
   commit: da334852e70510d259bfa8cbaa7c5412966b2f41
   dest: third_party/swiftshader
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/cppdap
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/cppdap
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/googletest.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/googletest
-  disable-submodules: true
-- type: git
-  url: https://github.com/nlohmann/json.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/json
-  disable-submodules: true
-- type: git
-  url: https://github.com/ianlancetaylor/libbacktrace.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/libbacktrace/src
-  disable-submodules: true
-- type: git
-  url: https://github.com/powervr-graphics/Native_SDK.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/PowerVR_Examples
-  disable-submodules: true
-- type: git
-  url: https://github.com/google/benchmark.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/benchmark
-  disable-submodules: true
-- type: git
-  url: https://github.com/KhronosGroup/glslang.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/glslang
-  disable-submodules: true
-- type: git
-  url: https://swiftshader.googlesource.com/git-hooks
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/git-hooks
-  disable-submodules: true
-- type: git
-  url: https://github.com/llvm/llvm-project.git
-  commit: da334852e70510d259bfa8cbaa7c5412966b2f41
-  dest: third_party/swiftshader/third_party/llvm-project
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/external/github.com/GoogleChromeLabs/text-fragments-polyfill
@@ -1804,11 +669,6 @@
   dest: third_party/webgl/src
   disable-submodules: true
 - type: git
-  url: https://github.com/KhronosGroup/WebGLDeveloperTools.git
-  commit: 1b6371436a0a60e6b9a4ae2a40a8eba198e3af02
-  dest: third_party/webgl/src/sdk/devtools
-  disable-submodules: true
-- type: git
   url: https://chromium.googlesource.com/external/github.com/gpuweb/cts
   commit: 762a3dfb42095c6084da99b630eea6bef9dc1db8
   dest: third_party/webgpu-cts/src
@@ -1827,11 +687,6 @@
   url: https://chromium.googlesource.com/external/anongit.freedesktop.org/git/wayland/weston
   commit: ccf29cb237c3ed09c5f370f35239c93d07abfdd7
   dest: third_party/weston/src
-  disable-submodules: true
-- type: git
-  url: https://chromium.googlesource.com/external/github.com/MirServer/wlcs
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/wlcs/src
   disable-submodules: true
 - type: git
   url: https://chromium.googlesource.com/chromium/deps/xdg-utils
@@ -1857,339 +712,4 @@
   url: https://chromium.googlesource.com/v8/v8
   commit: 556665385d5cdc2a0793b977d373da88091a7208
   dest: v8
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/src-internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: internal
-  disable-submodules: true
-- type: git
-  url: https://android.googlesource.com/platform/prebuilts/build-tools
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/android_prebuilts/build_tools
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/chromeos/ash/resources/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chromeos/ash/resources/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/assistant
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chromeos/assistant/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/ash/webui/conch
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ash/webui/conch
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/fuchsia/build
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: build/fuchsia/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/theme/default_100_percent/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/app/theme/default_100_percent/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/theme/default_200_percent/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/app/theme/default_200_percent/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/theme/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/app/theme/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/enterprise/connectors/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/enterprise/connectors/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/linkdoctor
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/google/linkdoctor_internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser_internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/media/engagement_internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/media/engagement_internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/nearby_sharing/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/nearby_sharing/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/platform_experience/win
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/platform_experience/win
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/resources/downloads_internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/resources/downloads/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/browser/resources/settings_internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/resources/settings/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/spellchecker/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/browser/spellchecker/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/elevation_service/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/elevation_service/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/installer/mac/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/installer/mac/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/osdd/firefox3_profile_searchplugins
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/firefox3_profile/searchplugins
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/osdd/firefox3_searchplugins
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/firefox3_searchplugins
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/vectortown_endurance/vectortownstatic-20121022
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/gpu/vt
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/frame_rate_tests
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/perf/frame_rate/private
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/perf_tests
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/perf/private
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/pdf_private
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/data/pdf_private
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/test/media_router/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/test/media_router/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/tools/memory
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/tools/memory
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chromeos/speech
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: chrome/services/speech/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/autofill_regex_patterns
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/autofill/core/browser/form_parsing/internal_resources
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/crash
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/crash/core/app/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/metrics/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/metrics/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/ntp_tiles/resources
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/ntp_tiles/resources/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/optimization_guide
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/optimization_guide/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/plus_addresses/resources
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/plus_addresses/resources/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/default_100_percent/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/resources/default_100_percent/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/default_200_percent/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/resources/default_200_percent/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/default_300_percent/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/resources/default_300_percent/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/components/site_isolation
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/site_isolation/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/test/autofill/structured_forms
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/test/data/autofill/heuristics-json/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/vector_icons/google_chrome
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: components/vector_icons/google_chrome
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/chrome_plugin_tests
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: content/test/data/plugin
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/google_apis/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: google_apis/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/ios_internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ios_internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/remoting/host/installer/linux/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: remoting/host/installer/linux/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/remoting/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: remoting/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/remoting/test/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: remoting/test/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/remoting/tools/internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: remoting/tools/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/clank/apptestkey
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: signing_keys
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/tools/clusterfuzz-data
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: skia/tools/clusterfuzz-data
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/amd
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/amd
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/clank/third_party/android_tools
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/android_tools_internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/gles2_conform
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/gles2_conform
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/khronos_glcts
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/khronos_glcts
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/cdm/chromeos
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/cdm/chromeos
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/cdm/linux
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/cdm/linux
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/cdm/mac
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/cdm/mac
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/cdm/win
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/cdm/win
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/scripts
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/scripts
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/widevine/test/license_server
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/widevine/test/license_server
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/deps/wix/v3_5_2519
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: third_party/wix
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/tools/perf/data
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: tools/perf/data
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/file_manager
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ui/file_manager/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/ui-webui-internal
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: ui/webui/internal
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/bmp_decoder
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: webkit/data/bmp_decoder
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/ico_decoder
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: webkit/data/ico_decoder
-  disable-submodules: true
-- type: git
-  url: https://chrome-internal.googlesource.com/chrome/data/webkit_plugin_tests
-  commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
-  dest: webkit/data/test_shell/plugins
   disable-submodules: true
