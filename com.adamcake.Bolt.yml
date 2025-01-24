@@ -99,6 +99,7 @@ modules:
         url: https://github.com/chromium/chromium.git
         tag: 126.0.6478.183
         commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
+        disable-submodules: true
       - type: git
         url: https://github.com/chromiumembedded/cef.git
         commit: a5d51ba9db7ee74a523dc247bd09ec91ba4d7446
@@ -160,6 +161,7 @@ modules:
           - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
           - org.chromium.Chromium/patches/chromium/Clang-build-script-add-support-for-building-a-subset-of-ta.patch
       - third-party-node-modules.yaml
+      - chromium-submodules.yaml
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
