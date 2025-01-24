@@ -50,6 +50,7 @@
   dest: third_party/angle
   commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
   url: https://chromium.googlesource.com/angle/angle
+  disable-submodules: true
 - type: git
   dest: third_party/anonymous_tokens/src
   commit: 76bfcccb6418239183df55111f2f24782d9f3680
@@ -494,3 +495,25 @@
   dest: v8
   commit: 556665385d5cdc2a0793b977d373da88091a7208
   url: https://chromium.googlesource.com/v8/v8
+
+# third_party/angle
+- type: git
+  dest: third_party/angle/third_party/glmark2/src
+  commit: ca8de51fedb70bace5351c6b002eb952c747e889
+  url: https://chromium.googlesource.com/external/github.com/glmark2/glmark2
+- type: git
+  dest: third_party/angle/third_party/libdrm
+  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
+  url: https://chromium.googlesource.com/chromiumos/third_party/libdrm
+- type: git
+  dest: third_party/angle/third_party/meson
+  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
+  url: https://chromium.googlesource.com/external/github.com/mesonbuild/meson
+- type: git
+  dest: third_party/angle/third_party/rapidjson/src
+  commit: 781a4e667d84aeedbeb8184b7b62425ea66ec59f
+  url: https://chromium.googlesource.com/external/github.com/Tencent/rapidjson
+- type: git
+  dest: third_party/angle/third_party/VK-GL-CTS/src
+  commit: 5d4df51d1d7d6a290d54111527a4798f10c7ca3c
+  url: https://chromium.googlesource.com/external/github.com/KhronosGroup/VK-GL-CTS
