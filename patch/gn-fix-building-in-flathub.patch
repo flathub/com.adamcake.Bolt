@@ -6,7 +6,7 @@
 +#ifndef GPU_CONFIG_GPU_LISTS_VERSION_H_
 +#define GPU_CONFIG_GPU_LISTS_VERSION_H_
 +
-+#define GPU_LISTS_VERSION "fb29c8ed87323e1dd02b71f2d4cffbb5a818b49d"
++#define GPU_LISTS_VERSION "2e81dea53f5ecdc1c057e4c70ecd66151987296a"
 +
 +#endif  // GPU_CONFIG_GPU_LISTS_VERSION_H_
 diff --git a/gn/build/gen.py b/gn/build/gen.py
@@ -20,7 +20,7 @@ diff --git a/gn/build/gen.py b/gn/build/gen.py
 -      ['git', 'describe', 'HEAD', '--abbrev=12', '--match', ROOT_TAG],
 -      shell=host.is_windows(), cwd=REPO_ROOT)
 -  mo = re.match(ROOT_TAG + '-(\d+)-g([0-9a-f]+)', describe_output.decode())
-+  describe_output = 'initial-commit-2121-g991530ce394e'
++  describe_output = 'initial-commit-2207-ged1abc107815'
 +  mo = re.match(ROOT_TAG + '-(\d+)-g([0-9a-f]+)', describe_output)
    if not mo:
      raise ValueError(
@@ -34,10 +34,10 @@ diff --git a/build/config/gclient_args.gni b/build/config/gclient_args.gni
 +checkout_android = false
 +checkout_android_prebuilts_build_tools = false
 +checkout_android_native_support = false
++checkout_clang_coverage_tools = false
 +checkout_ios_webkit = false
-+checkout_nacl = true
++checkout_nacl = false
 +checkout_openxr = false
-+checkout_rts_model = false
 +checkout_src_internal = false
 +cros_boards = ""
 +cros_boards_with_qemu_images = ""
@@ -46,17 +46,17 @@ diff --git a/build/util/LASTCHANGE b/build/util/LASTCHANGE
 --- a/build/util/LASTCHANGE
 +++ b/build/util/LASTCHANGE
 @@ -0,0 +1,2 @@
-+LASTCHANGE=fb29c8ed87323e1dd02b71f2d4cffbb5a818b49d-refs/branch-heads/5735@{#1397}
-+LASTCHANGE_YEAR=2023
++LASTCHANGE=2e81dea53f5ecdc1c057e4c70ecd66151987296a-refs/branch-heads/6478@{#1777}
++LASTCHANGE_YEAR=2024
 diff --git a/build/util/LASTCHANGE.committime b/build/util/LASTCHANGE.committime
 --- a/build/util/LASTCHANGE.committime
 +++ b/build/util/LASTCHANGE.committime
 @@ -0,0 +1 @@
-+1687565614
++1721069367
 \ No newline at end of file
 diff --git a/gpu/webgpu/DAWN_VERSION b/gpu/webgpu/DAWN_VERSION
 --- a/gpu/webgpu/DAWN_VERSION
 +++ b/gpu/webgpu/DAWN_VERSION
 @@ -0,0 +1 @@
-+86628784160b0644a7ffebd1c647e18e2314485c
++13586d84cb6038b38bf769db815e59d3d152d474
 \ No newline at end of file

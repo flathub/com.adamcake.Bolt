@@ -4,7 +4,15 @@ runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk21
+  - org.freedesktop.Sdk.Extension.node22
 command: bolt
+build-options:
+  cflags: -O3
+  cflags-override: true
+  cppflags: -O3
+  cppflags-override: true
+  cxxflags: -O3
+  cxxflags-override: true
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -17,6 +25,9 @@ finish-args:
   - --filesystem=xdg-data/icons:create
   - --filesystem=xdg-run/app/com.discordapp.Discord
   - --filesystem=xdg-run/discord-ipc-0
+cleanup:
+  - /cef
+  - /usr/lib/sdk/node22
 modules:
   - name: krb5
     buildsystem: simple
@@ -65,30 +76,103 @@ modules:
         url: https://github.com/GNOME/libnotify.git
         tag: 0.8.3
         commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
+  - name: chromium
+    buildsystem: simple
+    build-commands:
+      - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
+      - cmake --build llvm19/build -j $FLATPAK_BUILDER_N_JOBS
+      - cmake --install llvm19/build --prefix llvm19/install
+      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
+      - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
+      - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
+      - ./ungoogled-chromium/utils/prune_binaries.py . ungoogled-chromium/pruning.list
+      - ./ungoogled-chromium/utils/patches.py apply . ungoogled-chromium/patches
+      - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
+    build-options:
+      env:
+        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0 clang_base_path=/base/llvm19/build clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_oop_printing=false enable_print_preview=true enable_printing=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=false exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding=Chrome forbid_non_component_debug_builds=false google_api_key= google_default_client_id= google_default_client_secret= icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0 target_cpu=x64 treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=true use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=false use_system_libffi=false use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
+    sources:
+      - type: git
+        url: https://github.com/chromium/chromium.git
+        tag: 126.0.6478.183
+        commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
+      - type: git
+        url: https://github.com/chromiumembedded/cef.git
+        commit: a5d51ba9db7ee74a523dc247bd09ec91ba4d7446
+        dest: cef
+      - type: git
+        url: dc18c542a2697ff352acaee10912724fc93c62f7
+        commit: ed1abc107815210dc66ec439542bee2f6cbabc00
+        dest: gn
+      - type: git
+        url: https://github.com/llvm/llvm-project.git
+        tag: llvmorg-19.1.7
+        commit: cd708029e0b2869e80abe31ddb175f7c35361f90
+        dest: llvm19
+      - type: git
+        url: https://github.com/ungoogled-software/ungoogled-chromium.git
+        tag: 126.0.6478.182-1
+        commit: c407d7c81e38f80458997d26a164e968baa52e2e
+        dest: ungoogled-chromium
+      - type: patch
+        path: patch/chromium-remove-test-fonts.patch
+      - type: patch
+        path: patch/chromium-use-system-node.patch
+      - type: patch
+        path: patch/gn-fix-building-in-flathub.patch
+      - type: patch
+        path: patch/cef-fix-building-in-flathub.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-arm64-requires-sysroots.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/cef-fix-doesn-t-detect-aarch64.patch
+        options:
+          - --directory=cef
+      - type: patch
+        path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
+        options:
+          - --directory=ungoogled-chromium
+      - type: patch
+        path: patch/ungoogled-chromium-adjust-for-cef.patch
+        options:
+          - --directory=ungoogled-chromium
+      - type: patch
+        paths:
+          - org.chromium.Chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
+          - org.chromium.Chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
+          - org.chromium.Chromium/patches/chromium/x11-Set-_NET_WM_BYPASS_COMPOSITOR-for-fullscreen.patch
+          - org.chromium.Chromium/patches/chromium/memory-Enable-the-tab-discards-feature.patch
+          - org.chromium.Chromium/patches/chromium/Enable-accelerated-mjpeg-decode-on-Linux.patch
+          - org.chromium.Chromium/patches/chromium/ffmpeg-Don-t-lie-about-AAC-and-H264-decoders-when-not-avai.patch
+          - org.chromium.Chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
+          - org.chromium.Chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
+          - org.chromium.Chromium/patches/chromium/Enable-new-dtags-on-non-component-builds.patch
+          - org.chromium.Chromium/patches/chromium/Add-support-for-respecting-system-proxy-settings-when-runn.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Disable-hwasan.patch
+          - org.chromium.Chromium/patches/chromium/clang-build-script-Support-disabling-the-bundled-libxml2.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
+          - org.chromium.Chromium/patches/chromium/Clang-build-script-add-support-for-building-a-subset-of-ta.patch
+      - third-party-node-modules.yaml
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCEF_ROOT=/app/cef/dist
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
       - -DBOLT_SHAREDIR=/app/share
       - -DBOLT_SKIP_LIBRARIES=1
     sources:
-      - type: archive
-        only-arches:
-          - "x86_64"
-        dest: cef/dist
-        url: https://adamcake.com/cef/cef-114.0.5735.201-linux-x86_64-minimal-ungoogled-flatpak.tar.gz
-        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
-      - type: archive
-        only-arches:
-          - "aarch64"
-        dest: cef/dist
-        url: https://adamcake.com/cef/cef-114.0.5735.201-linux-aarch64-minimal-ungoogled-flatpak.tar.gz
-        sha256: 8848387578784a1e2ead757e8a3b194d26bf5fd1f11bcbd3759cef16ec429ec7
       - type: patch
-        dest: cef/dist
-        path: cef-no-fortify.patch
+        path: patch/cef-no-fortify.patch
+        dest: /app/cef/dist
       - type: git
         url: https://github.com/Adamcake/Bolt.git
         tag: 0.10.0

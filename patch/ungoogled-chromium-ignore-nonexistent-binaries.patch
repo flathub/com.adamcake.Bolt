@@ -1,7 +1,7 @@
 diff --git a/utils/prune_binaries.py b/utils/prune_binaries.py
 --- a/utils/prune_binaries.py
 +++ b/utils/prune_binaries.py
-@@ -105,10 +105,9 @@ def _callback(args):
+@@ -113,10 +113,9 @@ def _callback(args):
      prune_list = tuple(filter(len, args.pruning_list.read_text(encoding=ENCODING).splitlines()))
      unremovable_files = prune_files(args.directory, prune_list)
      if unremovable_files:

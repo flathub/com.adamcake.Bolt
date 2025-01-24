@@ -13,7 +13,7 @@ diff --git a/third_party/node/node.py b/third_party/node/node.py
 -    'Windows': ('win', 'node.exe'),
 -  }[platform.system()])
 -
-+  return '/usr/lib/sdk/node18/bin/node'
++  return '/usr/lib/sdk/node22/bin/node'
  
  def RunNode(cmd_parts, stdout=None):
    cmd = [GetBinaryPath()] + cmd_parts
@@ -32,7 +32,7 @@ diff --git a/third_party/devtools-frontend/src/scripts/devtools_paths.py b/third
 -        sys.path = old_sys_path
 -    return node.GetBinaryPath()
 -
-+    return '/usr/lib/sdk/node18/bin/node'
++    return '/usr/lib/sdk/node22/bin/node'
  
  def devtools_root_path():
      return path.dirname((path.dirname(path.abspath(__file__))))
