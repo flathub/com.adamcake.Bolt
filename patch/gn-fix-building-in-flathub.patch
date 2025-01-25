@@ -12,10 +12,10 @@
 diff --git a/gn/build/gen.py b/gn/build/gen.py
 --- a/gn/build/gen.py
 +++ b/gn/build/gen.py
-@@ -226,10 +226,8 @@ def main(argv):
+@@ -242,10 +242,7 @@ def main(argv):
  
  def GenerateLastCommitPosition(host, header):
-   ROOT_TAG = 'initial-commit'
+-  ROOT_TAG = 'initial-commit'
 -  describe_output = subprocess.check_output(
 -      ['git', 'describe', 'HEAD', '--abbrev=12', '--match', ROOT_TAG],
 -      shell=host.is_windows(), cwd=REPO_ROOT)
