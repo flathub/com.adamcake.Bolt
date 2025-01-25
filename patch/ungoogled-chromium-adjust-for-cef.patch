@@ -118,19 +118,3 @@ index 440efaa2..b579ba90 100644
  +      !base::CommandLine::ForCurrentProcess()->HasSwitch("hide-sidepanel-button")) {
       if (companion::IsCompanionFeatureEnabled()) {
         side_panel_container_ = container_view_->AddChildView(
-diff --git a/utils/prune_binaries.py b/utils/prune_binaries.py
-index 7fae643f..0cf4b080 100755
---- a/utils/prune_binaries.py
-+++ b/utils/prune_binaries.py
-@@ -113,10 +113,9 @@ def _callback(args):
-     prune_list = tuple(filter(len, args.pruning_list.read_text(encoding=ENCODING).splitlines()))
-     unremovable_files = prune_files(args.directory, prune_list)
-     if unremovable_files:
--        get_logger().error('%d files could not be pruned.', len(unremovable_files))
-+        get_logger().debug('%d files could not be pruned.', len(unremovable_files))
-         get_logger().debug('Files could not be pruned:\n%s',
-                            '\n'.join(f for f in unremovable_files))
--        sys.exit(1)
- 
- 
- def main():
