@@ -81,9 +81,9 @@ modules:
     build-commands:
       - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node < third_party/node/patches/lit_html.patch
       - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node < third_party/node/patches/typescript.patch
-      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/chai < third_party/node/patches/chai.patch
-      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/@types/d3 < third_party/node/patches/chromium_d3_types_index.patch
-      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/html-minifier < third_party/node/patches/html_minifier.patch
+      - patch -d --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/chai/ < third_party/node/patches/chai.patch
+      - patch -d --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/@types/d3/ < third_party/node/patches/chromium_d3_types_index.patch
+      - patch -d --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/html-minifier/ < third_party/node/patches/html_minifier.patch
       - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
       - cmake --build llvm19/build -j $FLATPAK_BUILDER_N_JOBS
       - cmake --install llvm19/build --prefix llvm19/install
@@ -130,6 +130,14 @@ modules:
         strip-components: 0
         only-arches:
           - "x86_64"
+      - type: archive
+        url: https://registry.npmjs.org/chai/-/chai-4.2.0.tgz
+        sha256: 56947bbb83f2cc755d01071502024088747b609a8f338632ee27649a171cba0a
+        dest: third_party/node/node_modules/chai
+      - type: archive
+        url: https://registry.npmjs.org/mocha/-/mocha-10.0.0.tgz
+        sha256: 91c4b9e3d052d73b7cdf297d296e698e8db1137724dd4391cdc5b93ad543283f
+        dest: third_party/node/node_modules/mocha
       - third-party-node-modules.yaml
       - chromium-submodules.yaml
       - type: patch
