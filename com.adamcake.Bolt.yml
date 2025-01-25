@@ -131,6 +131,8 @@ modules:
       - type: patch
         path: patch/chromium-use-system-node.patch
       - type: patch
+        path: patch/chromium-dont-update-rust.patch
+      - type: patch
         path: patch/gn-fix-building-in-flathub.patch
       - type: patch
         path: patch/cef-fix-building-in-flathub.patch

@@ -1,0 +1,16 @@
+diff --git a/build/config/rust.gni b/build/config/rust.gni
+index e99d7d08e1c1b..b2bc4d72019c4 100644
+--- a/build/config/rust.gni
++++ b/build/config/rust.gni
+@@ -140,10 +140,7 @@ if (enable_rust) {
+   if (use_chromium_rust_toolchain) {
+     toolchain_has_rust = chromium_toolchain_supports_platform
+     if (toolchain_has_rust) {
+-      update_rust_args = [ "--print-package-version" ]
+-      rustc_revision = exec_script("//tools/rust/update_rust.py",
+-                                   update_rust_args,
+-                                   "trim string")
++      rustc_revision = "31e6e8c6c5b6ce62656c922c7384d3376018c980-2-llvmorg-19-init-9433-g76ea5feb"
+     }
+ 
+     # The same as written in `config.toml.template`.
