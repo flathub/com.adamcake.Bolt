@@ -134,6 +134,10 @@ modules:
       - type: patch
         path: patch/chromium-dont-update-rust.patch
       - type: patch
+        path: patch/blink-fix-clang-template-warning.patch
+      - type: patch
+        path: patch/perfetto-fix-clang-template-warning.patch
+      - type: patch
         path: patch/gn-fix-building-in-flathub.patch
       - type: patch
         path: patch/cef-fix-building-in-flathub.patch
