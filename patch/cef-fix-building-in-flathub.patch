@@ -12,6 +12,28 @@ index 06294175c..fe017b1cd 100644
  if (is_mac || is_win) {
    # Enable Widevine CDM host verification and storage ID.
    assert(enable_cdm_host_verification)
+diff --git a/patch/patches/chrome_browser_policy.patch b/patch/patches/chrome_browser_policy.patch
+index e2c0636a9..70dcf6481 100644
+--- a/patch/patches/chrome_browser_policy.patch
++++ b/patch/patches/chrome_browser_policy.patch
+@@ -360,7 +360,7 @@ diff --git chrome/common/chrome_paths.cc chrome/common/chrome_paths.cc
+ index 3c569bc610124..4f438a3d1f857 100644
+ --- chrome/common/chrome_paths.cc
+ +++ chrome/common/chrome_paths.cc
+-@@ -541,7 +541,8 @@ bool PathProvider(int key, base::FilePath* result) {
++@@ -541,5 +541,6 @@ bool PathProvider(int key, base::FilePath* result) {
+          return false;
+        }
+        break;
+@@ -368,8 +368,6 @@ index 3c569bc610124..4f438a3d1f857 100644
+ +#if BUILDFLAG(IS_POSIX) && !BUILDFLAG(IS_MAC) && !BUILDFLAG(IS_OPENBSD) && \
+ +    !BUILDFLAG(ENABLE_CEF)
+      case chrome::DIR_POLICY_FILES: {
+-       cur = base::FilePath(policy::kPolicyPath);
+-       break;
+ diff --git chrome/common/chrome_paths.h chrome/common/chrome_paths.h
+ index 13abfd26b92b3..acb4d58f02650 100644
+ --- chrome/common/chrome_paths.h
 diff --git a/tools/gclient_hook.py b/tools/gclient_hook.py
 index 85d59f1fe..c28592ad8 100644
 --- a/tools/gclient_hook.py
