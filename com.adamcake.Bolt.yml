@@ -118,6 +118,12 @@ modules:
         tag: 126.0.6478.182-1
         commit: c407d7c81e38f80458997d26a164e968baa52e2e
         dest: ungoogled-chromium
+      - type: archive
+        url: https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-31e6e8c6c5b6ce62656c922c7384d3376018c980-2-llvmorg-19-init-9433-g76ea5feb.tar.xz
+        sha256: 1600c2ec6a8121449ef2c5dd30f1f14330fe4ea769cf7feea2553041da41e952
+        dest: third_party/rust-toolchain
+        only-arches:
+          - "x86_64"
       - third-party-node-modules.yaml
       - chromium-submodules.yaml
       - type: patch
