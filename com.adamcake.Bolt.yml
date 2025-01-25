@@ -89,7 +89,7 @@ modules:
       - ./ungoogled-chromium/utils/prune_binaries.py . ungoogled-chromium/pruning.list
       - ./ungoogled-chromium/utils/patches.py apply . ungoogled-chromium/patches
       - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -k 0 -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox || /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
       - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
     build-options:
       env:
