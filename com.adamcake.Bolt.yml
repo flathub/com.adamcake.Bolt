@@ -79,11 +79,11 @@ modules:
   - name: chromium
     buildsystem: simple
     build-commands:
-      - patch -p1 --directory=third_party/node < third_party/node/patches/chai.patch
-      - patch -p1 --directory=third_party/node < third_party/node/patches/lit_html.patch
-      - patch -p1 --directory=third_party/node < third_party/node/patches/typescript.patch
-      - patch -p1 --directory=third_party/node/node_modules/@types/d3 < third_party/node/patches/chromium_d3_types_index.patch
-      - patch -p1 --directory=third_party/node/node_modules/html-minifier < third_party/node/patches/html_minifier.patch
+      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node < third_party/node/patches/lit_html.patch
+      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node < third_party/node/patches/typescript.patch
+      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/chai < third_party/node/patches/chai.patch
+      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/@types/d3 < third_party/node/patches/chromium_d3_types_index.patch
+      - patch -p1 --directory=$FLATPAK_BUILDER_BUILDDIR/third_party/node/node_modules/html-minifier < third_party/node/patches/html_minifier.patch
       - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
       - cmake --build llvm19/build -j $FLATPAK_BUILDER_N_JOBS
       - cmake --install llvm19/build --prefix llvm19/install
