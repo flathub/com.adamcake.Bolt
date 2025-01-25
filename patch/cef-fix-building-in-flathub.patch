@@ -1,8 +1,9 @@
 diff --git a/BUILD.gn b/BUILD.gn
+index 06294175c..fe017b1cd 100644
 --- a/BUILD.gn
 +++ b/BUILD.gn
 @@ -255,9 +255,6 @@ if (is_linux) {
- assert(enable_basic_printing)
+ # Enable support for Print Preview.
  assert(enable_print_preview)
  
 -# Enable support for Widevine CDM.
@@ -12,12 +13,13 @@ diff --git a/BUILD.gn b/BUILD.gn
    # Enable Widevine CDM host verification and storage ID.
    assert(enable_cdm_host_verification)
 diff --git a/tools/gclient_hook.py b/tools/gclient_hook.py
+index 85d59f1fe..c28592ad8 100644
 --- a/tools/gclient_hook.py
 +++ b/tools/gclient_hook.py
 @@ -6,17 +6,20 @@
  from __future__ import absolute_import
  from __future__ import print_function
- from file_util import make_dir, write_file
+ from file_util import make_dir, write_file_if_changed
 -from gclient_util import *
  from gn_args import GetAllPlatformConfigs, GetConfigFileContents
  import issue_1999
@@ -37,7 +39,7 @@ diff --git a/tools/gclient_hook.py b/tools/gclient_hook.py
  if sys.platform == 'win32':
    platform = 'windows'
 @@ -143,7 +146,8 @@ for dir, config in configs.items():
-   write_file(args_gn_path, args_gn_contents)
+   write_file_if_changed(args_gn_path, args_gn_contents)
  
    # Generate the Ninja config.
 -  cmd = ['gn', 'gen', os.path.join('out', dir)]
@@ -47,18 +49,19 @@ diff --git a/tools/gclient_hook.py b/tools/gclient_hook.py
      cmd.extend(os.environ['GN_ARGUMENTS'].split(' '))
    RunAction(src_dir, cmd)
 diff --git a/tools/gn_args.py b/tools/gn_args.py
+index 6bea1f0c4..674648d4e 100644
 --- a/tools/gn_args.py
 +++ b/tools/gn_args.py
-@@ -291,8 +291,6 @@ def GetRequiredArgs():
-       # ENABLE_SERVICE_DISCOVERY=0 for print preview support
-       'enable_print_preview': True,
+@@ -278,8 +278,6 @@ def GetRequiredArgs():
+   """
+   result = {
        'optimize_webui': True,
 -      # Enable support for Widevine CDM.
 -      'enable_widevine': True,
  
        # Don't use the chrome style plugin.
        'clang_use_chrome_plugins': False,
-@@ -568,60 +566,16 @@ def GetAllPlatformConfigs(build_args):
+@@ -600,73 +598,16 @@ def GetAllPlatformConfigs(build_args):
    """
    Return a map of directory name to GN args for the current platform.
    """
@@ -97,16 +100,16 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
 -      supported_cpus.append('arm64')
 +  machine = python_platform.machine()
 +  if machine == 'x86_64':
-+     cpu = 'x64'
++    cpu = 'x64'
 +  elif machine == 'arm':
-+     cpu = 'arm'
++    cpu = 'arm'
 +  elif machine == 'aarch64':
-+     cpu = 'arm64'
++    cpu = 'arm64'
    else:
 -    raise Exception('Unsupported platform')
 -
 -  if len(supported_cpus) == 0:
--    raise Exception('No supported architectures')
+     raise Exception('No supported architectures')
 -
 -  for cpu in supported_cpus:
 -    if create_debug:
@@ -122,15 +125,29 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
 -      result['Release_GN_' + cpu + '_sandbox'] = GetConfigArgsSandbox(
 -          platform, args, False, cpu)
 -
+-  out_configs = os.environ.get('GN_OUT_CONFIGS', None)
+-  if not out_configs is None:
+-    # Only generate the specified configurations.
+-    out_configs = [c.strip() for c in out_configs.split(',')]
+-    for key in list(result.keys()):
+-      if not key in out_configs:
+-        msg('Not generating %s configuration due to GN_OUT_CONFIGS' % key)
+-        del result[key]
+-    if not bool(result):
+-      raise Exception('No supported configurations in GN_OUT_CONFIGS ("%s")' %
+-                      ','.join(out_configs))
+-
 -  return result
-+     raise Exception('No supported architectures')
+-
 +  return {'Release_GN': GetConfigArgs(GetMergedArgs(build_args), False, cpu)}
  
- 
  def GetConfigFileContents(args):
+   """
+diff --git a/tools/make_distrib.py b/tools/make_distrib.py
+index bc8f13348..817556e53 100644
 --- a/tools/make_distrib.py
 +++ b/tools/make_distrib.py
-@@ -639,36 +639,17 @@ else:
+@@ -772,39 +772,19 @@ else:
    binary_arch = 'x86'
  
  # output directory
@@ -159,6 +176,9 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
  elif options.sandbox:
    mode = 'sandbox'
 -  output_dir_name = output_dir_name + '_sandbox'
+ elif options.tools:
+   mode = 'tools'
+-  output_dir_name = output_dir_name + '_tools'
  else:
    mode = 'standard'
  
@@ -168,7 +188,7 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
  output_dir = create_output_dir(output_dir_name, options.outputdir)
  
  # create the README.TXT file
-@@ -687,14 +687,7 @@ cef_paths2 = cef_paths2['variables']
+@@ -823,14 +803,7 @@ cef_paths2 = cef_paths2['variables']
  
  # Determine the build directory suffix. CEF uses a consistent directory naming
  # scheme for GN via GetAllPlatformConfigs in gn_args.py.
@@ -184,4 +204,3 @@ diff --git a/tools/gn_args.py b/tools/gn_args.py
  
  # Determine the build directory paths.
  out_dir = os.path.join(src_dir, 'out')
- 
