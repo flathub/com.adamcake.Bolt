@@ -1,0 +1,44 @@
+diff --git a/libcef/browser/prefs/browser_prefs.cc b/libcef/browser/prefs/browser_prefs.cc
+index 37db04079..c047123f9 100644
+--- a/libcef/browser/prefs/browser_prefs.cc
++++ b/libcef/browser/prefs/browser_prefs.cc
+@@ -62,7 +62,6 @@
+ #include "components/privacy_sandbox/privacy_sandbox_prefs.h"
+ #include "components/proxy_config/pref_proxy_config_tracker_impl.h"
+ #include "components/proxy_config/proxy_config_dictionary.h"
+-#include "components/safe_browsing/core/common/safe_browsing_prefs.h"
+ #include "components/safe_search_api/safe_search_util.h"
+ #include "components/spellcheck/browser/pref_names.h"
+ #include "components/supervised_user/core/browser/supervised_user_pref_store.h"
+@@ -274,7 +273,6 @@ std::unique_ptr<PrefService> CreatePrefService(Profile* profile,
+     ProfileNetworkContextService::RegisterProfilePrefs(registry.get());
+     QuietNotificationPermissionUiState::RegisterProfilePrefs(registry.get());
+     RegisterBrowserViewProfilePrefs(registry.get());
+-    safe_browsing::RegisterProfilePrefs(registry.get());
+     unified_consent::UnifiedConsentService::RegisterPrefs(registry.get());
+ 
+     const std::string& locale =
+--- a/libcef/browser/alloy/chrome_browser_process_alloy.h
++++ b/libcef/browser/alloy/chrome_browser_process_alloy.h
+@@ -89,7 +89,6 @@ class ChromeBrowserProcessAlloy : public BrowserProcess {
+       std::unique_ptr<BackgroundModeManager> manager) override;
+ #endif
+   StatusTray* status_tray() override;
+-  safe_browsing::SafeBrowsingService* safe_browsing_service() override;
+   subresource_filter::RulesetService* subresource_filter_ruleset_service()
+       override;
+   subresource_filter::RulesetService*
+--- a/libcef/browser/alloy/chrome_browser_process_alloy.cc
++++ b/libcef/browser/alloy/chrome_browser_process_alloy.cc
+@@ -359,11 +359,6 @@ StatusTray* ChromeBrowserProcessAlloy::status_tray() {
+   return nullptr;
+ }
+ 
+-safe_browsing::SafeBrowsingService*
+-ChromeBrowserProcessAlloy::safe_browsing_service() {
+-  return nullptr;
+-}
+-
+ subresource_filter::RulesetService*
+ ChromeBrowserProcessAlloy::subresource_filter_ruleset_service() {
+   DCHECK(false);
