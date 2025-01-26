@@ -169,6 +169,10 @@ modules:
         options:
           - --directory=cef
       - type: patch
+        path: patch/cef-no-fortify.patch
+        options:
+          - --directory=cef
+      - type: patch
         path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
         options:
           - --directory=ungoogled-chromium
@@ -202,9 +206,6 @@ modules:
       - -DBOLT_SHAREDIR=/app/share
       - -DBOLT_SKIP_LIBRARIES=1
     sources:
-      - type: patch
-        path: patch/cef-no-fortify.patch
-        dest: /app/cef/dist
       - type: git
         url: https://github.com/Adamcake/Bolt.git
         tag: 0.10.0
