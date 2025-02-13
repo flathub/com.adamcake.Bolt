@@ -76,6 +76,13 @@ modules:
         url: https://github.com/GNOME/libnotify.git
         tag: 0.8.3
         commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
+  - name: luajit
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: https://github.com/LuaJIT/LuaJIT.git
+        tag: v2.1.ROLLING
+        commit: 2090842410e0ba6f81fad310a77bf5432488249a
   - name: chromium
     buildsystem: simple
     build-commands:
@@ -204,7 +211,7 @@ modules:
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
       - -DBOLT_SHAREDIR=/app/share
-      - -DBOLT_SKIP_LIBRARIES=1
+      - -DBOLT_LUAJIT_INCLUDE_DIR=/usr/include/luajit-2.1
     sources:
       - type: git
         url: https://github.com/Adamcake/Bolt.git
