@@ -77,7 +77,10 @@ modules:
         tag: 0.8.3
         commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
   - name: luajit
-    buildsystem: autotools
+    buildsystem: simple
+    build-commands:
+      - make -j $FLATPAK_BUILDER_N_JOBS
+      - make install
     sources:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT.git
