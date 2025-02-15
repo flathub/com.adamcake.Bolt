@@ -213,7 +213,8 @@ modules:
       - -DCEF_ROOT=/app/cef/dist
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
-      - -DBOLT_SHAREDIR=/app/share
+      - -DBOLT_LIBDIR=lib
+      - -DBOLT_SHAREDIR=share
       - -DBOLT_LUAJIT_INCLUDE_DIR=/app/include/luajit-2.1
     sources:
       - type: git
