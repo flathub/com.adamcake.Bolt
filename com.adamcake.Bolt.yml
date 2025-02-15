@@ -80,7 +80,7 @@ modules:
     buildsystem: simple
     build-commands:
       - make -j $FLATPAK_BUILDER_N_JOBS
-      - make PREFIX=/app/usr install
+      - make PREFIX=/app install
     sources:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT.git
@@ -214,7 +214,7 @@ modules:
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
       - -DBOLT_SHAREDIR=/app/share
-      - -DBOLT_LUAJIT_INCLUDE_DIR=/app/usr/include/luajit-2.1
+      - -DBOLT_LUAJIT_INCLUDE_DIR=/app/include/luajit-2.1
     sources:
       - type: git
         url: https://github.com/Adamcake/Bolt.git
