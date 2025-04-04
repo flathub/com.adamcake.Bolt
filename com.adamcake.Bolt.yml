@@ -16,16 +16,11 @@ build-options:
 finish-args:
   - --env=JAVA_HOME=/app/jre
   # pressure vessel
-  - --allow=per-app-dev-shm
   - --device=all
   - --env=PATH=/app/bin:/app/utils/bin:/usr/bin:/usr/lib/extensions/vulkan/MangoHud/bin:/usr/lib/extensions/vulkan/gamescope/bin:/usr/lib/extensions/vulkan/OBSVkCapture/bin:/app/bin/heroic/resources/app.asar.unpacked/build/bin/linux
   - --env=LD_LIBRARY_PATH=/usr/lib/extensions/vulkan/gamescope/lib
-  - --filesystem=~/.steam/steam:rw
-  - --filesystem=~/.local/share/applications:rw
-  - --filesystem=~/.steam:rw
-  - --filesystem=~/.var/app/com.valvesoftware.Steam:rw
-  - --filesystem=xdg-documents
-  - --filesystem=xdg-desktop
+  - --persist=Games
+  - --persist=.local
   - --filesystem=xdg-run/gamescope-0:rw
   # See: https://github.com/flathub/com.valvesoftware.Steam/commit/0538256facdb0837c33232bc65a9195a8a5bc750
   - --env=XDG_DATA_DIRS=/app/share:/usr/lib/extensions/vulkan/share:/usr/share:/usr/share/runtime/share:/run/host/user-share:/run/host/share:/usr/lib/pressure-vessel/overrides/share
@@ -42,7 +37,6 @@ finish-args:
   - --filesystem=xdg-data/icons:create
   - --filesystem=xdg-run/app/com.discordapp.Discord
   - --filesystem=xdg-run/discord-ipc-0
-  - --persist=.
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk21
   - org.freedesktop.Sdk.Extension.node22
@@ -91,13 +85,6 @@ add-extensions:
     download-if: have-intel-gpu
     autoprune-unless: have-intel-gpu
 
-  com.valvesoftware.Steam.CompatibilityTool:
-    subdirectories: true
-    directory: share/steam/compatibilitytools.d
-    version: stable
-    versions: stable;beta;test
-    no-autodownload: true
-    autodelete: true
 cleanup:
   - /cef
   - /usr/lib/sdk/node22
