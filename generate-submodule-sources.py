@@ -4,7 +4,7 @@ import os
 import sys
 import subprocess
 
-def parse_gitmodules(root, root_commit, relroot = None, out = None):
+def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_lookup={}):
     if not out:
         out = []
     
@@ -44,6 +44,22 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None):
     f.close()
     return out
 
+
+def parse_module_target_hashes(root):
+    # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
+    result = subprocess.run(["git", "-C", root, "ls-tree", "-r", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    tree = result.stdout.decode("utf-8").strip()
+    tree = tree.split("\n")
+
+    target_hashes = {}
+    for item in tree:
+        info, path = item.split("\t")
+        mode, obj_type, obj_hash = info.split(" ")
+        if obj_type == "commit":
+            target_hashes[path] = obj_hash
+    
+    return target_hashes
+
 argc = len(sys.argv)
 gitmodules_filename = ".gitmodules"
 
@@ -53,8 +69,10 @@ if __name__ == "__main__" and argc > 0:
         exit(1)
 
     root = sys.argv[1]
+    target_hashes = parse_module_target_hashes(root)
     result = subprocess.run(["git", "-C", root, "rev-parse", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
-    modules = parse_gitmodules(root, result.stdout.decode("utf-8").strip())
+    roothash = result.stdout.decode("utf-8").strip()
+    modules = parse_gitmodules(root, roothash, target_hash_lookup=target_hashes)#, relroot="chromium_git/chromium/src")
     
     f = open("chromium-submodules.yaml", "w")
     for module in modules:
