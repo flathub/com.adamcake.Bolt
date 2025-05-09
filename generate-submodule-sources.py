@@ -27,10 +27,10 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
             result = subprocess.run(["git", "-C", nextroot, "rev-parse", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
             # nonzero exit code probably means the directory doesn't exist at all
             if result.returncode == 0:
-                commit = result.stdout.decode("utf-8").strip()
+                commit = target_hash_lookup.get(dest)
                 # if the directory exists, but rev-parse returned the same hash as it did on the level above,
                 # that means the directory isn't a git repo in itself, so we should ignore it
-                if commit != root_commit:
+                if commit:
                     if relroot:
                         module["dest"] = os.path.join(relroot, dest)
                     else:
