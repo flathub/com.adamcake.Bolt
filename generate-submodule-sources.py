@@ -68,6 +68,7 @@ def parse_module_target_hashes(root):
 
 argc = len(sys.argv)
 gitmodules_filename = ".gitmodules"
+submodule_yaml_filename = "chromium-submodules.yaml"
 
 if __name__ == "__main__" and argc > 0:
     if argc != 2:
@@ -80,7 +81,7 @@ if __name__ == "__main__" and argc > 0:
     roothash = result.stdout.decode("utf-8").strip()
     modules = parse_gitmodules(root, roothash, target_hash_lookup=target_hashes)#, relroot="chromium_git/chromium/src")
     
-    f = open("chromium-submodules.yaml", "w")
+    f = open(submodule_yaml_filename, "w")
     for module in modules:
         f.writelines([
             "- type: git\n",
