@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import yaml
 
 def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_lookup={}):
     if not out:
@@ -44,6 +45,11 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
     f.close()
     return out
 
+
+
+def get_existing_modules():
+    with open(submodule_yaml_filename, 'r') as file:
+        return yaml.safe_load(file)
 
 def parse_module_target_hashes(root):
     # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
