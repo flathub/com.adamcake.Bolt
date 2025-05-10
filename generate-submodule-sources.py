@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 import yaml
+from pathlib import Path
 
 def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_lookup={}):
     if not out:
@@ -46,8 +47,21 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
     return out
 
 
+def update_gitmodules(previous_modules, fresh_modules, target_hash_lookup):
+    previous_by_url = {item['url']:item for item in previous_modules}
+    fresh_by_url = {item['url']:item for item in fresh_modules}
+
+    for module in fresh_modules:
+        previous_module = previous_by_url.get(module["url"])
+        if previous_module is None:
+            continue
+        previous_module["commit"] = target_hash_lookup[module["dest"]]
+    return previous_modules
 
 def get_existing_modules():
+    sm_file = Path(submodule_yaml_filename)
+    if not sm_file.exists():
+        return None
     with open(submodule_yaml_filename, 'r') as file:
         return yaml.safe_load(file)
 
@@ -79,7 +93,18 @@ if __name__ == "__main__" and argc > 0:
     target_hashes = parse_module_target_hashes(root)
     result = subprocess.run(["git", "-C", root, "rev-parse", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     roothash = result.stdout.decode("utf-8").strip()
-    modules = parse_gitmodules(root, roothash, target_hash_lookup=target_hashes)#, relroot="chromium_git/chromium/src")
+    modules = []
+
+    # calculate (but dont store) a new set of modules based on the .gitmodules file regardless of if one exists
+    # this is helpful for getting the raw paths from the repo for each submodule
+    fresh_modules = parse_gitmodules(root, roothash, target_hash_lookup=target_hashes)
+    
+    existing_modules = get_existing_modules()
+
+    if existing_modules is not None:
+        modules = update_gitmodules(existing_modules, fresh_modules, target_hashes)
+    else:
+        modules = fresh_modules
     
     f = open(submodule_yaml_filename, "w")
     for module in modules:
