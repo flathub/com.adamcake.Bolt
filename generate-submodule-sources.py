@@ -52,7 +52,7 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
 def update_gitmodules(previous_modules, fresh_modules, target_hash_lookup):
     previous_by_url = {item['url']:item for item in previous_modules}
     fresh_by_url = {item['url']:item for item in fresh_modules}
-    all_urls = set(previous_by_url.keys()).intersection(set(fresh_by_url.keys()))
+    all_urls = set(previous_by_url.keys()).union(set(fresh_by_url.keys()))
     all_urls = sorted(list(all_urls))
 
     module_list = []
