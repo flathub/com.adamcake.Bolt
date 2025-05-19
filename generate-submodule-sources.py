@@ -116,7 +116,7 @@ if __name__ == "__main__" and argc > 0:
     fresh_modules = parse_gitmodules(root, roothash, target_hash_lookup=target_hashes)
 
     # filter out any with gclient-condition, which often designates them as internal.
-    fresh_modules = list(filter(lambda m: "internal" not in m.get("gclient-condition", "") , fresh_modules))
+    fresh_modules = list(filter(lambda m: "internal" not in m.get("gclient-condition", "") and "chrome-internal" not in m.get("url"), fresh_modules))
     
     existing_modules = get_existing_modules()
 
