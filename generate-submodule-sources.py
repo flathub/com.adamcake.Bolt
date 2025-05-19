@@ -42,6 +42,8 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
                     parse_gitmodules(nextroot, commit, dest, out)
         elif line.startswith("url = "):
             module["url"] = line[6:]
+        elif line.startswith("gclient-condition"):
+            module["gclient-condition"] = line[20:] 
 
     f.close()
     return out
