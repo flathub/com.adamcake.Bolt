@@ -52,13 +52,27 @@ def parse_gitmodules(root, root_commit, relroot = None, out = None, target_hash_
 def update_gitmodules(previous_modules, fresh_modules, target_hash_lookup):
     previous_by_url = {item['url']:item for item in previous_modules}
     fresh_by_url = {item['url']:item for item in fresh_modules}
+    all_urls = set(previous_by_url.keys()).intersection(set(fresh_by_url.keys()))
+    all_urls = sorted(list(all_urls))
 
-    for module in fresh_modules:
-        previous_module = previous_by_url.get(module["url"])
-        if previous_module is None:
+    module_list = []
+
+    for url in all_urls:
+        fresh_module = fresh_by_url.get(url)
+        previous_module = previous_by_url.get(url)
+
+        if previous_module is None and fresh_module is None:
             continue
-        previous_module["commit"] = target_hash_lookup[module["dest"]]
-    return previous_modules
+        elif previous_module is not None and fresh_module is not None:
+            #reuse values that already are present 
+            combined_module = dict(previous_module) 
+            # set the commit based on the lookup table that was pulled from the git commits
+            combined_module["commit"] = target_hash_lookup[fresh_module["dest"]]
+            module_list.append(combined_module)
+        else: # one or the other (XOR) is none
+            module_list.append(fresh_module or previous_module)
+
+    return module_list
 
 def get_existing_modules():
     sm_file = Path(submodule_yaml_filename)
