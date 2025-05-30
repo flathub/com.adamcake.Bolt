@@ -318,5 +318,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/Adamcake/Bolt.git
-        tag: 0.16.0
-        commit: e68594164045be657aecf8fede59676fc23f0fbf
+        tag: 0.17.0
+        commit: 7dab27db60563a9fc3aeb131e1cefb523ee55fb3
