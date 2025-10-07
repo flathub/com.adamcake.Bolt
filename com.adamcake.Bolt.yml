@@ -1,7 +1,7 @@
 app-id: com.adamcake.Bolt
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version "24.08"
-x-gl-version: &gl-version "1.4"
+runtime-version: &runtime-version '24.08'
+x-gl-version: &gl-version '1.4'
 x-gl-versions: &gl-versions 24.08;24.08-extra;1.4
 x-gl-merge-dirs: &gl-merge-dirs vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
 sdk: org.freedesktop.Sdk
@@ -162,21 +162,47 @@ modules:
       - patch -p1 --directory=third_party/node/node_modules/chai/ < third_party/node/patches/chai.patch
       - patch -p1 --directory=third_party/node/node_modules/@types/d3/ < third_party/node/patches/chromium_d3_types_index.patch
       - patch -p1 --directory=third_party/node/node_modules/html-minifier/ < third_party/node/patches/html_minifier.patch
-      - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
+      - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt"
+        -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
       - cmake --build llvm19/build -j $FLATPAK_BUILDER_N_JOBS
       - cmake --install llvm19/build --prefix llvm19/install
-      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
+      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header
+        skia/ext/skia_commit_hash.h
       - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
       - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++
+        AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
       - ./ungoogled-chromium/utils/prune_binaries.py . ungoogled-chromium/pruning.list
       - ./ungoogled-chromium/utils/patches.py apply . ungoogled-chromium/patches
-      - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -k 0 -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox || /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
-      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
+      - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list
+        -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
+      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++
+        AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -k 0 -C out/Release_GN
+        -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox || /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang
+        CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar
+        ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive
+        --output-dir=/app/cef
     build-options:
       env:
-        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm19/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_oop_printing=false enable_print_preview=true enable_printing=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=false exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding=Chrome forbid_non_component_debug_builds=false google_api_key= google_default_client_id= google_default_client_secret= icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0 target_cpu=x64 treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=true use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
+        GN_DEFINES: blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0
+          clang_base_path="/run/build/chromium/llvm19/install" clang_use_chrome_plugins=false
+          disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false
+          enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false
+          enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true
+          enable_nacl=false enable_oop_printing=false enable_print_preview=true enable_printing=true
+          enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false
+          enable_rlz=false enable_service_discovery=false enable_widevine=false exclude_unwind_tables=true
+          fatal_linker_warnings=false ffmpeg_branding=Chrome forbid_non_component_debug_builds=false
+          google_api_key= google_default_client_id= google_default_client_secret=
+          icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false
+          is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true
+          proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0
+          target_cpu=x64 treat_warnings_as_errors=false use_cfi_icall=false use_cups=false
+          use_custom_libcxx=true use_cxx17=false use_gold=false use_lld=true use_official_google_api_keys=false
+          use_partition_alloc_as_malloc=false use_perfetto_client_library=true use_pulseaudio=false
+          use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true
+          use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false
     sources:
       - type: git
         url: https://github.com/chromium/chromium.git
@@ -207,7 +233,7 @@ modules:
         dest: third_party/rust-toolchain
         strip-components: 0
         only-arches:
-          - "x86_64"
+          - x86_64
       - type: archive
         url: https://registry.npmjs.org/chai/-/chai-4.2.0.tgz
         sha256: 56947bbb83f2cc755d01071502024088747b609a8f338632ee27649a171cba0a
@@ -286,9 +312,9 @@ modules:
       - cp -r wine-staging/share/* /app/share/
     sources:
       - type: file
-        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.15/wine-10.15-staging-amd64.tar.xz
+        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.16/wine-10.16-staging-amd64.tar.xz
         dest-filename: wine-staging.tar.xz
-        sha256: 3c6d14a58cd67ef7250967eadb84be7d0ef5f789ebacaed424bc5f3da51293b4
+        sha256: 5dbbd6763078dad4bad862e7ed132726635e59e0db6b73ccba5b4c73ff4a097d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Kron4ek/Wine-Builds/releases/latest
