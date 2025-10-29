@@ -3,41 +3,77 @@
   sha512: d588ecd92bccf137e5111fce0f770e8e15963996f9f00dadef0a44d92f577c161388897e5c58501b66e3cb83eed48f8402508d533443603745c056142af5dc20
   dest: third_party/node/node_modules/@aashutoshrathi/word-wrap
 - type: archive
-  url: https://registry.npmjs.org/@es-joy/jsdoccomment/-/jsdoccomment-0.40.1.tgz
-  sha512: 60e4427594aeb00941ac5a59efba498dce6bd5b42ce5c68f5ad02ef965a6892a3ef17694cec79aa55adf02d89115b4169eb071c4b2c4c05e9fe991bf5200900a
+  url: https://registry.npmjs.org/@azure/msal-browser/-/msal-browser-4.2.1.tgz
+  sha512: a495fe1cd571104bf1aa3df1be714a322fd86fa8da7703963764240da823d865765d7c49837aaae73904f9ccd5c3a0a67f84225f172df89d16176dec13cbd9c8
+  dest: third_party/node/node_modules/@azure/msal-browser
+- type: archive
+  url: https://registry.npmjs.org/@azure/msal-common/-/msal-common-15.1.1.tgz
+  sha512: 6ef2d662af5f95e01c4c9e87fa17e41bdd4e9fabc8fd4846c8e07b67aaf406c6be2932f7ccfb6282618238981dc6b12494e603f3c5fd49e85ec4b0c7ff935129
+  dest: third_party/node/node_modules/@azure/msal-common
+- type: archive
+  url: https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-2.2.5.tgz
+  sha512: fe0e44cc989fc39185f1aade9fcc19fc6e6832e3e819e4ba3100f771af1d75cbdd5d1e5410b51f7536484c218d84d5f29d8fc0625dd9e29966c5d8ffb5197f85
+  dest: third_party/node/node_modules/@bufbuild/protobuf
+- type: archive
+  url: https://registry.npmjs.org/@es-joy/jsdoccomment/-/jsdoccomment-0.48.0.tgz
+  sha512: 1ba414588702f8abd2c1736c2720d31efa9474da005493cf824737f949385812aa66fa17865bdacce826f5a2f41f08a124b41fd25fad384d941735c1a82aa00f
   dest: third_party/node/node_modules/@es-joy/jsdoccomment
 - type: archive
   url: https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz
   sha512: d7fb00e1dc2bcc1032794a10ea8c5a8472a6ad9bec9cb0a0e117f15b76451869909123503c534b57d09410540fd71f446171d3a39a7ac5d85933535ef69fc07c
   dest: third_party/node/node_modules/@eslint-community/eslint-utils
 - type: archive
-  url: https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.9.0.tgz
-  sha512: cc99ae0968f654b06de1cdb909f0486cc64b18bca192fb3b2f39f2557e477e9cdea1c4e18088f95d02b82fe837537ea631cc7c6cf3211b23e9c020136a60b88d
+  url: https://registry.npmjs.org/@eslint-community/regexpp/-/regexpp-4.12.1.tgz
+  sha512: 0826420c9b9db81f4e524164636220a69359322da5050803daacf05e41226b5e9c81eda98a363f6978bde8224caae0cc9f79c97653d5d40e4aac9117c1f2cdcd
   dest: third_party/node/node_modules/@eslint-community/regexpp
 - type: archive
-  url: https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-2.1.2.tgz
-  sha512: fb0be0a43b2b07562a00c7445027274e5a5f5411fb56a9fa03f353dc3f1655714868a32512b3c8653de808801508eb5aad1a4cb5e9592ea25e537b7b598e97ea
+  url: https://registry.npmjs.org/@eslint/config-array/-/config-array-0.19.2.tgz
+  sha512: 18d2aac5f1c6db24a624e0521e0ecbc5e531e31a6e0a816369c9a50a861611b68f5cbc2f7c88e2c51235db109065e50b92c41bdb7ba203c178d30e53a23a55ef
+  dest: third_party/node/node_modules/@eslint/config-array
+- type: archive
+  url: https://registry.npmjs.org/@eslint/core/-/core-0.11.0.tgz
+  sha512: 0d6501da992c80d11be81cf67e0808cb5c21e9f1a064fe17cb2fccb744193e296828a5deadbaaaf43dd20504e509160eadc44fbb8beecfe0868f075fab19e858
+  dest: third_party/node/node_modules/@eslint/core
+- type: archive
+  url: https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-3.2.0.tgz
+  sha512: 82b3a354d37c3f7863267fde2044c5d70c1dd760dd9f0143a3271e5092d861d9296f0ab79cb8bee1faab4c038dc7b5c300baa52f6db4c02fd11d20bf41323fd3
   dest: third_party/node/node_modules/@eslint/eslintrc
 - type: archive
-  url: https://registry.npmjs.org/globals/-/globals-13.22.0.tgz
-  sha512: 1f50dd73f3db6474c35494a78fc916a6d211483e80337a4afa62b2b6e215178ba8055eebb21165861bc0e7c71e279c29dc4af9f30eb38fb6f290ca585eddc44f
-  dest: third_party/node/node_modules/@eslint/eslintrc/node_modules/globals
-- type: archive
-  url: https://registry.npmjs.org/@eslint/js/-/js-8.50.0.tgz
-  sha512: 3420b7cf3dbe9ef61df8291f87ceeb038ef37eed90b10a6f73a935cb34e4f9bf4acd18f4c2419af0b4a818e5cde99bf89517ff108a19f346e20e1f47388f9135
+  url: https://registry.npmjs.org/@eslint/js/-/js-9.20.0.tgz
+  sha512: 899034ec7f62a3d5a7f37e9a553cad45a36a874d1269df846a6c0e5494f5d864cbc3554630557fe0968c13e2632edafd7e219aa168189d2e78c2b7d6b12b38a1
   dest: third_party/node/node_modules/@eslint/js
 - type: archive
-  url: https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.11.tgz
-  sha512: 3766eb12e01a762d0271d78c5d49216d907ce1eb2401cf0c117d41cbaa84721a15cb04a05cf223a2ee2b62c9745771e3d199ee1b27060a374d8287246f379634
-  dest: third_party/node/node_modules/@humanwhocodes/config-array
+  url: https://registry.npmjs.org/@eslint/object-schema/-/object-schema-2.1.6.tgz
+  sha512: 441320e4544bd08d20b39d4cfe0b92023e7f7b5e15438b6966740d5b0b834fae8fd78238dc8b663df2194613bd7d45483ce0105d4e3b6ad972c19fdcce8a853c
+  dest: third_party/node/node_modules/@eslint/object-schema
+- type: archive
+  url: https://registry.npmjs.org/@eslint/plugin-kit/-/plugin-kit-0.2.5.tgz
+  sha512: 941d39164a84754836000d3111b533d129e45d3d4b7024dae37f16e08593521e2174e9d56d0c8e27cd4eac35ec264fcb4a2247b9b806105a11e441ead4db07d4
+  dest: third_party/node/node_modules/@eslint/plugin-kit
+- type: archive
+  url: https://registry.npmjs.org/@eslint/core/-/core-0.10.0.tgz
+  sha512: 8051c9fb104ea381b7591951d5eff71bc03afca6401facdc13f8642d10994e2fc1f5abc01b7eb9421140f2e386cd332a813821a67eff7d29ec716fbe76931203
+  dest: third_party/node/node_modules/@eslint/plugin-kit/node_modules/@eslint/core
+- type: archive
+  url: https://registry.npmjs.org/@humanfs/core/-/core-0.19.1.tgz
+  sha512: e43c90e3ed49114cde8de2b524620272275ec9f51b1a2c604bd8cd81ec799ea916f9c63b59987106282689e379427c3d668b123550bd2902b26fe194686c8a50
+  dest: third_party/node/node_modules/@humanfs/core
+- type: archive
+  url: https://registry.npmjs.org/@humanfs/node/-/node-0.16.6.tgz
+  sha512: 62e23664740befc4391db8438810355f82e661d5c228231021fc34a70ee9887270c9110579b254beb40de1c32cb32112eb1faf7d46f1d4222969050a61d4193b
+  dest: third_party/node/node_modules/@humanfs/node
+- type: archive
+  url: https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.3.1.tgz
+  sha512: 241c64111ca09fb06ffc66cde51bfc525e8b5649d2fb9069e918030bf3bc804054ff2787e548b90bf3a55ab4dbeaa72decb8e37d3e917b6371074967d326326c
+  dest: third_party/node/node_modules/@humanfs/node/node_modules/@humanwhocodes/retry
 - type: archive
   url: https://registry.npmjs.org/@humanwhocodes/module-importer/-/module-importer-1.0.1.tgz
   sha512: 6f1bde57857cbf961be277054d3deb3d281904ea429237cad32e28555549c08b8354144c0d7acfc9744bf7cf22e5aa7d9bd6e7c8412359f9b95a4066b5f7cb7c
   dest: third_party/node/node_modules/@humanwhocodes/module-importer
 - type: archive
-  url: https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz
-  sha512: 66740c9cb5787bb843954bf0f07f94f0048bd36492d869fafbd01cdf01862c87bbfa37b601e00ec4f63e8b320f2437c50dbede0e37afd14b3c30ed6215137c84
-  dest: third_party/node/node_modules/@humanwhocodes/object-schema
+  url: https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.4.1.tgz
+  sha512: 73b84d12594195e9c54c7064cbae6686af160f691b37d43a824d1b4e4f25481bdce79e23a574a4493d6278fb9da6defe03f010bee1ecf4432a8c70d7318d65ac
+  dest: third_party/node/node_modules/@humanwhocodes/retry
 - type: archive
   url: https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz
   sha512: 1cb85258e2d18bcef9ce38cc1bfafe36fd28096f2e9866f4060121c97ddd0d7dde83066d07c3ea2e78f3df279db7c4794ad06bcdc838681a6787c500f43d41a1
@@ -63,12 +99,12 @@
   sha512: 91fdfb42d7d6f87c31fdbb9618c3dc47ad2217dce21daeabfc26492076e6726e3ed2aad78957717a0007d05eb275d11543bcdd9237060a00b352ef8171b850c7
   dest: third_party/node/node_modules/@jridgewell/trace-mapping
 - type: archive
-  url: https://registry.npmjs.org/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.1.2.tgz
-  sha512: 8e7383fbff9d4ab7d35987d25c15e5a399797f4ab552e268ded91b30309803694a518abbf636b1aad184be7468874e3d9edd6f768d7ee394629e2a54e85198da
+  url: https://registry.npmjs.org/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.3.0.tgz
+  sha512: 9d0216a2727a78502f514ad2970c870e6fda13c3c10eee644692f4bc7320e8af1f2b70e2ab5c5d3e34e7b094b0c40061699fb97818b56ed401e528544caa389d
   dest: third_party/node/node_modules/@lit-labs/ssr-dom-shim
 - type: archive
-  url: https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-2.0.2.tgz
-  sha512: 4953b02c0594420dc98b57a0b4eb7552215ee33743a67587c9ce6a72d49c789e5722ed1473be98986a488d9831f582745ed756d099b9d3bb03be33aef879c1f3
+  url: https://registry.npmjs.org/@lit/reactive-element/-/reactive-element-2.1.0.tgz
+  sha512: 2f6ab2a194900a57019aad2a6a30556e1604706ea22b45df2e7eba89f2defd17c2d3f8a1a5cfa997459d9fc6c9f28fa18f7f1c1b47c65d18124b6d0cb979fba8
   dest: third_party/node/node_modules/@lit/reactive-element
 - type: archive
   url: https://registry.npmjs.org/@mediapipe/tasks-vision/-/tasks-vision-0.10.9.tgz
@@ -87,12 +123,32 @@
   sha512: a0607e53196059c810920c28f067041b07a6a1316ddc520ef5a6da6c199a1b05c8a01299f864f2d293f5f396de1a0ecb96287f3521d25765c0b35967ce7a1c4a
   dest: third_party/node/node_modules/@nodelib/fs.walk
 - type: archive
+  url: https://registry.npmjs.org/@pkgr/core/-/core-0.1.1.tgz
+  sha512: 72af28e1c587d226d787d5468b93f6d13bbd5c5ff47c55e5f445229ebf507d333b6bba74a13038889442416a695d1d4f83c75233450222d0a43f0b24f6a59660
+  dest: third_party/node/node_modules/@pkgr/core
+- type: archive
+  url: https://registry.npmjs.org/@rollup/wasm-node/-/wasm-node-4.21.0.tgz
+  sha512: 0aa2eb635a1cebc772078e21e2a7c06bfe0b33e47ec6fa9a2524c157485678b5e221d5e182b1e569a957393acbe6f5b3fa6827cb3954832ddb8539198cab752d
+  dest: third_party/node/node_modules/@rollup/wasm-node
+- type: archive
+  url: https://registry.npmjs.org/@stylistic/eslint-plugin/-/eslint-plugin-3.1.0.tgz
+  sha512: a40e953ab3aa934f92f2da09621406bf6316a50411d10a5e528f4084d902e3d636ea7c4143f9c7d6bb5af5b514d6b3f0d9f275cd910c579a025f901acd3ec9da
+  dest: third_party/node/node_modules/@stylistic/eslint-plugin
+- type: archive
+  url: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.2.0.tgz
+  sha512: 5322e749e84db7ad851614b08d994799ea24a512b9f6b733dbd8fe175fda0e06e46d14e4ef021cf57cdda1ab0c51b44d283334a90b7ff8127806ba4578005e9b
+  dest: third_party/node/node_modules/@stylistic/eslint-plugin/node_modules/eslint-visitor-keys
+- type: archive
+  url: https://registry.npmjs.org/picomatch/-/picomatch-4.0.2.tgz
+  sha512: 33b04057a465732e6efa6ea83e100f160253cc08a85ffe81d03c72bc3968f65f3e4f79cb29badcce0d962d4cb3778e4bf11a9f50cc863f37a46ccbd7d8b764c2
+  dest: third_party/node/node_modules/@stylistic/eslint-plugin/node_modules/picomatch
+- type: archive
   url: https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz
   sha512: 2fbcfd060acd11c632518b45f876847e24b979b921f635ea6eccf3ee90b485104f69ab55d178d20f7f9e1eba6a15e9907e0c22145d103c86ab9c88a12039fb38
   dest: third_party/node/node_modules/@trysound/sax
 - type: archive
-  url: https://registry.npmjs.org/@types/chai/-/chai-4.2.22.tgz
-  sha512: b457dc13e0d24f35808227e48e293d03248da88c8da18c2647eb9e70fc300ff5d135fbce8e60bf1630b1a625060e40d50e984f7c251e712415170fa537733791
+  url: https://registry.npmjs.org/@types/chai/-/chai-4.3.16.tgz
+  sha512: 3dab47e2239dca1dccc96b661d51572d608222151ba296a5b6a75d1bd07307e80c23379ed8c26bbddfa3a2e8a2f59df0cd026bb865809bb58e32381f1bc85095
   dest: third_party/node/node_modules/@types/chai
 - type: archive
   url: https://registry.npmjs.org/@types/d3/-/d3-7.4.0.tgz
@@ -219,25 +275,25 @@
   sha512: 8aa302e3f6251424a53bcfb6222d461869620806385dd786ef8f30e6f4146debe56c3bb4cd28c7ffe8e88e8ad05412bfb1ed23e8350534f0464aa0f76166270f
   dest: third_party/node/node_modules/@types/d3-zoom
 - type: archive
-  url: https://registry.npmjs.org/@types/dom-mediacapture-transform/-/dom-mediacapture-transform-0.1.7.tgz
-  sha512: c6b16d1080c29fe55e304626e097632c439e868dddb13c4ec71e210ea080d1646b10d1780cc4c5f49693cd345455ce6b239f23f67453c486655355aa7ebd3c3c
+  url: https://registry.npmjs.org/@types/dom-mediacapture-transform/-/dom-mediacapture-transform-0.1.11.tgz
+  sha512: 636a7e9c67f56c5d9732db419ec54f1d45b3451673a94a0900a9a23f5d1be6e9a73ba0c3ad623406b183272d69387a0e50b5661927c536442b0250b975c8fa9d
   dest: third_party/node/node_modules/@types/dom-mediacapture-transform
 - type: archive
   url: https://registry.npmjs.org/@types/dom-speech-recognition/-/dom-speech-recognition-0.0.1.tgz
   sha512: b9d0b16fc0ef8dc0ca7e4d564c1cc3b3115b2e063199018aac4feb89ca0ca8744d8d295250271a9954c0e65210ab3635d26639a82634403c017c513085fa033f
   dest: third_party/node/node_modules/@types/dom-speech-recognition
 - type: archive
-  url: https://registry.npmjs.org/@types/dom-view-transitions/-/dom-view-transitions-1.0.4.tgz
-  sha512: a03b9a80ce86fb13cbacb53829e08a96bd686a5305e6626a579a433cc0d520469af009145b4d22eaefb93f4d970a37441144090bd7699f1a922ec65e01c8922d
-  dest: third_party/node/node_modules/@types/dom-view-transitions
-- type: archive
-  url: https://registry.npmjs.org/@types/dom-webcodecs/-/dom-webcodecs-0.1.8.tgz
-  sha512: 2938533da19024b21393c4345e4124cfe1aa15da160f241f6f278999f1146a0075e5365074dc7902a3f66fb18feaf91533a5ffe93d59f041f103c4601df63d04
+  url: https://registry.npmjs.org/@types/dom-webcodecs/-/dom-webcodecs-0.1.14.tgz
+  sha512: 6daf5a174a8044b2d0a4b8a138d2116e3f15bc0754c4efb98c8c65b1c55c0c04137099aae6a56befcd7e8a7a39a9b41425498edb570b3f678b797616cdaa3956
   dest: third_party/node/node_modules/@types/dom-webcodecs
 - type: archive
   url: https://registry.npmjs.org/@types/emscripten/-/emscripten-1.39.6.tgz
   sha512: 1fdd1aa329cd8619103fa0d1c1e123269e6f7d455d223eed74f2ecbbba6af3dbce0c3fe572e80a7d93ac7e0c29bcce9751ec04a7637974283551fdd07b9e4372
   dest: third_party/node/node_modules/@types/emscripten
+- type: archive
+  url: https://registry.npmjs.org/@types/estree/-/estree-1.0.5.tgz
+  sha512: fe4611c460cb5b31ce07babec2d49442516bb5c75471ca5fcbe5fef62301a472bc40b2e1c76c083d8b92e4362d47d59afd895901b228bf2eea55d07502ae8bcb
+  dest: third_party/node/node_modules/@types/estree
 - type: archive
   url: https://registry.npmjs.org/@types/filesystem/-/filesystem-0.0.32.tgz
   sha512: 62e7f88d1e5860c4760d5830b8288fd75b34c6e551c8f2a6cfcbe8e87058dc219d78c8fc69ff77085657f93f36f950f5f94a873b14eadf594eecc23b95ea41b5
@@ -255,72 +311,80 @@
   sha512: c346458f7487ce74174aaf7d9050ae3bcb6437ac384f5e339e3ac5d9a94b0920e71ce5c49e9ce77b2370c4bbde91cb030489ebf1be665e6cd8874dc602ba84cb
   dest: third_party/node/node_modules/@types/google.analytics
 - type: archive
-  url: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.13.tgz
-  sha512: 45b492a0796251b9d78f79f2d023453a8c6b20357a4941b24ad1ecbc3aa8b30e8291d3d5f13b561a57de72e2b84e8c8c100aa5ea9ccdc6008529a9e8bd4ce581
+  url: https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz
+  sha512: e7e7cff0ff0c14d0be0326420f1ac1da991914f1b3a90594ce949ebae54bbe6f1531ca2b3586af06aa057312bc6d0cf842c6e7e2850411e9b8c032df732b061c
   dest: third_party/node/node_modules/@types/json-schema
 - type: archive
-  url: https://registry.npmjs.org/@types/mocha/-/mocha-9.0.0.tgz
-  sha512: b1c3748405b22d502f2d1f40c96ec7a05179b0966097206c6cfb873b87efec946f7e63c131fa75a335aa39ffdee30c0f3717b30595d17d6ccc6fa8852e011544
+  url: https://registry.npmjs.org/@types/mocha/-/mocha-10.0.6.tgz
+  sha512: 749beb616c4ffd47179b7e909f7e9fc6150abbc03fc4c457553d9c962145d59ed403d9621b93ec8f77b3352670fb9a6e1f67330d744b7174317fc25b26dd1e8e
   dest: third_party/node/node_modules/@types/mocha
 - type: archive
   url: https://registry.npmjs.org/@types/offscreencanvas/-/offscreencanvas-2019.6.4.tgz
   sha512: bbc48081d67c44eb644c5fa67d918eb1c974a2be814a3f40e20dfb7ba9efc4373e601fe80eeb74c0790ad8f041882d9b351f134b408f57ed60024e1f362b2bd5
   dest: third_party/node/node_modules/@types/offscreencanvas
 - type: archive
-  url: https://registry.npmjs.org/@types/semver/-/semver-7.5.3.tgz
-  sha512: 3b17a92caf44b8d1083f158d304f82e96c1b44038e236a3605a4041b3cf92eed9ee19e5e0e7128fbf6951033085f2c28262b49ef159deb8d70ac62d976dc11cb
-  dest: third_party/node/node_modules/@types/semver
-- type: archive
-  url: https://registry.npmjs.org/@types/trusted-types/-/trusted-types-1.0.6.tgz
-  sha512: db7d110bcb05787a13eac4949513ba6bc7009dc94ed3a79e8aad500df8afd851822d616fbc44568302100f8156a83f40ebd04decbcde7b8397c283159e7b160f
+  url: https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz
+  sha512: 49c68f767d5d41cce06e5d101537933a65471542eddfde17260390368c95859eabdaf2e730b25f04f779dd2079d93ff71b7e95235fe0d8c65a5f47300ee5ec7f
   dest: third_party/node/node_modules/@types/trusted-types
 - type: archive
-  url: https://registry.npmjs.org/@types/w3c-image-capture/-/w3c-image-capture-1.0.8.tgz
-  sha512: 3449680d761a61c26b3ccf0241d9b355ec98af9e52491927ebb9936a24188c33f39bf3c6ff782cb081767821cc90dc44a7302173111b994440ec4346305d18ce
+  url: https://registry.npmjs.org/@types/w3c-image-capture/-/w3c-image-capture-1.0.10.tgz
+  sha512: ec3477eac6f4a2ceea572d8723dc16e8157da058d9540f319ca33471919d2f95ca6ba660bab03e53c4fcc5435c7044625a4be4eb8d5b008b4c58253efb507b8e
   dest: third_party/node/node_modules/@types/w3c-image-capture
 - type: archive
-  url: https://registry.npmjs.org/@types/webrtc/-/webrtc-0.0.42.tgz
-  sha512: 632ac6df2cf0fc9bd9b34ab77fd498f80889af4149c35aa1063be8409114cb4eee762c9a9006b1d80f3b047a41dea9dac6c9b61310af87252f8d3c5db27faa4b
+  url: https://registry.npmjs.org/@types/webrtc/-/webrtc-0.0.45.tgz
+  sha512: c86cd59fb2a3dbc6c1d5e9f9986e736c06350df1ef2fd959003b304f71d605ddabe13e2d97f5b77afce7418d31b4f618fadbc4174ec9e7a405c5e31fa835abb7
   dest: third_party/node/node_modules/@types/webrtc
 - type: archive
   url: https://registry.npmjs.org/@types/wicg-file-system-access/-/wicg-file-system-access-2020.9.5.tgz
   sha512: 5182b6e386b0b667146107ecec547cef5d0c25c79f2f65af9321cc8c0f32273c5dd66a3419f9fcf2c459d4196cee1894840db0ee77b582927d4f98371b4c0ec8
   dest: third_party/node/node_modules/@types/wicg-file-system-access
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.7.4.tgz
-  sha512: 0c06e00d7c2d5fea439001f088686a3f7cd6506a56e3d07b7aa9a0a4fb60f812895f075cb7bf6eb7dfa27ea3853c91829462921d79f63d305ab429e5749454a0
+  url: https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.26.0.tgz
+  sha512: 70baf527aa5ee7ace32986a32ba4924ab7ba9e5d468fac43a754d8d2dae980fce355b803c1dd3dbf65acdfb2c0071ce489c9948e111e83f7c05233c9241d6fe5
   dest: third_party/node/node_modules/@typescript-eslint/eslint-plugin
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/parser/-/parser-6.7.4.tgz
-  sha512: 239cd564563e730e0831951e34253b4a1d8f3b93b9ec5ecbaf4bb28600899a137f06e4e59dce792b13e89d1e3e10cdc605d7e20b2199c9ee8380c8edb9b42498
+  url: https://registry.npmjs.org/@typescript-eslint/parser/-/parser-8.26.0.tgz
+  sha512: 98db573fd2d3541cb5e19177a3b246ebd8113c12bfd905ad41dd23d281f6e87718fdfa322496aeea93547b3ed0acce541e74afc2541c2572ac93423df41f6938
   dest: third_party/node/node_modules/@typescript-eslint/parser
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-6.7.4.tgz
-  sha512: 49d1aa48b50f4d70178bb73739bee97801959e63281b3677eb556cc0ad8ca9ff1439870e0e262fb3caece482ea11d7ef5f5944ef01196cbc842c25be62baa5d4
+  url: https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-8.26.0.tgz
+  sha512: 1349ed2efb1f3ea9cfc2783c6fccb8386bb387f8883a6db3f14dd2f7389cd9378c2d6eb5bb9207d90d70bb4a124e47eb4b3c1b0c9201fcb9bc3b7ffff0158c3c
   dest: third_party/node/node_modules/@typescript-eslint/scope-manager
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-6.7.4.tgz
-  sha512: 9fe837ce2d50ce970074714ff4a405fab105c4c6f62b1b67246203ded780fe7c4a1ce562df294aa2f6aa1331816d5636a41b6d53acfce60a740f4d2e7cbcd589
+  url: https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-8.26.0.tgz
+  sha512: aee93444d0a12cacf7cca1a7d8bc17b95a1e05c50c87e8daab3378eb5b8c31dc72e47f5ea59a8806d623ed488f5d1b8ea5a00b5c66e646e650866c0785a4b4e1
   dest: third_party/node/node_modules/@typescript-eslint/type-utils
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/types/-/types-6.7.4.tgz
-  sha512: a3d5d62b614b5ba7924bfd2bfed823006b186ac2c09ce5a0ee1bd9fdd1984923630a1fb8f64e6870f37c3a61b969971227ca5c9523b254a3f6c74dd28fe46b08
+  url: https://registry.npmjs.org/@typescript-eslint/types/-/types-8.26.0.tgz
+  sha512: f3d07578fded9e9afd03c2fa3d99528c1be7261597b587d98440aa9419750fd2e67bd9873ba89696ca6b06d55e9d0bd8d473216b1d6658e8e1b4bddf87fbbea4
   dest: third_party/node/node_modules/@typescript-eslint/types
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-6.7.4.tgz
-  sha512: b72f1be6a1ca6ad94d61df6f9a91e8a10cf75648b7806fb73dc866b6c0384e0ad904a58736359f91089decaef1428801aaa73bfc18466b3c4c0f9bebe876be89
+  url: https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-8.26.0.tgz
+  sha512: b622751efcbf57fa0c5514db10e21e7a60365e8ca58a6943434dc280f3cd6876196e9b1cefc1e69e09edf965d97c95f5a6343bd7557b8341fb71225384661f3d
   dest: third_party/node/node_modules/@typescript-eslint/typescript-estree
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/utils/-/utils-6.7.4.tgz
-  sha512: 3d1400b3e1d49fce50764fa4840c6c555fa850bcb75646c7de143c8712d125758111dee223e19b4311f94845121fb91b1284e9ea84f56cec3281adb810b00b4c
+  url: https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz
+  sha512: 5e7008bd0f1e33e902e9a50bc7ac2e422c15b27cec8bd7775b1cd5dc5a564c6035f45eb6d64c1d6ec01c14a5e02941d95accbe998ea22f5b074f1584142cad0c
+  dest: third_party/node/node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion
+- type: archive
+  url: https://registry.npmjs.org/minimatch/-/minimatch-9.0.5.tgz
+  sha512: 1ba4f4657e3cc60a33c7be7cee4a1e5fd62cd8d632e869affff3fcf6c12d7bd57dc2121aa4c345e2274ac675b642d09c2e24d695bff07c269b02d0055a1841a3
+  dest: third_party/node/node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch
+- type: archive
+  url: https://registry.npmjs.org/@typescript-eslint/utils/-/utils-8.26.0.tgz
+  sha512: d8bdad537155c21bd4d782e77674020367eb602f099cf0d52b242d5853dff0860532dff29043756cfa2536135b09580e99dcd395676eb024ca03ff672ab7fc22
   dest: third_party/node/node_modules/@typescript-eslint/utils
 - type: archive
-  url: https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-6.7.4.tgz
-  sha512: a4e5b7ec352195365bbe9879d31e736429059f7c73c241ad368247cc8337b2fa624a4273c0e62bfe454169799ff910108940ecd401c465534f83a509089a7044
+  url: https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-8.26.0.tgz
+  sha512: db3f09409580ccf743779d5d450fe8a882717bdf7f8682c8aa67fc44c080250b580dce77e56fc9b76f914cfe1b3f468a7811b517ae728c866e7333970a66d6c2
   dest: third_party/node/node_modules/@typescript-eslint/visitor-keys
 - type: archive
-  url: https://registry.npmjs.org/acorn/-/acorn-8.10.0.tgz
-  sha512: 174480999f2252d4bffe6f039824c0d23961e930ca9074322bac5ce95e0a0d3c99280f5d9ef5fdff7b114d542b5a6efd82550065b9e698d71d6305081d65726f
+  url: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.2.0.tgz
+  sha512: 5322e749e84db7ad851614b08d994799ea24a512b9f6b733dbd8fe175fda0e06e46d14e4ef021cf57cdda1ab0c51b44d283334a90b7ff8127806ba4578005e9b
+  dest: third_party/node/node_modules/@typescript-eslint/visitor-keys/node_modules/eslint-visitor-keys
+- type: archive
+  url: https://registry.npmjs.org/acorn/-/acorn-8.14.0.tgz
+  sha512: 725ebaf670894d906c2fdece178914426e60e610b6ba2864d0dc58dd610d002d1361d20b5640321f29809ed8311a497b2beb7471722b1f9b22cb94b85e417270
   dest: third_party/node/node_modules/acorn
 - type: archive
   url: https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz
@@ -331,9 +395,9 @@
   sha512: 8f77d52e0bd3a39dbb6a7c98c893864d825b1bebe79d062f1349b99a691cd532be9f1029a6408b3082f4699e1d6e55423681928619be933138654ca4068320e2
   dest: third_party/node/node_modules/ajv
 - type: archive
-  url: https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz
-  sha512: aae2505e54d25062f62c7f52517a3c570b18e2ca1a9e1828e8b3529bce04d4b05c13cb373b4c29762473c91f73fd9649325316bf7eea38e6fda5d26531410a15
-  dest: third_party/node/node_modules/ansi-regex
+  url: https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz
+  sha512: cdb07dac22404f5adb8e25436f686a2851cd60bc60b64f0d511c59dc86700f717a36dc5b5d94029e74a2d4b931f880e885d3e5169db6db05402c885e64941212
+  dest: third_party/node/node_modules/ansi-styles
 - type: archive
   url: https://registry.npmjs.org/are-docs-informative/-/are-docs-informative-0.0.2.tgz
   sha512: 8b1892d272cd346e63350ce064936852904a768f724d864c189f90813da39a347b1bbf901d109ce2fe8b43736013b10126afa8d1a9acdf0689c24ae50689bc22
@@ -342,10 +406,6 @@
   url: https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz
   sha512: f3ef56a9e6db173a57f4e47e59ae8edbd6ac22881e44ccdc1ad00835da4c1c7c80835d1fd3969215505b704a867ff3d7c35123019faadbf6c4060dc3beeacadd
   dest: third_party/node/node_modules/argparse
-- type: archive
-  url: https://registry.npmjs.org/array-union/-/array-union-2.1.0.tgz
-  sha512: 1c6cb1a0e4d853208ceacb547ba1098277781287b0008ef331d7ea3be9068e79599810f3fdc479a5ff2bfdc4785aaeb4b0bfe9d0891c8d41043f04b7185ac8cb
-  dest: third_party/node/node_modules/array-union
 - type: archive
   url: https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz
   sha512: de849e50ed13315ebb84dd4099b5ec2b8c9aa94eed8e21e56f144364ea47d0a5bdf82797e1b440697d009f1b74b71d8cae94695b041a3f02252121098585393f
@@ -359,48 +419,44 @@
   sha512: 882b8f1c3160ac75fb1f6bc423fe71a73d3bcd21c1d344e9ba0aa1998b5598c3bae75f260ae44ca0e60595d101974835f3bb9fa3375a1e058a71815beb5a8688
   dest: third_party/node/node_modules/brace-expansion
 - type: archive
-  url: https://registry.npmjs.org/braces/-/braces-3.0.2.tgz
-  sha512: 6fcba6f8bd51cccdd60d2cef866ea0233d727d36c1b7a61395c10a02fb26a82659170e3acfadba9558fd8f5c843d6df71f91fe94142964c3f593c97eefc1dad0
+  url: https://registry.npmjs.org/braces/-/braces-3.0.3.tgz
+  sha512: c906d780efce499543d88b222e5ae8fbb1dfe90d7c109aca484b1da0ccca78f29772dde0bc3f282dc390748cc6ba9af9163f840def203bf9717350737cca71bc
   dest: third_party/node/node_modules/braces
 - type: archive
   url: https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz
   sha512: 13e5d0091c126da6a20a1b6fea4e83c2073e6f1f81b3abee2891c7979928c7f05a29b8625f3a903b02b870edb6c84946a763829a3c15853dc79b18323c69c97d
   dest: third_party/node/node_modules/buffer-from
 - type: archive
-  url: https://registry.npmjs.org/builtin-modules/-/builtin-modules-3.3.0.tgz
-  sha512: ce16820e271d2ee58de546cde4832716a34c84d7e8f75f6c1fce72dbf79afb9620f53b1391e671a4bf892dba7a7206054b8b112e9dd85784bac83baa5561d83b
-  dest: third_party/node/node_modules/builtin-modules
-- type: archive
   url: https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz
   sha512: 3fc06302c5ef652f95203508d7584709012fef8613ebb6148b924914d588a8bdb7e6c0668d7e3eab1f4cbaf96ce62bf234435cb71e3ac502d0dda4ee13bb2c69
   dest: third_party/node/node_modules/callsites
 - type: archive
-  url: https://registry.npmjs.org/camel-case/-/camel-case-3.0.0.tgz
-  sha512: f8c6caced0181d73ebd6335348a405e765697058f063946447b7f192c57c0e8a3828061ce45978509460b6105b4e6131f02e780ea6a185b2c9903c232373c8ff
-  dest: third_party/node/node_modules/camel-case
+  url: https://registry.npmjs.org/case-anything/-/case-anything-2.1.13.tgz
+  sha512: ce5390f3456b43651efb2987e4eb8cfc3943abae26126f81f544dd1d42efe68b14303e876a53536e57f66f5bbf9ba41e723b273a4069a9567e5cfc0856ccbb36
+  dest: third_party/node/node_modules/case-anything
 - type: archive
-  url: https://registry.npmjs.org/clean-css/-/clean-css-4.2.4.tgz
-  sha512: 1095034fb9c35450ef690800a361bf3c9bf19a9d68fdcea25cb6ecc2c05b5055e2d4dafe02303670a99f6ca0cc8ccbf311eef98373fa2646830c02a4f7a03ce4
-  dest: third_party/node/node_modules/clean-css
+  url: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
+  sha512: 4511023ec8fb8aeff16f9a0a61cb051d2a6914d9ec8ffe763954d129be333f9a275f0545df3566993a0d70e7c60be0910e97cafd4e7ce1f320dfc64709a12529
+  dest: third_party/node/node_modules/color-convert
 - type: archive
-  url: https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz
-  sha512: 52381aa6e99695b3219018334fb624739617513e3a17488abbc4865ead1b7303f9773fe1d0f963e9e9c9aa3cf565bab697959aa989eb55bc16396332177178ee
-  dest: third_party/node/node_modules/clean-css/node_modules/source-map
+  url: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
+  sha512: 74ecbedc0b96ddadb035b64722e319a537208c6b8b53fb812ffb9b71917d3976c3a3c7dfe0ef32569e417f479f4bcb84a18a39ab8171edd63d3a04065e002c40
+  dest: third_party/node/node_modules/color-name
 - type: archive
   url: https://registry.npmjs.org/commander/-/commander-2.20.3.tgz
   sha512: 1a956498cf2f176bd05248f62ef6660f7e49c5e24e2c2c09f5c524ba0ca4da7ba16efdfe989be92d862dfb4f9448cc44fa88fe7b2fe52449e1670ef9c7f38c71
   dest: third_party/node/node_modules/commander
 - type: archive
-  url: https://registry.npmjs.org/comment-parser/-/comment-parser-1.4.0.tgz
-  sha512: 40bc933626762833a26ef14f959e999e056c67fd2062713ab935e2e5aa0383c79ddc0909033e2c1237b763c6b6f61435b3a03df4c6577b8edf2c05d0d6b4ea6b
+  url: https://registry.npmjs.org/comment-parser/-/comment-parser-1.4.1.tgz
+  sha512: 6ee869e6478fae675adef85ce41f6dee95105c06f64e7774aa0a642213e19075f126988f275d47d19114d28069276433b526f31bf671323fc21ec609a911e6ca
   dest: third_party/node/node_modules/comment-parser
 - type: archive
   url: https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz
   sha512: fd2aefe1db30c903417e8846a73f68e986f71b3dd2ad40ea047e6b4ee84647b6a1b656d82a7571c366c214c4658da03b1171da5d9f30b07768745bdb9212a6aa
   dest: third_party/node/node_modules/concat-map
 - type: archive
-  url: https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz
-  sha512: 8910cf24a50f544343edd1cf3bcae46ce9cfa720f281c0c5b568e9796342832f163f6ad77315cbf13b2445e425e8eac1d86efe509ada82cd6ad7916e75cec6eb
+  url: https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz
+  sha512: b95d903963f69d6ceccb668ca7c69189b862f5d9731791e0879487681f4e893184c834e2249cb1d2ecb9d505ddc966ed00736e6b85c9cd429c6b73b3294777bc
   dest: third_party/node/node_modules/cross-spawn
 - type: archive
   url: https://registry.npmjs.org/css-select/-/css-select-5.1.0.tgz
@@ -415,6 +471,10 @@
   sha512: 1d352b81127baf876c64a53a1a39a97d12b53bbea1f7b67c31f4b51b4168cd1fa8176906e957def0913acf0ae46f18a0ce23c78a7089fa008f8c0f446810ed47
   dest: third_party/node/node_modules/css-what
 - type: archive
+  url: https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz
+  sha512: fd36ff25c8cad75d67352706a1be4c36db27b4d3356823540e2a41fd39306458720ebac4e3b48ec7fd7cc05d9b6e381cdd9cc248a5b54f99ede446c5a00cff56
+  dest: third_party/node/node_modules/cssesc
+- type: archive
   url: https://registry.npmjs.org/csso/-/csso-5.0.5.tgz
   sha512: d0baeb4ad3ce7498fe48f082ac6873af2c9c2e3c1c81448706dc4d03c6880f17f418bb1187570a621074d06775943392e32187ebdf92367d77f9359b54711315
   dest: third_party/node/node_modules/csso
@@ -427,21 +487,17 @@
   sha512: 6b294873b67dcb8cb31d800936e1121b785f842fb421ba7f30032268e66036fe29984745c9f6618619f2e0c36201f59d050d5143699f0d698cd71f12bc6ca9f2
   dest: third_party/node/node_modules/csso/node_modules/mdn-data
 - type: archive
-  url: https://registry.npmjs.org/debug/-/debug-4.3.4.tgz
-  sha512: 3d15851ee494dde0ed4093ef9cd63b25c91eb758f4b793ae3ac1733cfcec7a40f9d9997ca947c520f122b305ea22f1d61951ce817fbb1bfbc234d85e870c5f91
+  url: https://registry.npmjs.org/debug/-/debug-4.3.7.tgz
+  sha512: 12bda773f1fb46b3176411421229ba4c298c934d99f2f2c2d916e2d4a101820a68d1f4ba9744b59e76a9c26222df25bff863896a9d4aae0e30d0783cd280aa81
   dest: third_party/node/node_modules/debug
 - type: archive
   url: https://registry.npmjs.org/deep-is/-/deep-is-0.1.4.tgz
   sha512: a083f392c993838fccae289a6063bea245c34fbced9ffc37129b6fffe81221d31d2ac268d2ee027d834524fcbee1228cb82a86c36c319c0f9444c837b7c6bf6d
   dest: third_party/node/node_modules/deep-is
 - type: archive
-  url: https://registry.npmjs.org/dir-glob/-/dir-glob-3.0.1.tgz
-  sha512: 5a4ad6a7d191e0a5df28663338b993b86562d545857f0b37efb9fd71ce79fed6fa0eeab217aa5c43901b88712c85a0e963dbfaa1a4abd9708389d1a633077320
-  dest: third_party/node/node_modules/dir-glob
-- type: archive
-  url: https://registry.npmjs.org/doctrine/-/doctrine-3.0.0.tgz
-  sha512: c92f90e62de105fec6064778286f1aede04d3563462d3684c306165228c860cef3ae56033340455c78e33d6956675460ed469d7597880e68bd8c5dc79aa890db
-  dest: third_party/node/node_modules/doctrine
+  url: https://registry.npmjs.org/detect-libc/-/detect-libc-1.0.3.tgz
+  sha512: a468f086c9aca7890bd914f3d3cc1c3a518df37a2d96a1de0ff6794fc197641fbf61ca50fdd828fa56d4f19b06c55d0722faaac68f65ee6a98c3260c0fd6ca0e
+  dest: third_party/node/node_modules/detect-libc
 - type: archive
   url: https://registry.npmjs.org/dom-serializer/-/dom-serializer-2.0.0.tgz
   sha512: c08900af28aab7f9d5e4440aa90a68dd24e848e57d2740e76c9ab02bb5affd3adcf76cc801867816532ef893c55b50df185b7cd594c21a00c469b7df5de2f226
@@ -459,57 +515,53 @@
   sha512: 1fbf2e32642d23602180326359e4261f0249d9b2cf0f718c98eed98dafd9661f38c249bee2eb7e2149d47516bcb82197f3c0e2571d63e8545ed577f11208c464
   dest: third_party/node/node_modules/domutils
 - type: archive
+  url: https://registry.npmjs.org/dprint-node/-/dprint-node-1.0.8.tgz
+  sha512: 8952a752d61f1ab61c5b564095f47f179f5c5152fc408856a012684a392476e6bf76458882365f88b31e4e3881d3a5f464b910d0cd82d556d48ff0b19087f5ce
+  dest: third_party/node/node_modules/dprint-node
+- type: archive
   url: https://registry.npmjs.org/entities/-/entities-4.5.0.tgz
   sha512: 5748631f87463e1f40a39a74328458e8156ab700a3873eaf2392d3f00279e47fb883dff8bdb1f1d48e787d2d17b9c94b8431c0acf40288c8c3c6368bf1f3f187
   dest: third_party/node/node_modules/entities
 - type: archive
-  url: https://registry.npmjs.org/eslint/-/eslint-8.50.0.tgz
-  sha512: 14e9ce192b85b852effd26be143551665e061950001458bc2de711b08e5ad6d30ee47204f270a6e22bc0973b78753de897f3da6860b4ac91045d09872411a83a
+  url: https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.5.4.tgz
+  sha512: 31534ae7a36232b3b08ad141edca83c2ad0242eb5bc3ed01bcbb21252b1ed0c50d53ecb5142ddb512fc0420ee852783eff02abae48bb25f9b0b551e455f3cb97
+  dest: third_party/node/node_modules/es-module-lexer
+- type: archive
+  url: https://registry.npmjs.org/eslint/-/eslint-9.20.1.tgz
+  sha512: 9b598cdf7a3a741523c65daa6fac2fea718dc0202c9ecd5e2ad690e25fcd3c7793be18943dbb5d7ccca4b713780777e01c882c621d554f757db716e5a501eafa
   dest: third_party/node/node_modules/eslint
 - type: archive
-  url: https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-46.8.2.tgz
-  sha512: e534a70f4d7c7f7b5424d9dee2ce200d641f95bb203b2708284501a022e7e97b41320347c5016657cbd5c54b623f1010abc96b5fce4e6921bfda09dcb71c3db9
+  url: https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-50.2.2.tgz
+  sha512: 8b464c580d7df431bbb23c65cd79f901e619c6945f3098c33d497b94bf5e2495fc4cf46821ac49538cacfe3a0fe5f68ce405c4d5ea96fddb250a3dee8f836aa6
   dest: third_party/node/node_modules/eslint-plugin-jsdoc
 - type: archive
   url: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz
   sha512: 4eda5c349dd7033c771aaf2c591cc96956a346cd2e57103660091d6f58e6d9890fcf81ba7a05050320379f9bed10865e7cf93959ae145db2ae4b97ca90959d80
   dest: third_party/node/node_modules/eslint-plugin-jsdoc/node_modules/escape-string-regexp
 - type: archive
+  url: https://registry.npmjs.org/eslint-scope/-/eslint-scope-8.2.0.tgz
+  sha512: 3c795651f1ba96f3dcdf2bcfe40e0f37204bd56f1f90351c726236d4952effe18a641a07fd6e6eeaeb0435752b58546cca85b9002523146800150a7981495bfc
+  dest: third_party/node/node_modules/eslint-scope
+- type: archive
   url: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz
   sha512: c2973e2d77a2ca28acc4f944914cd4eacbf24b57eb20edcc8318f57ddcbb3e6f1883382e6b1d8ddc56bf0ff6a0d56a9b3a9add23eb98eb031497cfdad86fa26a
   dest: third_party/node/node_modules/eslint-visitor-keys
 - type: archive
-  url: https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz
-  sha512: cdb07dac22404f5adb8e25436f686a2851cd60bc60b64f0d511c59dc86700f717a36dc5b5d94029e74a2d4b931f880e885d3e5169db6db05402c885e64941212
-  dest: third_party/node/node_modules/eslint/node_modules/ansi-styles
+  url: https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz
+  sha512: 0189dbd67432638f6d7be551015826cdf7208d84bdd666393f44ca50308b10cfa036703edd3eab5884d744b602a5a869a9241b379704fa01e99cfc978c75b173
+  dest: third_party/node/node_modules/eslint/node_modules/@types/estree
 - type: archive
   url: https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz
   sha512: a0a9db845c91217a54b9ecfc881326c846b89db8f820e432ba173fc32f6463bfd654f73020ef5503aebc3eef1190eefed06efa48b44e7b2c3d0a9434eb58b898
   dest: third_party/node/node_modules/eslint/node_modules/chalk
 - type: archive
-  url: https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz
-  sha512: 4511023ec8fb8aeff16f9a0a61cb051d2a6914d9ec8ffe763954d129be333f9a275f0545df3566993a0d70e7c60be0910e97cafd4e7ce1f320dfc64709a12529
-  dest: third_party/node/node_modules/eslint/node_modules/color-convert
-- type: archive
-  url: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz
-  sha512: 74ecbedc0b96ddadb035b64722e319a537208c6b8b53fb812ffb9b71917d3976c3a3c7dfe0ef32569e417f479f4bcb84a18a39ab8171edd63d3a04065e002c40
-  dest: third_party/node/node_modules/eslint/node_modules/color-name
-- type: archive
   url: https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz
   sha512: 4eda5c349dd7033c771aaf2c591cc96956a346cd2e57103660091d6f58e6d9890fcf81ba7a05050320379f9bed10865e7cf93959ae145db2ae4b97ca90959d80
   dest: third_party/node/node_modules/eslint/node_modules/escape-string-regexp
 - type: archive
-  url: https://registry.npmjs.org/eslint-scope/-/eslint-scope-7.2.2.tgz
-  sha512: 74eb76d4eee54cc84333e5fd981e065fe0d9ad9b425093cbff095c4eac72af1e48bced0862d20b76dad0190a7ef27e52d20c1256639ff4d42b8cc3a07d066522
-  dest: third_party/node/node_modules/eslint/node_modules/eslint-scope
-- type: archive
-  url: https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz
-  sha512: 30c74046e54443388d4de243f0380caa6870475d41450fdc04ffa92ed61d4939dfdcc20ef1f15e8883446d7dfa65d3657d4ffb03d7f7814c38f41de842cbf004
-  dest: third_party/node/node_modules/eslint/node_modules/estraverse
-- type: archive
-  url: https://registry.npmjs.org/globals/-/globals-13.20.0.tgz
-  sha512: 420e50b55902cbf92fdc551296ee2e91e64355ff5e7b48972c05185f5de06d1d7b6e77a3153cebe224bd6d8ee4c027f5373b51366d6df757e33a2cb1e024b03d
-  dest: third_party/node/node_modules/eslint/node_modules/globals
+  url: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.2.0.tgz
+  sha512: 5322e749e84db7ad851614b08d994799ea24a512b9f6b733dbd8fe175fda0e06e46d14e4ef021cf57cdda1ab0c51b44d283334a90b7ff8127806ba4578005e9b
+  dest: third_party/node/node_modules/eslint/node_modules/eslint-visitor-keys
 - type: archive
   url: https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz
   sha512: 1329094ff4352a34d672da698080207d23b4b4a56e6548e180caf5ee4a93ba6325e807efdc421295e53ba99533a170c54c01d30c2e0d3a81bf67153712f94c3d
@@ -519,25 +571,25 @@
   sha512: aa9080bd197db2db8e1ef78ab27ec79dc251befe74d6a21a70acd094effe2f0c5cf7ed2adb02f2bf80dfbedf34fc33e7da9a8e06c25d0e2a205c647df8ebf047
   dest: third_party/node/node_modules/eslint/node_modules/supports-color
 - type: archive
-  url: https://registry.npmjs.org/espree/-/espree-9.6.1.tgz
-  sha512: a2bb99685923a2b4e9177da40d2239ffbe558b019e6608a7186cb636839283743d6e7c259e60e6e072e7925d111379fe9e30d7474dfb698d7ec79f19ff315dc1
+  url: https://registry.npmjs.org/espree/-/espree-10.3.0.tgz
+  sha512: d10602f1bdb81d663cce34670d32fa4621df0db0169fadea6f82cc8f56786f4efa038ba77bcd7ecf4dca83b97b9a7ff8f0f513aa82e9b525decfca249d4f0296
   dest: third_party/node/node_modules/espree
 - type: archive
-  url: https://registry.npmjs.org/esquery/-/esquery-1.5.0.tgz
-  sha512: 6102d7529940c09802c9d43bf08309cb064271ea2a935a07d3538445d48025cffb5360329708e14822c312dab083cd7589d212ffd7c85391a31bbdc882328c56
-  dest: third_party/node/node_modules/esquery
+  url: https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.2.0.tgz
+  sha512: 5322e749e84db7ad851614b08d994799ea24a512b9f6b733dbd8fe175fda0e06e46d14e4ef021cf57cdda1ab0c51b44d283334a90b7ff8127806ba4578005e9b
+  dest: third_party/node/node_modules/espree/node_modules/eslint-visitor-keys
 - type: archive
-  url: https://registry.npmjs.org/estraverse/-/estraverse-5.2.0.tgz
-  sha512: 0716cd186366d11c9162f51d1e9230bfd216cde33d5c295b3b1c28013b8574e13b644eb01cbf874394fc8683ccfb31ef98acf3b04aa1832d06ad0e57d7769f89
-  dest: third_party/node/node_modules/esquery/node_modules/estraverse
+  url: https://registry.npmjs.org/esquery/-/esquery-1.6.0.tgz
+  sha512: 71af69c3d7e898570a3ef14b5e104a50af7466f1a26e218ebd124d6e396363bb3bbaaff960ee013b3718b49a84c5dc7df6b17a6807274711e67141dccfab10b2
+  dest: third_party/node/node_modules/esquery
 - type: archive
   url: https://registry.npmjs.org/esrecurse/-/esrecurse-4.3.0.tgz
   sha512: 2a67ca2f76fa1be457bcff0dd6faf74ead642ffa021609f63585c4b6a3fcfcbde929aa540381bc70555aa05dd2537db7083e17ca947f7df8a81e692d8bafd36a
   dest: third_party/node/node_modules/esrecurse
 - type: archive
-  url: https://registry.npmjs.org/estraverse/-/estraverse-5.2.0.tgz
-  sha512: 0716cd186366d11c9162f51d1e9230bfd216cde33d5c295b3b1c28013b8574e13b644eb01cbf874394fc8683ccfb31ef98acf3b04aa1832d06ad0e57d7769f89
-  dest: third_party/node/node_modules/esrecurse/node_modules/estraverse
+  url: https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz
+  sha512: 30c74046e54443388d4de243f0380caa6870475d41450fdc04ffa92ed61d4939dfdcc20ef1f15e8883446d7dfa65d3657d4ffb03d7f7814c38f41de842cbf004
+  dest: third_party/node/node_modules/estraverse
 - type: archive
   url: https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz
   sha512: 915b1ca97938382a7af126747648042958baffc8a3df4d0a0564c9ab7d8ffdd61e5934b02b8d56c93c5a94dd5e46603967d514fcb5fd0fb1564a657d480631ea
@@ -547,8 +599,8 @@
   sha512: 7f7a90f68432f63d808417bf1fd542f75c0b98a042094fe00ce9ca340606e61b303bb04b2a3d3d1dce4760dcfd70623efb19690c22200da8ad56cd3701347ce1
   dest: third_party/node/node_modules/fast-deep-equal
 - type: archive
-  url: https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.1.tgz
-  sha512: 90d14fca3861e5c2a3ad496dc6cfb0171f9991b45ac71999f97d19537d523acc4212d3fd54f82dab6b5e670d4379bba92f91a60da350eb228c31570ce358aa0e
+  url: https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz
+  sha512: ecca6d2fc53472a705773233c0e4c7a22957f71e41acdab27bb67f2ee0bb9023118a8d44312caa44adc1100503eec5d1ab8893e00cd356e65d8604364c2bd82e
   dest: third_party/node/node_modules/fast-glob
 - type: archive
   url: https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz
@@ -563,85 +615,57 @@
   sha512: 0c25eee887e1a9c92ced364a6371f1a77cbaaa9858e522599ab58c0eb29c11148e5d641d32153d220fcf62bcf2c3fba5f63388ca1d0de0cd2d6c2e61a1d83c77
   dest: third_party/node/node_modules/fast-levenshtein
 - type: archive
-  url: https://registry.npmjs.org/fastq/-/fastq-1.15.0.tgz
-  sha512: c01ae8714d8b0975dafa5581b7c4682110fcf458bc39d0013836bf9049f27b28d2e5a64ee7f18dbc8e6c1083400ea3ff87c336f541d31d46f9dec52ee4886a77
+  url: https://registry.npmjs.org/fastq/-/fastq-1.19.1.tgz
+  sha512: 1b02d3cb19025e35dbc6a2214ec308d8dba2f21b8c3ed9f183b92b6a33c90239c41bf8a2392ee2fb30ad586651f46d0d04a6d72a1e97f66f5422c617fcdeafbd
   dest: third_party/node/node_modules/fastq
 - type: archive
-  url: https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-6.0.1.tgz
-  sha512: ec6a6cfd75b299b2e4d902d82b8373a4c3ab623321748c57b88bf2d9006c2c4ea58eea1d2af7645acfdca72249dc25485691f43a2d47be0d68bdb3332dd14106
+  url: https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-8.0.0.tgz
+  sha512: 5d74d4c02be2b1ae6869c34644ff527cdb5804d00c8be44fc011666e564417b37bb301d8412ebf65f93b491c31e03e63dc21f6d7560d45ca350c430d55f6429d
   dest: third_party/node/node_modules/file-entry-cache
 - type: archive
-  url: https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz
-  sha512: a8ea3d17e74c5260b62dc6f805b56f9ca2714cf8c29be451a5ee200ee1abce42fb984565fdd8d84aed8e750d8f6b7d36378a2a91283d8abea368b589d94495a5
+  url: https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz
+  sha512: 62c1a97b75872caf19622e2d583836272dde6d1cf6ad7a300f19e57786e4401d3471cff5670f405a70b48bdced0c98ad8afb50bda23d29a2f22ab73e8415b4ca
   dest: third_party/node/node_modules/fill-range
 - type: archive
   url: https://registry.npmjs.org/find-up/-/find-up-5.0.0.tgz
   sha512: efcfcf5d3d7094b2c3813cc3b3bb23abd873cf4bd70fece7fbbc32a447b87d74310a6766a9f1ac10f4319a2092408dda8c557dd5b552b2f36dac94625ba9c69e
   dest: third_party/node/node_modules/find-up
 - type: archive
-  url: https://registry.npmjs.org/flat-cache/-/flat-cache-3.0.4.tgz
-  sha512: 766f6ce4fc3b25cd06bcc61bb2137acdc84203d460425cf31195f7bf2951f48a857d2f177226e551738a7d6e928ae2747b5dde0d8668655e7076b7afecfdcdc2
+  url: https://registry.npmjs.org/flat-cache/-/flat-cache-4.0.1.tgz
+  sha512: 7fb71c14f2b7497147a71d795081b2449fc525072db8a674cd5b8dddfac1a381e72b771acbd5445b447ac8f6051c2d0082a86e90fcca8eadb6b790e6032a86cb
   dest: third_party/node/node_modules/flat-cache
 - type: archive
-  url: https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz
-  sha512: e67a834b197c9e7e4148dc724779f823a78399ba2523a593f90a91e78ed1c3141aa608d0066b64b5d3fe1d305bfdaff32ec6f31114ce372501e6979f8794ed8d
+  url: https://registry.npmjs.org/flatted/-/flatted-3.3.1.tgz
+  sha512: 5fc72a30b2e27bb2ac3540d277378df0560af6b12de03b7aeceb06fc33469d84d20c11b8b850091419d47a257ecc2540bf0172e7a22333db07e758d568484dc7
   dest: third_party/node/node_modules/flatted
-- type: archive
-  url: https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz
-  sha512: 38ed291f694ae9ad2166701d6aee48b731cf23aa5496f23b8cc567c54411b70e28c05db093c94e49a6ed1830933f81a0ae0d8c6c69d63bd5fc2b5b78f9f18c0f
-  dest: third_party/node/node_modules/fs.realpath
 - type: archive
   url: https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz
   sha512: c62a8c411e3101e1d3b81f6e5a6f9f1517083a02813223813fe7978b24fb8ec8150aad5b915ca0b74d28012a3007b11db6938769a3e02adf35d8ff5a6fe0c328
   dest: third_party/node/node_modules/fsevents
 - type: archive
-  url: https://registry.npmjs.org/glob/-/glob-7.2.3.tgz
-  sha512: 9c5474ccba54d9809a471c28089bcbe94bc21f6245c85548bf04cbb087f6d40b8794cb240358614dd93e2e5609b4e958b7dbfa76fb330f604646a04bfa240af5
-  dest: third_party/node/node_modules/glob
-- type: archive
   url: https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz
   sha512: 5f1c08f043a1550816a7a8832feddbd2bf3a7f877a017eb3494e791df078c9d084b972d773915c61e3aefa79c67ed4b84c48eeff5d6bb782893d33206df9afe0
   dest: third_party/node/node_modules/glob-parent
 - type: archive
-  url: https://registry.npmjs.org/globby/-/globby-11.1.0.tgz
-  sha512: 8e121768ecf2d6c6fc232a1c6abb964a7d538e69c156cf00ca1732f37ae6c4d27cab6b96282023dc29c963e2a91925c2b9e00f7348b4e6456f54ab4fd6df52de
-  dest: third_party/node/node_modules/globby
+  url: https://registry.npmjs.org/globals/-/globals-14.0.0.tgz
+  sha512: a1a846bee3064253f0fe2bc86018d54ab5807d62c17a4bb9b693c4d9f38f2e2f961df7c859bba1dad0a38724214c13cc7f913d8c3107e053a64d8818c1b2b0b5
+  dest: third_party/node/node_modules/globals
 - type: archive
   url: https://registry.npmjs.org/graphemer/-/graphemer-1.4.0.tgz
   sha512: 12d2b0a0eea4c422fd58ee718a98874d9952cc19bb58b4fadbb4ea0bfb9545dd072a6abc357c9e6e7358c43a018bbc2df1e4d6ad4aca5c2395685abdc759206a
   dest: third_party/node/node_modules/graphemer
 - type: archive
-  url: https://registry.npmjs.org/he/-/he-1.2.0.tgz
-  sha512: 17fd439d418fa29391662d278be0afac28074391721001d12d2029b9858c9ab6d2c28376327ffb93e1a5dfc8099d1ef2c83664e962d7c221a877524e58d0ca1b
-  dest: third_party/node/node_modules/he
-- type: archive
-  url: https://registry.npmjs.org/html-minifier/-/html-minifier-4.0.0.tgz
-  sha512: 6a81b16a7a453cb83b324225fc30c562d6f4896cfb8cc146a8586f1036606baff84138e77a20fc23f3572f5c7969aa02a7b152213ea1fce87290374fb1bb4c8a
-  dest: third_party/node/node_modules/html-minifier
-- type: archive
-  url: https://registry.npmjs.org/ignore/-/ignore-5.2.4.tgz
-  sha512: 3006f7f017126c7d1e1cd0719fbaa5d8d1ff917df73a4077959d4135d87b10d7910a11d362c4ef5ab32e6e220030d4b69655c4120675314381b570a13f791a15
+  url: https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz
+  sha512: 86c053354a904c3c245ad71d608da2d3a63f9d4044b0d10324a8d676280bbde832f240ee2404bcb91969924710a721172f467fa630f2e4706632344227682afa
   dest: third_party/node/node_modules/ignore
 - type: archive
-  url: https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.0.tgz
-  sha512: bde6188506be0f54012b39ef8541f16fc7dac65af0527c6c78301b029e39ec4d302cd8a8d9b3922a78d80e1323f98880abad71acc1a1424f625d593917381033
+  url: https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.1.tgz
+  sha512: 4d1dca7eb4d94d82cf07a8d48dfc7a305f56716ac72fdb2ee5339b2b866462005d58a3ce1684a8408744b93b91f36a66b711f6b29586f61e9eb707ebd692c1a9
   dest: third_party/node/node_modules/import-fresh
 - type: archive
   url: https://registry.npmjs.org/imurmurhash/-/imurmurhash-0.1.4.tgz
   sha1: 9218b9b2b928a238b13dc4fb6b6d576f231453ea
   dest: third_party/node/node_modules/imurmurhash
-- type: archive
-  url: https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz
-  sha512: 93dd88fdbd3cab8c2f16c71708bbea7ec1c2ae3ac5ef2897b10b8856f544ecdf365b7f9aaa9cee51d05b7e159ccbf159477ff82207e532028b3acbcf0eb18224
-  dest: third_party/node/node_modules/inflight
-- type: archive
-  url: https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz
-  sha512: 93fbc6697e3f6256b75b3c8c0af4d039761e207bea38ab67a8176ecd31e9ce9419cc0b2428c859d8af849c189233dcc64a820578ca572b16b8758799210a9ec1
-  dest: third_party/node/node_modules/inherits
-- type: archive
-  url: https://registry.npmjs.org/is-builtin-module/-/is-builtin-module-3.2.1.tgz
-  sha512: 0522c4dc79d5dacc99d052b488c03fc941a995478c98dcf8016e5f9d3ba76c222a662e2f1b75a3253f451cccb90faf719806011d742125d00b769c15c55e74d4
-  dest: third_party/node/node_modules/is-builtin-module
 - type: archive
   url: https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz
   sha512: 49b29b00d90deb4dd58b88c466fe3d2de549327e321b0b1bcd9c28ac4a32122badb0dde725875b3b7eb37e1189e90103a4e6481640ed9eae494719af9778eca1
@@ -655,21 +679,21 @@
   sha512: e350a27e483a7bc4f2952a5db53a5e2d532abd20445734edb47bc4443ef8d7ea6767c00dbf4d34e0c44be3740a3c394af5c1af369e8d6566540656c65d8c719e
   dest: third_party/node/node_modules/is-number
 - type: archive
-  url: https://registry.npmjs.org/is-path-inside/-/is-path-inside-3.0.3.tgz
-  sha512: 15de200016fec9c18098aa2ef1e31fb42ba94a2af9951c6a7f8683fef774703daa7381cbd3b3a309eb8732bf11a380a831a782283074fc40813955a34f052f3d
-  dest: third_party/node/node_modules/is-path-inside
-- type: archive
   url: https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz
-  sha1: e8fbf374dc556ff8947a10dcb0572d633f2cfa10
+  sha512: 447c4c2e9f659ca1c61d19e0f5016144231b600715a67ebdb2648672addfdfac638155564e18f8aaa2db4cb96aed2b23f01f9f210d44b8210623694ab3241e23
   dest: third_party/node/node_modules/isexe
 - type: archive
   url: https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz
   sha512: c29c59b3d368c596891122462194f20c4698a65d0529203e141f5a262c9e98a84cc24c5083ade1e13d4a2605061e94ea3c33517269982ee82b46326506d5af44
   dest: third_party/node/node_modules/js-yaml
 - type: archive
-  url: https://registry.npmjs.org/jsdoc-type-pratt-parser/-/jsdoc-type-pratt-parser-4.0.0.tgz
-  sha512: 62d3a58b90a6cf2deae1d3f6e86ada48e78086a79c7b01b4e21a0ef03639e821f8289f45befe6a2965020a8dc76686fb7ac2501c2bfaffe6e74f2ef6c5965a55
+  url: https://registry.npmjs.org/jsdoc-type-pratt-parser/-/jsdoc-type-pratt-parser-4.1.0.tgz
+  sha512: 1e271de892b9363b76401e976054bba24f5edfb3bc0189378d3729a46e185509d88ce7a6ca6bd372673b396b26abf42a8f94dd4453b9ff1fed20f981791b461e
   dest: third_party/node/node_modules/jsdoc-type-pratt-parser
+- type: archive
+  url: https://registry.npmjs.org/json-buffer/-/json-buffer-3.0.1.tgz
+  sha512: e1b57905f4769aa7d04c99be579b4f3dd7fe669ba1888bd3b8007983c91cad7399a534ff430c15456072c17d68cebea512e3dd6c7c70689966f46ea6236b1f49
+  dest: third_party/node/node_modules/json-buffer
 - type: archive
   url: https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz
   sha512: c5b6c21f9742614e53f0b704861ba1ec727cf075ee5b7aac237634cce64529f6441dca5688753f271ce4eb6f41aec69bfe63221d0b62f7030ffbce3944f7b756
@@ -679,25 +703,25 @@
   sha1: 9db7b59496ad3f3cfef30a75142d2d930ad72651
   dest: third_party/node/node_modules/json-stable-stringify-without-jsonify
 - type: archive
+  url: https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz
+  sha512: a3154790747f1097f608d5e75b144b5ba9a0ec9c82094706d03b441a62f672d528d4f3538a7d4f52297eafffb8af93295600bf7e7d648ecc7b9a34ae8caa88a7
+  dest: third_party/node/node_modules/keyv
+- type: archive
   url: https://registry.npmjs.org/levn/-/levn-0.4.1.tgz
   sha512: f9b4f6b87e04e4b184ee1fe7ddebdc4bfb109495c2a48a7aca6f0e589e5e57afbaec3b2a97f2da693eea24102ddabcdfa1aff94011818710e2c7574cb7691029
   dest: third_party/node/node_modules/levn
 - type: archive
-  url: https://registry.npmjs.org/lit/-/lit-3.0.2.tgz
-  sha512: 6685543c6817390a1c3f83afc5e844381982e2b581e1c4580cf6b3eda1661fc0c5cadb028bf35e0026ebe02eaf34f183102d3b06b854a2ceee54d6b20ca2d0d9
+  url: https://registry.npmjs.org/lit/-/lit-3.3.0.tgz
+  sha512: 0c656caac3881c1c30d83aa7b99cd6ed0b2e09d6a1a79d288ee0da04f0bb8d40d1a58a07d33ee41c105865ec11cdeafbe45c2dae49a42a4ee2380c126967419b
   dest: third_party/node/node_modules/lit
 - type: archive
-  url: https://registry.npmjs.org/lit-element/-/lit-element-4.0.2.tgz
-  sha512: fd6e9641951ae55117c02ec7f6d6ed0cc752b3d6968a5dcebbc854eb3d9c38a59bb26fed5cf01cb28687544b6b0e8d3370e204e4617a420539e6d9462f636286
+  url: https://registry.npmjs.org/lit-element/-/lit-element-4.2.0.tgz
+  sha512: 306ad7255008e71f817ed87fa54f4ab2dd625880fa1870cb1331449f250b07fb058912e091df0d3cafcf79e5f192d0374fa10821aabc53729c6d35395c570fd9
   dest: third_party/node/node_modules/lit-element
 - type: archive
-  url: https://registry.npmjs.org/lit-html/-/lit-html-3.1.0.tgz
-  sha512: 170023ab788db1a3ba48e657108a5e44e9492d496b6f23249f88aebf87f8bb51f8d09c3cc24791fce5176541d4a2261a6c693c63863417fae0abe47832b38b98
+  url: https://registry.npmjs.org/lit-html/-/lit-html-3.3.0.tgz
+  sha512: 447a2cc2b140c58d9df027f69a6e0e6750e0cc2a012942923ef0357e1b5210bc54111ab6690436874e693bd8fcd604b5a3b448449f8278f2e881fc9a8709b29f
   dest: third_party/node/node_modules/lit-html
-- type: archive
-  url: https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.6.tgz
-  sha512: 1d8b4da283ef518f56015441af8bbee106bd7d80f5cded88525003dc7a00ea87a19f5b5a1b0071dce6b9d94e264ec9534be1801312a9685bb7f58e71504c1f8e
-  dest: third_party/node/node_modules/lit-html/node_modules/@types/trusted-types
 - type: archive
   url: https://registry.npmjs.org/locate-path/-/locate-path-6.0.0.tgz
   sha512: 88f64ae9e6236f146edee078fd667712c10830914ca80a28a65dd1fb3baad148dc026fcc3ba282c1e0e03df3f77a54f3b6828fdcab67547c539f63470520d553
@@ -707,14 +731,6 @@
   sha512: d0aa63a97455beb6320ac5f5b3047f5d32b4bdae9542440ce8c368ecfa96efb0728c086801103c11facfd4de3e2a52a3f184b46540ad453fd852e872603ba321
   dest: third_party/node/node_modules/lodash.merge
 - type: archive
-  url: https://registry.npmjs.org/lower-case/-/lower-case-1.1.4.tgz
-  sha512: d85831d58726e7df71f961a9218c093afb239971734d2737e08c035802d103ff00a2950a0153f07c9fa1e7e7fce410a9d0f5a6989716cc4a713a9a17c9c32974
-  dest: third_party/node/node_modules/lower-case
-- type: archive
-  url: https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz
-  sha512: 268e9d274e029928eece7c09492de951e5a677f1f47df4e59175e0c198be7aad540a6a90c0287e78bb183980b063df758b615a878875044302c78a938466ec88
-  dest: third_party/node/node_modules/lru-cache
-- type: archive
   url: https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.30.tgz
   sha512: 19aa96592856e24bff1bd204b9c592701c7d1b5fefb056592543beb43dba33c27ccf72b0e510d08daa197b4dd8002960792fd258f39c6f89e41414c48b90d410
   dest: third_party/node/node_modules/mdn-data
@@ -723,33 +739,33 @@
   sha512: f2aed51203095b827cb5c7d53f2f20d3d35c43065d6f0144aa17bf5999282338e7ff74c60f0b4e098b571b10373bcb4fce97330820e0bfe3f63f9cb4d1924e3a
   dest: third_party/node/node_modules/merge2
 - type: archive
-  url: https://registry.npmjs.org/micromatch/-/micromatch-4.0.5.tgz
-  sha512: 0cccbe1117045b6abc6763e8f96357bb0ddce586944858c03b91ac26a7c497b523bed22e14a3ba66b2af708b5dcbdf1dc05236375b60df334874a6904fe68d74
+  url: https://registry.npmjs.org/messageformat/-/messageformat-4.0.0-11.tgz
+  sha512: f0e64de3eae05e6b119248dc546019b5da7dd5ae1449270b1ebe5f890ac0808850196118dc88be54c09fb2bc38b16540c2c6d3ccf21c90eb5544a3a2bfb58f2e
+  dest: third_party/node/node_modules/messageformat
+- type: archive
+  url: https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz
+  sha512: 3d7c1f06162ed210423f0f039f413e58361beda7f77522d558a8b71c6bfce08745e13c85a02d32b3115dd06a31c3b9d2bf84ff3f3109431b18b0488508aa3604
   dest: third_party/node/node_modules/micromatch
 - type: archive
   url: https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz
   sha512: 27ba7ade1462023c35343130c355bb8b7efe07222b3963b95d0400cd9dd539c2f43cdc9bc297e657f374e73140cf043d512c84717eaddd43be2b96aa0503881f
   dest: third_party/node/node_modules/minimatch
 - type: archive
-  url: https://registry.npmjs.org/ms/-/ms-2.1.2.tgz
-  sha512: b0690fc7e56332d980e8c5f6ee80381411442c50996784b85ea7863970afebcb53fa36f7be4fd1c9a2963f43d32b25ad98b48cd1bf9a7544c4bdbb353c4687db
+  url: https://registry.npmjs.org/ms/-/ms-2.1.3.tgz
+  sha512: e85973b9b4cb646dc9d9afcd542025784863ceae68c601f268253dc985ef70bb2fa1568726afece715c8ebf5d73fab73ed1f7100eb479d23bfb57b45dd645394
   dest: third_party/node/node_modules/ms
+- type: archive
+  url: https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz
+  sha512: 37c4a97cf527529d5b2be3cc616f2a496765f54fb0c0d588e102b13980f2f4902ba3758c5fba7639e55117dbfedf8ee99da90d7af3e688784d999d876c503beb
+  dest: third_party/node/node_modules/nanoid
 - type: archive
   url: https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz
   sha1: 4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7
   dest: third_party/node/node_modules/natural-compare
 - type: archive
-  url: https://registry.npmjs.org/no-case/-/no-case-2.3.2.tgz
-  sha512: ae64d9f64cfe7f7ac2bcad930f551efe86659ecece1a82163f87dcde5971c515e53a41caa163cf58939f158a484da6d2a30e374096d12281d05edb75d1595dc9
-  dest: third_party/node/node_modules/no-case
-- type: archive
   url: https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz
   sha512: 96a8eb8e668ea009d67cc9813cbf97367ca7661dbeb30c625f7594134b38c841c8ea6f80c2b2b65193a2988465dd7ff841cb55a92f008998c5ab2386acc5dbff
   dest: third_party/node/node_modules/nth-check
-- type: archive
-  url: https://registry.npmjs.org/once/-/once-1.4.0.tgz
-  sha512: 94d689808fb643951140191c7042874d038f697754c67659125413658d0c15402e684a9ed44f8dcaf81dcff688c8d8ba67d3333b976fd47f27e7cfc610ba77fb
-  dest: third_party/node/node_modules/once
 - type: archive
   url: https://registry.npmjs.org/optionator/-/optionator-0.9.3.tgz
   sha512: 2630a8ca9a7e8ca9f5b6d105131c617ad08a789b7dce102002f7b91571e2c53bc50d6ff968492d5fd6ee7c128b45131d53b6cdb692df706bbde01ddc7442608e
@@ -763,76 +779,72 @@
   sha512: 2da363b51594058fbecc1e6713f37071aa0cca548f93e4be647341d53cdd6cc24c9f2e9dca7a401aded7fed97f418ab74c8784ea7c47a696e8d8b1b29ab1b93f
   dest: third_party/node/node_modules/p-locate
 - type: archive
-  url: https://registry.npmjs.org/param-case/-/param-case-2.1.1.tgz
-  sha512: 79013ce392faa2df3db24d8df25883f0702e1f871ae95bebed55805b0b7bfa4bef1b968170f9a6a6143af09b041b6a9af67d53ca44b60cb78cb77eb70001fcff
-  dest: third_party/node/node_modules/param-case
-- type: archive
   url: https://registry.npmjs.org/parent-module/-/parent-module-1.0.1.tgz
   sha512: 190d84591a5057cfe8f80c3c62ab5f6593df3515996246e2744f64e6ba65fe10b7bed1c705f1a6d887e2eaa595f9ca031a4ad42990311372e8b7991cb11961fa
   dest: third_party/node/node_modules/parent-module
+- type: archive
+  url: https://registry.npmjs.org/parse-imports/-/parse-imports-2.1.1.tgz
+  sha512: 4c34f81eacd489330ed70251c20fedfe1624f16769de217f4e8308940a1541f2f55ecfec4f1ab574a59232331b42621aadf58aca63b2972e34fb398f1d732a08
+  dest: third_party/node/node_modules/parse-imports
 - type: archive
   url: https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz
   sha512: 6a4f50cb943b8d86f65b071ecb9169be0d8aa0073f64884b48b392066466ca03ec1b091556dd1f65ad2aaed333fa6ead2530077d943c167981e0c1b82d6cbbff
   dest: third_party/node/node_modules/path-exists
 - type: archive
-  url: https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz
-  sha512: 0156f0dd42767bd6eaeb8bd2692f409b47e37b53daf296c6a934ec9977da2223299ebe4394385f24eb8b8fd49ff7964f5430147ab0df124f3c30f98f7bb50242
-  dest: third_party/node/node_modules/path-is-absolute
-- type: archive
   url: https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz
   sha512: a2399e374a9dfb2d23b3312da18e3caf43deab97703049089423aee90e5fe3595f92cc17b8ab58ae18284e92e7c887079b6e1486ac7ee53aa6d889d2c0b844e9
   dest: third_party/node/node_modules/path-key
 - type: archive
-  url: https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz
-  sha512: 80329bf1a64c0de0ffb595acf4febeab427d33091d97ac4c57c4e39c63f7a89549d3a6dd32091b0652d4f0875f3ac22c173d815b5acd553dd7b8d125f333c0bf
-  dest: third_party/node/node_modules/path-type
-- type: archive
-  url: https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz
-  sha512: d5fca0ae84cb947bbaeb38b6e95a130eff324609b415c71e72cb2da3e321b19d03fc3196dac9bc13c0235bb354e5555346de46c5b799e6a06e26bf87c8b6248d
+  url: https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz
+  sha512: c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454
   dest: third_party/node/node_modules/picocolors
 - type: archive
   url: https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz
   sha512: 254ded7874cd8e6136542185cee63c117cc20d5c04a81d9af1fb08bf0692b4784058911e55dd68d500fcd0253af997445d748b6d2b2e2f0263902056a9141454
   dest: third_party/node/node_modules/picomatch
 - type: archive
+  url: https://registry.npmjs.org/postcss/-/postcss-8.5.3.tgz
+  sha512: 7657bd037c98c65052aedf05bbe2298c64fc498f213749a5680e8663cb743f93e320e65e9942f3fc4d819e6ff675c50e7a76bbe4e4cd90723beae64135452adc
+  dest: third_party/node/node_modules/postcss
+- type: archive
+  url: https://registry.npmjs.org/postcss-minify/-/postcss-minify-1.1.0.tgz
+  sha512: f43eb8b9e216d032f615d2da8d04e55eb9d337c3b1f4d8ee5ea8a028c981f35f5185d0a534f631e59a778b9c748218e3cb7bc6acb04160462f26363fd5e30d6f
+  dest: third_party/node/node_modules/postcss-minify
+- type: archive
+  url: https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz
+  sha512: 43ca907cf899f931ceff766b3ab3b470924a7e96026a0b4c5245db9c47e68148f05e0eb3fd605e3b24bd00f0413c24d288357eb384b0406bbcc85b2231122e76
+  dest: third_party/node/node_modules/postcss-selector-parser
+- type: archive
+  url: https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz
+  sha512: d4d342b3abaeadf9156de5c6e12f09153f6dd7d9b8e480a789ff3358b779a0f499e74427c0c7caf87de3bf8d3c7788f0ffb06db6fe5ac52e48887a0b69534779
+  dest: third_party/node/node_modules/postcss-value-parser
+- type: archive
   url: https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz
   sha512: be47033eb459a354192db9f944b18fa60fd698843ae6aa165a170629ffdbe5ea659246ab5f49bdcfca6909ab789a53aa52c5a9c8db9880edd5472ad81d2cd7e6
   dest: third_party/node/node_modules/prelude-ls
 - type: archive
-  url: https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz
-  sha512: ad157ecd00fcb55172b36ea500647d594b92e225009e025270cf994522adbe5e6d29e676b796ef74d15d347056f45591e20b861e5826b19d46ec14a6db04dbb8
+  url: https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz
+  sha512: bd8b7b503d54f5683ad77f2c84bb4b3af740bbef03b02fe2945b44547707fb0c9d712a4d136d007d239db9fe8c91115a84be4563b5f5a14ee7295645b5fabc16
   dest: third_party/node/node_modules/punycode
 - type: archive
   url: https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz
   sha512: 36e68d49ae9f94a4f925a498433268934e09cd32f5080e9a1a1bf9adf2d6dcf82a03e3360a1a59427002f21f22e19164052f17e51aa40c11c0eebe217a3dcaf4
   dest: third_party/node/node_modules/queue-microtask
 - type: archive
-  url: https://registry.npmjs.org/relateurl/-/relateurl-0.2.7.tgz
-  sha1: 54dbf377e51440aca90a4cd274600d3ff2d888a9
-  dest: third_party/node/node_modules/relateurl
-- type: archive
   url: https://registry.npmjs.org/resolve-from/-/resolve-from-4.0.0.tgz
   sha512: a5bfcc6265ecb40932b11171f2988d235b4614d408140def904dc6ab812e035745ea01e9ffebe066ab021896a9bf2f0ddd0fb8a3b170beab8f25c9d9ed1632e2
   dest: third_party/node/node_modules/resolve-from
 - type: archive
-  url: https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz
-  sha512: 53d9c7f3c6b77dcfde902175974fd43f5228b22b888f24e1ee106f5d530762055c7c6bedf3ded782e8f650e2c3788e411b69bbfeec3268b553e9f6ed0b04f2cf
+  url: https://registry.npmjs.org/reusify/-/reusify-1.1.0.tgz
+  sha512: 83a4147dfd38a19a47b34786e69f37ac52e11de574d2e83f61ff6764ce9f2de52b3e0b814e44d039da40596b29321e794d97d54033da37735025f6d5440c5d23
   dest: third_party/node/node_modules/reusify
-- type: archive
-  url: https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz
-  sha512: 25990931990018514f3f662a5d95cf6cc94c060b31cc4f082ece253085ffda8d0bf54070f4efd8de8eb0170fe2f582daa5c5095b0a9b8b791dc483dd0bad9320
-  dest: third_party/node/node_modules/rimraf
-- type: archive
-  url: https://registry.npmjs.org/rollup/-/rollup-3.29.4.tgz
-  sha512: a16ce6059c2f62b5348891ed0e686c9baeb6ac2d791515e67230a4d710fbef57450f1e63274dae7c04104e7d1eb41d9e98d93827d11983fc962a9b27f4158647
-  dest: third_party/node/node_modules/rollup
 - type: archive
   url: https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz
   sha512: e65e15c9947ce8b67f943c594d1ea3a8bf00144d92d0814b30fdba01b8ec2d5003c4776107f734194b07fb2dfd51f0a2dddcf3f0e950b8f9a768938ca031d004
   dest: third_party/node/node_modules/run-parallel
 - type: archive
-  url: https://registry.npmjs.org/semver/-/semver-7.5.4.tgz
-  sha512: d5b09211257a3effa2db51efa71a770f1fa9483f2520fb7cb958d1af1014b7f9dbb3061cfad2ba6366ed8942e3778f9f9ead793d7fa7a900c2ece7eded693070
+  url: https://registry.npmjs.org/semver/-/semver-7.6.3.tgz
+  sha512: a157a43f570ab48f824c3bc759815470cb6c2bfd34c260047f2a8a7cd740466f2ed7035585281a5fb03c77852e225508e5ef38884c0e86ced93d8466cd4f54e8
   dest: third_party/node/node_modules/semver
 - type: archive
   url: https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz
@@ -843,12 +855,12 @@
   sha512: efef9d161b5cc77df9dee05aabc0c347836ec417ad0730bb6503a19934089c711de9b4ab5dd884cb30af1b4ed9e3851874b4a1594c97b7933fca1cfc7a471bd4
   dest: third_party/node/node_modules/shebang-regex
 - type: archive
-  url: https://registry.npmjs.org/slash/-/slash-3.0.0.tgz
-  sha512: 83d43585a79bcb7e8e492b706f89ed08618668ab1a5528d0ebc7c1c6841cbad9797d2d6fb98d7c1f7c12b778c5c85b6b931f8acf45751bce40e0cc80743322d9
-  dest: third_party/node/node_modules/slash
+  url: https://registry.npmjs.org/slashes/-/slashes-3.0.12.tgz
+  sha512: 43d54c13c5b21a473ba497fa404923df013ed829ef64c23e5c98707533d1f19fe45904578bb6e80162c389b44fc874535133f1e45694eccb32ae3237c8b0781c
+  dest: third_party/node/node_modules/slashes
 - type: archive
-  url: https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz
-  sha512: 4745ef549f56bac2e2a930848860a620208ca65702908c30475d663920fd091e6ef885d8762b1e784b970950234b9e33ab090b70f367994e0e789ead52b5a10f
+  url: https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz
+  sha512: 51758c2a12cec1529bef6f0852d40f5f17d853ebac7726ed52b2bff2e184f0240cbeb84ea70bf30c1c23d108522fb31073bbc8b084811bc550f3e203431a5f40
   dest: third_party/node/node_modules/source-map-js
 - type: archive
   url: https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.20.tgz
@@ -859,21 +871,17 @@
   sha512: 52381aa6e99695b3219018334fb624739617513e3a17488abbc4865ead1b7303f9773fe1d0f963e9e9c9aa3cf565bab697959aa989eb55bc16396332177178ee
   dest: third_party/node/node_modules/source-map-support/node_modules/source-map
 - type: archive
-  url: https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.3.0.tgz
-  sha512: fed4eb60e0bb3cf2359d4020c77e21529a97bb2246f834c72539c850b1b8ac3ca08b8c6efed7e09aad5ed5c211c11cf0660a3834bc928beae270b919930e22e4
+  url: https://registry.npmjs.org/spdx-exceptions/-/spdx-exceptions-2.5.0.tgz
+  sha512: 3e2538dabfb13b851b512d5bba8dcb3c992394eef8df45e7e5254085da73cec3c7b236d855f9679c57404e069b9cbb9d7be0aabb6e69e8dfa0da5c3f3c5b1ae3
   dest: third_party/node/node_modules/spdx-exceptions
 - type: archive
-  url: https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-3.0.1.tgz
-  sha512: 71ba87ba7b105a724d13a2a155232c31e1f91ff2fd129ca66f3a93437b8bc0d08b675438f35a166a87ea1fb9cee95d3bc655f063a3e141d43621e756c7f64ae1
+  url: https://registry.npmjs.org/spdx-expression-parse/-/spdx-expression-parse-4.0.0.tgz
+  sha512: 0a5c9ae492228ffec2e9b451db6fad9c65db73854a9626ca4958f6887bd5797e62316eecd5221096abbaf7d26438324922187fa54bbc2f4fd52e1f317e50fe2d
   dest: third_party/node/node_modules/spdx-expression-parse
 - type: archive
-  url: https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.11.tgz
-  sha512: 0ad97606b1623345f7300358823dc29328318519abf668bac617a36dd3bdeb49c5e840c90294d8a67d014270ca96734150b2a208dd67df0f440641caf195a0fa
+  url: https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.20.tgz
+  sha512: 8e0db93620d5ff57cbb52804832bd5c83ba7bda3476eec05f657cd575ee04a63c502563375f34194bb4bcd74debf090f8fb0e119b98df559e624880b9e1bda07
   dest: third_party/node/node_modules/spdx-license-ids
-- type: archive
-  url: https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz
-  sha512: 637f153d21dcaa416b0a916743dbee4979aabaebf9a1738aa46793e9a1abaf7a3719cf409556ba2417d448e0a76f1186645fbfd28a08ecaacfb944b3b54754e4
-  dest: third_party/node/node_modules/strip-ansi
 - type: archive
   url: https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz
   sha512: e9f3dcf91e22870a8fe8dfda22fd9fd60307f25395b56407a2a0b8c8aea8483555a1cba602c7c2aa39179ea89832198cc12fe61072e9ed57a196ddea97a9448a
@@ -887,57 +895,57 @@
   sha512: 42b59707e6504953e6216221b443bd1fe8301da3066221790a1be827e2bd6461c6fec56c6baca27ac003d460bfc78eac113d345e5c28d6ee3d455555cef71293
   dest: third_party/node/node_modules/svgo/node_modules/commander
 - type: archive
-  url: https://registry.npmjs.org/terser/-/terser-5.20.0.tgz
-  sha512: 7b9e844ebc9a403c9e6c1c09216601d934fa7f6119d1f2f4b16fc945734c376eb365d2a2daefc4ff99b2e651ba8cdc729baaacad55df15198e755e36ce50202d
-  dest: third_party/node/node_modules/terser
+  url: https://registry.npmjs.org/synckit/-/synckit-0.9.1.tgz
+  sha512: ee0afca7d4d03fa4401eeb013922ece3a178e7ae19ae357cc459b0e730a682684651cc36871b1286127a08488740c80f0f0010d5f5873ccd32a5ce113008a0e0
+  dest: third_party/node/node_modules/synckit
 - type: archive
-  url: https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz
-  sha1: 7f5ee823ae805207c00af2df4a84ec3fcfa570b4
-  dest: third_party/node/node_modules/text-table
+  url: https://registry.npmjs.org/terser/-/terser-5.37.0.tgz
+  sha512: 07cc114649ab7b8111b9c2ccfee5f1e0c395e5c6e73a5540a94b2dfb5fa22ca3c8d1d3a014edbc7fce29b6842df47108e77ecf3337d86bf77e1843ca4d15e660
+  dest: third_party/node/node_modules/terser
 - type: archive
   url: https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz
   sha512: eb93fb8b3e97e7212bd5cc1c82f4316db230ed493780ecb974876d678ac3bde2ea86b7493fe2e2fc7c7ab722b43446fed860b29de08c2621aaac00c248d93cb1
   dest: third_party/node/node_modules/to-regex-range
 - type: archive
-  url: https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-1.0.3.tgz
-  sha512: c0d31eaad333e4db70a53fd46466396a54fe56829d4ac38e3ff92a1c57145b53ff551847db0278f3e0cdd96c1496235b43defa113c032f421f776555be0a27be
+  url: https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.0.1.tgz
+  sha512: 7679608c54957adca723c9f3809faa17ad9e7e9825a56464f22b141166465a5258c920930fa68abdb503bbecdb3de0da924ddb8391f85e98ad1ee9207cbd66f7
   dest: third_party/node/node_modules/ts-api-utils
+- type: archive
+  url: https://registry.npmjs.org/ts-poet/-/ts-poet-6.12.0.tgz
+  sha512: c68fa244d316ab2bd7a454da380bcb3c0e500163ba4d9ad252ce6ce0e75ac9addea6aa1f06efdf30b1c45a5f233e68e1034b3db208fdb0dbc5d4199a42599090
+  dest: third_party/node/node_modules/ts-poet
+- type: archive
+  url: https://registry.npmjs.org/ts-proto/-/ts-proto-2.7.7.tgz
+  sha512: fce7cdf7f62b8a38b66dba4ecac67f27373dea2b0e2b3f9e05324470a6886743d1eb1d53360566e0bcf4cdf6e8f89d23c053bb7c98c9cacb1e7c13d0d28d55f4
+  dest: third_party/node/node_modules/ts-proto
+- type: archive
+  url: https://registry.npmjs.org/ts-proto-descriptors/-/ts-proto-descriptors-2.0.0.tgz
+  sha512: c077131f7c48bf5d63c60917e4ec824857f0dbb6a0a489c077aca1f3d84a1bacea2179e35bd498a92111d82550c5d3e3e1ccde3a119a80dbd90446c93f2eea93
+  dest: third_party/node/node_modules/ts-proto-descriptors
+- type: archive
+  url: https://registry.npmjs.org/tslib/-/tslib-2.7.0.tgz
+  sha512: 80b5c229d375fe3e3b0221e23a424debd84999c6c64c72342262e66d82c7ca486078dd23546a256bdc958c5833094925b1940c5b9e68f9d5bb217bf74425c3cc
+  dest: third_party/node/node_modules/tslib
 - type: archive
   url: https://registry.npmjs.org/type-check/-/type-check-0.4.0.tgz
   sha512: 5e5794a1cf6ec065ea8d6c176944d9026ccc705679f39f10036befc7552be7121c8b15c83fef0b9c50e0469954df4bacead7aa765b2415fbbe69ee0aefd3a87b
   dest: third_party/node/node_modules/type-check
 - type: archive
-  url: https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz
-  sha512: 35ef9e138af4fe25a7a40c43f39db3dc0f8dd01b7944dfff36327045dd95147126af2c317f9bec66587847a962c65e81fb0cfff1dfa669348090dd452242372d
-  dest: third_party/node/node_modules/type-fest
-- type: archive
-  url: https://registry.npmjs.org/typescript/-/typescript-5.4.2.tgz
-  sha512: fb6fe0d0576cd444653fa26c6a44100d78d975930cfabaa96a61592442a1e24c13227de20e480ab5bcb409e35de404cd678472d5ac75e53331d16d95fa68a2cd
+  url: https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz
+  sha512: 6899fac2ad77fda7d9a7f8d3f50666c048c3aaabd21a9d554f919583e7ffb7afe8572ae05cce8163587d05187f3b9a773e550f01ef96ba21193a66ffe3d46aa1
   dest: third_party/node/node_modules/typescript
-- type: archive
-  url: https://registry.npmjs.org/uglify-js/-/uglify-js-3.15.5.tgz
-  sha512: 84d339ab919b051079c41f8f32a55172061ee1cf236f2675a736614ba8dbab9e3fe05da014af3af5985e884e40f3fb7e5b98ed4cda5679fff943dce4eb7f4535
-  dest: third_party/node/node_modules/uglify-js
-- type: archive
-  url: https://registry.npmjs.org/upper-case/-/upper-case-1.1.3.tgz
-  sha1: f6b4501c2ec4cdd26ba78be7222961de77621598
-  dest: third_party/node/node_modules/upper-case
 - type: archive
   url: https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz
   sha512: eeb294cb2df7435c9cf7ca50d430262edc17d74f45ed321f5a55b561da3c5a5d628b549e1e279e8741c77cf78bd9f3172bacf4b3c79c2acf5fac2b8b26f9dd06
   dest: third_party/node/node_modules/uri-js
 - type: archive
+  url: https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz
+  sha512: 10f0f9ab5b97c85c49a42acb9c27359c79eade039ae83641a1c008888d93692080ed5089d5424331a802cc891736c5187c3d5d68afff2d3110f318886eb1ed73
+  dest: third_party/node/node_modules/util-deprecate
+- type: archive
   url: https://registry.npmjs.org/which/-/which-2.0.2.tgz
   sha512: 04b2374e5d535b73ef97bd25df2ab763ae22f9ac29c17aac181616924a8cb676d782b303fb28fbae15b492e103c7325a6171a3116e6881aa4a34c10a34c8e26c
   dest: third_party/node/node_modules/which
-- type: archive
-  url: https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz
-  sha512: 9784a9fc346c7a8afdc0be84bd5dbe4ee427eb774c90f8d9feca7d5e48214c46d5f4a94f4b5c54b19deeeff2103b8c31b5c141e1b82940f45c477402bdeccf71
-  dest: third_party/node/node_modules/wrappy
-- type: archive
-  url: https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz
-  sha512: df074689d672ab93c1d3ce172c44b94e9392440df08d7025216321ba6da445cbffe354a7d9e990d1dc9c416e2e6572de8f02af83a12cbdb76554bf8560472dec
-  dest: third_party/node/node_modules/yallist
 - type: archive
   url: https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz
   sha512: ad592cbec9cd09d27fa2119ceb180fc3237c7a1782c6c88b33c9b1b84fedfe6395a897b03ee3b59a22e94c74224604ca08b7b12f831e00555a82db3b1e6359d9

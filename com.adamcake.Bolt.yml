@@ -6,13 +6,15 @@ x-gl-versions: &gl-versions 24.08;24.08-extra;1.4
 x-gl-merge-dirs: &gl-merge-dirs vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
 sdk: org.freedesktop.Sdk
 command: bolt
-build-options:
+build_options:
   cflags: -O3
   cflags-override: true
   cppflags: -O3
   cppflags-override: true
   cxxflags: -O3
   cxxflags-override: true
+  append-path: /app/lib/sdk/llvm21/bin:/usr/lib/sdk/rust-stable/bin
+  append-ld-library-path: /usr/lib/sdk/rust-stable/lib
 finish-args:
   - --device=dri
   - --share=ipc
@@ -31,6 +33,8 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Compat.i386
   - org.freedesktop.Sdk.Extension.toolchain-i386
+  - org.freedesktop.Sdk.Extension.rust-stable
+
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
@@ -64,9 +68,6 @@ add-extensions:
     enable-if: active-gl-driver
     autoprune-unless: active-gl-driver
 
-cleanup:
-  - /cef
-  - /usr/lib/sdk/node22
 modules:
   - name: platform-bootstrap
     buildsystem: simple
@@ -154,128 +155,112 @@ modules:
         url: https://github.com/LuaJIT/LuaJIT.git
         tag: v2.1.ROLLING
         commit: 2090842410e0ba6f81fad310a77bf5432488249a
+  - name: llvm21
+    buildsystem: simple
+    build-commands:
+      - cmake -S llvm21/llvm -B llvm21/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
+      - cmake --build llvm21/build -j $FLATPAK_BUILDER_N_JOBS
+      - cmake --install llvm21/build --prefix /app/lib/sdk/llvm21
+    sources:
+      - type: git
+        url: https://github.com/llvm/llvm-project.git
+        tag: llvmorg-21.1.2
+        commit: b708aea0bc7127adf4ec643660699c8bcdde1273
+        dest: llvm21
+    cleanup: ['*']
   - name: chromium
     buildsystem: simple
     build-commands:
-      - patch -p1 --directory=third_party/node < third_party/node/patches/lit_html.patch
-      - patch -p1 --directory=third_party/node < third_party/node/patches/typescript.patch
-      - patch -p1 --directory=third_party/node/node_modules/chai/ < third_party/node/patches/chai.patch
-      - patch -p1 --directory=third_party/node/node_modules/@types/d3/ < third_party/node/patches/chromium_d3_types_index.patch
-      - patch -p1 --directory=third_party/node/node_modules/html-minifier/ < third_party/node/patches/html_minifier.patch
-      - cmake -S llvm19/llvm -B llvm19/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
-      - cmake --build llvm19/build -j $FLATPAK_BUILDER_N_JOBS
-      - cmake --install llvm19/build --prefix llvm19/install
-      - ./build/util/lastchange.py -m SKIA_COMMIT_HASH -s third_party/skia --header skia/ext/skia_commit_hash.h
-      - /usr/bin/env CC=gcc CXX=g++ python3 gn/build/gen.py
-      - /usr/bin/env CC=gcc CXX=g++ ninja -C gn/out -j $FLATPAK_BUILDER_N_JOBS
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar python3 cef/tools/gclient_hook.py
-      - ./ungoogled-chromium/utils/prune_binaries.py . ungoogled-chromium/pruning.list
-      - ./ungoogled-chromium/utils/patches.py apply . ungoogled-chromium/patches
-      - ./ungoogled-chromium/utils/domain_substitution.py apply -r ungoogled-chromium/domain_regex.list -f ungoogled-chromium/domain_substitution.list -c domsubcache.tar.gz .
-      - /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -k 0 -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox || /usr/bin/env CC=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang CXX=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/clang++ AR=$FLATPAK_BUILDER_BUILDDIR/llvm19/install/bin/llvm-ar ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
-      - python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
+      - ./scripts/build.sh
     build-options:
       env:
-        GN_DEFINES: 'blink_symbol_level=0 build_with_tflite_lib=false chrome_pgo_phase=0 clang_base_path="/run/build/chromium/llvm19/install" clang_use_chrome_plugins=false disable_fieldtrial_testing_config=true enable_background_mode=false enable_backup_ref_ptr_support=false enable_cdm_host_verification=false enable_cdm_storage_id=false enable_hangout_services_extension=false enable_linux_installer=false enable_mdns=false enable_mse_mpeg2ts_stream_parser=true enable_nacl=false enable_oop_printing=false enable_print_preview=true enable_printing=true enable_reading_list=false enable_remoting=false enable_reporting=false enable_resource_allowlist_generation=false enable_rlz=false enable_service_discovery=false enable_widevine=false exclude_unwind_tables=true fatal_linker_warnings=false ffmpeg_branding=Chrome forbid_non_component_debug_builds=false google_api_key= google_default_client_id= google_default_client_secret= icu_use_data_file=true is_cfi=false is_clang=true is_component_build=false is_debug=false is_official_build=true link_pulseaudio=false optimize_webui=true proprietary_codecs=true rtc_use_pipewire=false safe_browsing_mode=0 symbol_level=0 target_cpu=x64 treat_warnings_as_errors=false use_cfi_icall=false use_cups=false use_custom_libcxx=true use_cxx17=false use_gold=false use_lld=true use_official_google_api_keys=false use_partition_alloc_as_malloc=false use_perfetto_client_library=true use_pulseaudio=false use_qt=false use_sysroot=false use_system_harfbuzz=true use_system_libffi=true use_thin_lto=true use_unofficial_version_number=false use_vaapi=false v8_enable_sandbox=false'
+        GN_DEFINES: 'enable_speech_service=false treat_warnings_as_errors=false angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0 build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false enable_concurrent_basic_print_dialogs=false enable_media_remoting=false enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false headless_use_policy=false headless_use_prefs=false icu_use_data_file=true include_branded_entitlements=false init_stack_vars=false media_use_openh264=false optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default'
+
+        AR: llvm-ar
+        CC: clang
+        CXX: clang++
+        NM: llvm-nm
+        RANLIB: llvm-ranlib
+        STRIP: llvm-strip
+
+        # Point bindgen to LLVM's libclang
+        LIBCLANG_PATH: /app/lib/sdk/llvm21/lib
+
+        # Paths to Node.js
+        NODE_HOME: /usr/lib/sdk/node22
+
+        # Allow the use of nightly features with stable Rust compiler
+        # https://github.com/ungoogled-software/ungoogled-chromium/pull/2696#issuecomment-1918173198
+        RUSTC_BOOTSTRAP: '1'
+
+        # Configure CCACHE for faster builds
+        CCACHE_NOHASHDIR: 'true'
+        CCACHE_SLOPPINESS: time_macros,include_file_ctime,include_file_mtime
     sources:
+      - type: file
+        path: build.sh
+        dest: scripts
       - type: git
         url: https://github.com/chromium/chromium.git
-        tag: 126.0.6478.183
-        commit: 2e81dea53f5ecdc1c057e4c70ecd66151987296a
+        tag: 139.0.7258.139
+        commit: 54b87fe5881df381307c2ef806b8e5e87e8a6790
         disable-submodules: true
       - type: git
         url: https://github.com/chromiumembedded/cef.git
-        commit: a5d51ba9db7ee74a523dc247bd09ec91ba4d7446
+        commit: 10ed9b3a9dd9f401eb2550058c6e7ebe890eda61
         dest: cef
       - type: git
         url: https://gn.googlesource.com/gn
-        commit: ed1abc107815210dc66ec439542bee2f6cbabc00
+        commit: 81b24e01531ecf0eff12ec9359a555ec3944ec4e
         dest: gn
-      - type: git
-        url: https://github.com/llvm/llvm-project.git
-        tag: llvmorg-19.1.7
-        commit: cd708029e0b2869e80abe31ddb175f7c35361f90
-        dest: llvm19
+      - third-party-node-modules.yaml
+      - chromium-submodules.yaml
       - type: git
         url: https://github.com/ungoogled-software/ungoogled-chromium.git
-        tag: 126.0.6478.182-1
-        commit: c407d7c81e38f80458997d26a164e968baa52e2e
+        tag: 139.0.7258.138-1
+        commit: 803eb8c3f510bc70534910636acfb812b6bb9e0d
         dest: ungoogled-chromium
-      - type: archive
-        url: https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-31e6e8c6c5b6ce62656c922c7384d3376018c980-2-llvmorg-19-init-9433-g76ea5feb.tar.xz
-        sha256: 1600c2ec6a8121449ef2c5dd30f1f14330fe4ea769cf7feea2553041da41e952
-        dest: third_party/rust-toolchain
-        strip-components: 0
-        only-arches:
-          - "x86_64"
-      - type: archive
-        url: https://registry.npmjs.org/chai/-/chai-4.2.0.tgz
-        sha256: 56947bbb83f2cc755d01071502024088747b609a8f338632ee27649a171cba0a
-        dest: third_party/node/node_modules/chai
       - type: archive
         url: https://registry.npmjs.org/mocha/-/mocha-10.0.0.tgz
         sha256: 91c4b9e3d052d73b7cdf297d296e698e8db1137724dd4391cdc5b93ad543283f
         dest: third_party/node/node_modules/mocha
-      - third-party-node-modules.yaml
-      - chromium-submodules.yaml
-      - type: patch
-        path: patch/chromium-remove-test-fonts.patch
-      - type: patch
-        path: patch/chromium-use-system-node.patch
-      - type: patch
-        path: patch/chromium-dont-update-rust.patch
-      - type: patch
-        path: patch/blink-fix-clang-template-warning.patch
-      - type: patch
-        path: patch/blink-fix-gperf.patch
-      - type: patch
-        path: patch/perfetto-fix-clang-template-warning.patch
-      - type: patch
-        path: patch/gn-fix-building-in-flathub.patch
-      - type: patch
-        path: patch/cef-fix-building-in-flathub.patch
-        options:
-          - --directory=cef
-      - type: patch
-        path: patch/libcef-fix-building-without-safebrowsing.patch
-        options:
-          - --directory=cef
-      - type: patch
-        path: patch/cef-fix-arm64-requires-sysroots.patch
-        options:
-          - --directory=cef
-      - type: patch
-        path: patch/cef-fix-doesn-t-detect-aarch64.patch
-        options:
-          - --directory=cef
-      - type: patch
-        path: patch/cef-no-fortify.patch
-        options:
-          - --directory=cef
-      - type: patch
-        path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
-        options:
-          - --directory=ungoogled-chromium
-      - type: patch
-        path: patch/ungoogled-chromium-adjust-for-cef.patch
-        options:
-          - --directory=ungoogled-chromium
       - type: patch
         paths:
-          - org.chromium.Chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
-          - org.chromium.Chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
-          - org.chromium.Chromium/patches/chromium/x11-Set-_NET_WM_BYPASS_COMPOSITOR-for-fullscreen.patch
-          - org.chromium.Chromium/patches/chromium/memory-Enable-the-tab-discards-feature.patch
-          - org.chromium.Chromium/patches/chromium/Enable-accelerated-mjpeg-decode-on-Linux.patch
-          - org.chromium.Chromium/patches/chromium/ffmpeg-Don-t-lie-about-AAC-and-H264-decoders-when-not-avai.patch
-          - org.chromium.Chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
-          - org.chromium.Chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
-          - org.chromium.Chromium/patches/chromium/Enable-new-dtags-on-non-component-builds.patch
-          - org.chromium.Chromium/patches/chromium/Add-support-for-respecting-system-proxy-settings-when-runn.patch
-          - org.chromium.Chromium/patches/chromium/Clang-build-script-Disable-hwasan.patch
-          - org.chromium.Chromium/patches/chromium/clang-build-script-Support-disabling-the-bundled-libxml2.patch
-          - org.chromium.Chromium/patches/chromium/Clang-build-script-Don-t-build-against-the-sysroot.patch
-          - org.chromium.Chromium/patches/chromium/Clang-build-script-add-support-for-building-a-subset-of-ta.patch
+          - patch/gn-fix-building-in-flathub.patch
+          - patch/chromium-138-rust-1.86-mismatched_lifetime_syntaxes.patch
+          - patch/fix-wayland-and-disable-e2etests.patch
+          - patch/remove-speech-service-dependency.patch
+          - patch/chromium-remove-test-fonts.patch
+          - patch/tsconfig-adjust-to-be-less-strict.patch
+          - patch/remove-unguarded-media-remoting-references.patch
+      - type: patch
+        paths: 
+          - patch/cef-fix-missing-absl-namespace.patch
+          - patch/cef-fix-build-in-flathub.patch
+          - patch/cef-fix-arm64-requires-sysroots.patch
+          - patch/cef-fix-doesn-t-detect-aarch64.patch
+        options:
+          - --directory=cef
+      # Ungoogled chromium flatpak patches
+      - type: patch
+        paths:
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Import-chromium-71.0.3578.98-widevine-r3.patch-arm64-suppo.patch
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Only-check-the-Node-major-version-number.patch
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
+          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Expose-Widevine-into-the-sandbox.patch
+      # These need to apply after cef patches. See build.sh
+      - type: file
+        path: io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
+      - type: file
+        path: patch/angle-remove-undefined-const.patch
+      - type: file
+        path: patch/ungoogled-chromium-adjust-for-cef.patch
+      - type: file
+        path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
+      - type: file
+        path: patch/ungoogled-chromium-remove-extra-locales.patch
   - name: wine-staging
     buildsystem: simple
     build-commands:
@@ -305,7 +290,7 @@ modules:
       - -DBOLT_LIBDIR=lib
       - -DBOLT_SHAREDIR=share
     sources:
+      # TODO change this to adamcake repo once merged
       - type: git
-        url: https://github.com/Adamcake/Bolt.git
-        tag: 0.20.0
-        commit: fb8e949c03f053ea947dae76e39010a1084a625a
+        url: https://github.com/JasperSurmont/Bolt.git
+        commit: b70247625b25515b84fd6ea0e5e0ab2a93a8d7b3
