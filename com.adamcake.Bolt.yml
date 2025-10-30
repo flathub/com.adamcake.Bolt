@@ -290,7 +290,7 @@ modules:
       - -DBOLT_LIBDIR=lib
       - -DBOLT_SHAREDIR=share
     sources:
-      # TODO change this to adamcake repo once merged
       - type: git
-        url: https://github.com/JasperSurmont/Bolt.git
-        commit: b70247625b25515b84fd6ea0e5e0ab2a93a8d7b3
+        url: https://github.com/Adamcake/Bolt.git
+        tag: 0.20.1
+        commit: b7565d4478eb6b842c8161b7dae244cb96f508e0
