@@ -1,9 +1,6 @@
 app-id: com.adamcake.Bolt
 runtime: org.freedesktop.Platform
 runtime-version: &runtime-version "24.08"
-x-gl-version: &gl-version "1.4"
-x-gl-versions: &gl-versions 24.08;24.08-extra;1.4
-x-gl-merge-dirs: &gl-merge-dirs vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
 sdk: org.freedesktop.Sdk
 command: bolt
 build_options:
@@ -30,74 +27,16 @@ finish-args:
   - --filesystem=xdg-run/discord-ipc-0
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk21
-  - org.freedesktop.Sdk.Extension.node22
-  - org.freedesktop.Sdk.Compat.i386
-  - org.freedesktop.Sdk.Extension.toolchain-i386
-  - org.freedesktop.Sdk.Extension.rust-stable
 
-add-extensions:
-  org.freedesktop.Platform.Compat.i386:
-    directory: lib/i386-linux-gnu
+add-build-extensions:
+  org.freedesktop.Sdk.Extension.node22:
     version: *runtime-version
-
-  org.freedesktop.Platform.Compat.i386.Debug:
-    directory: lib/debug/lib/i386-linux-gnu
+    remove-after-build: true
+  org.freedesktop.Sdk.Extension.rust-stable:
     version: *runtime-version
-    no-autodownload: true
-
-  org.freedesktop.Platform.GL32:
-    directory: lib/i386-linux-gnu/GL
-    version: *gl-version
-    versions: *gl-versions
-    subdirectories: true
-    no-autodownload: true
-    autodelete: false
-    add-ld-path: lib
-    merge-dirs: *gl-merge-dirs
-    download-if: active-gl-driver
-    enable-if: active-gl-driver
-    autoprune-unless: active-gl-driver
-
-  org.freedesktop.Platform.GL32.Debug:
-    directory: lib/debug/lib/i386-linux-gnu/GL
-    version: *gl-version
-    versions: *gl-versions
-    subdirectories: true
-    no-autodownload: true
-    merge-dirs: *gl-merge-dirs
-    enable-if: active-gl-driver
-    autoprune-unless: active-gl-driver
+    remove-after-build: true
 
 modules:
-  - name: platform-bootstrap
-    buildsystem: simple
-    build-commands:
-      - |
-        set -e
-        mkdir -p /app/bin
-        mkdir -p /app/lib/i386-linux-gnu
-        mkdir -p /app/lib/i386-linux-gnu/GL
-        mkdir -p /app/lib/i386-linux-gnu/dri/intel-vaapi-driver
-        mkdir -p /app/lib/debug/lib/i386-linux-gnu
-        mkdir -p /app/lib/debug/lib/i386-linux-gnu/GL
-        install -Dm644 -t /app/etc ld.so.conf
-        mkdir -p /app/lib{,32}/ffmpeg
-        mkdir -p /app/share/steam/compatibilitytools.d
-        mkdir -p /app/utils /app/share/vulkan
-        ln -srv /app/{utils/,}share/vulkan/explicit_layer.d
-        ln -srv /app/{utils/,}share/vulkan/implicit_layer.d
-        mkdir -p /app/links/lib
-        ln -srv /app/lib /app/links/lib/x86_64-linux-gnu
-        ln -srv /app/lib32 /app/links/lib/i386-linux-gnu
-    sources:
-      - type: inline
-        dest-filename: ld.so.conf
-        contents: |
-          # We just make any GL32 extension have higher priority
-          include /run/flatpak/ld.so.conf.d/app-*-org.freedesktop.Platform.GL32.*.conf
-          /app/lib32
-          /app/lib/i386-linux-gnu
-          /lib64
   - name: krb5
     buildsystem: simple
     build-commands:
@@ -174,7 +113,7 @@ modules:
       - ./scripts/build.sh
     build-options:
       env:
-        GN_DEFINES: 'enable_speech_service=false treat_warnings_as_errors=false angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0 build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false enable_concurrent_basic_print_dialogs=false enable_media_remoting=false enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false headless_use_policy=false headless_use_prefs=false icu_use_data_file=true include_branded_entitlements=false init_stack_vars=false media_use_openh264=false optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default'
+        GN_DEFINES: 'dcheck_always_on=false enable_speech_service=false treat_warnings_as_errors=false angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0 build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false enable_concurrent_basic_print_dialogs=false enable_media_remoting=false enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false headless_use_policy=false headless_use_prefs=false icu_use_data_file=true include_branded_entitlements=false init_stack_vars=false media_use_openh264=false optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default'
 
         AR: llvm-ar
         CC: clang
