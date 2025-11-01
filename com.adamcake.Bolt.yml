@@ -1,6 +1,6 @@
 app-id: com.adamcake.Bolt
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version "24.08"
+runtime-version: &runtime-version '24.08'
 sdk: org.freedesktop.Sdk
 command: bolt
 build_options:
@@ -97,7 +97,8 @@ modules:
   - name: llvm21
     buildsystem: simple
     build-commands:
-      - cmake -S llvm21/llvm -B llvm21/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
+      - cmake -S llvm21/llvm -B llvm21/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt"
+        -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
       - cmake --build llvm21/build -j $FLATPAK_BUILDER_N_JOBS
       - cmake --install llvm21/build --prefix /app/lib/sdk/llvm21
     sources:
@@ -113,7 +114,24 @@ modules:
       - ./scripts/build.sh
     build-options:
       env:
-        GN_DEFINES: 'dcheck_always_on=false enable_speech_service=false treat_warnings_as_errors=false angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0 build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false enable_concurrent_basic_print_dialogs=false enable_media_remoting=false enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false headless_use_policy=false headless_use_prefs=false icu_use_data_file=true include_branded_entitlements=false init_stack_vars=false media_use_openh264=false optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default'
+        GN_DEFINES: dcheck_always_on=false enable_speech_service=false treat_warnings_as_errors=false
+          angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0
+          build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false
+          chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false
+          devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true
+          enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false
+          enable_concurrent_basic_print_dialogs=false enable_media_remoting=false
+          enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false
+          enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false
+          enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false
+          enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false
+          gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false
+          headless_use_policy=false headless_use_prefs=false icu_use_data_file=true
+          include_branded_entitlements=false init_stack_vars=false media_use_openh264=false
+          optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false
+          safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false
+          use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false
+          v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default
 
         AR: llvm-ar
         CC: clang
@@ -173,7 +191,7 @@ modules:
           - patch/tsconfig-adjust-to-be-less-strict.patch
           - patch/remove-unguarded-media-remoting-references.patch
       - type: patch
-        paths: 
+        paths:
           - patch/cef-fix-missing-absl-namespace.patch
           - patch/cef-fix-build-in-flathub.patch
           - patch/cef-fix-arm64-requires-sysroots.patch
@@ -210,9 +228,9 @@ modules:
       - cp -r wine-staging/share/* /app/share/
     sources:
       - type: file
-        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.15/wine-10.15-staging-amd64.tar.xz
+        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.18/wine-10.18-staging-amd64.tar.xz
         dest-filename: wine-staging.tar.xz
-        sha256: 3c6d14a58cd67ef7250967eadb84be7d0ef5f789ebacaed424bc5f3da51293b4
+        sha256: 466d24aa919892186fa40c374452dad549092a023fd9ab2efe0c7bfea4b23713
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Kron4ek/Wine-Builds/releases/latest
