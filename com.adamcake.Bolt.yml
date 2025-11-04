@@ -210,9 +210,9 @@ modules:
       - cp -r wine-staging/share/* /app/share/
     sources:
       - type: file
-        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.15/wine-10.15-staging-amd64.tar.xz
+        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.18/wine-10.18-staging-amd64.tar.xz
         dest-filename: wine-staging.tar.xz
-        sha256: 3c6d14a58cd67ef7250967eadb84be7d0ef5f789ebacaed424bc5f3da51293b4
+        sha256: 466d24aa919892186fa40c374452dad549092a023fd9ab2efe0c7bfea4b23713
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Kron4ek/Wine-Builds/releases/latest
