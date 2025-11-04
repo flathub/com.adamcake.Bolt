@@ -1,6 +1,6 @@
 app-id: com.adamcake.Bolt
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version "24.08"
+runtime-version: &runtime-version '25.08'
 sdk: org.freedesktop.Sdk
 command: bolt
 build_options:
