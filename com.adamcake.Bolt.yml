@@ -48,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/krb5/krb5.git
-        tag: krb5-1.21.2-final
-        commit: 835f6e3d819beb7ee1046f01afb284b54ad54c5f
+        tag: krb5-1.22.1-final
+        commit: 4272fb71b130e50185a7711769a6296a4e562a5d
   - name: openjdk
     buildsystem: simple
     build-commands:
