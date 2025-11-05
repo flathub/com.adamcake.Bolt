@@ -45,5 +45,5 @@ patch -p1 --directory=ungoogled-chromium < ungoogled-chromium-remove-extra-local
 mkdir -p third_party/node/linux/node-linux-x64/bin
 ln -sfn /usr/lib/sdk/node22/bin/node third_party/node/linux/node-linux-x64/bin/node
 
-/usr/bin/env ninja -k 0 -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
+/usr/bin/env ninja -C out/Release_GN -j $FLATPAK_BUILDER_N_JOBS libcef chrome_sandbox
 python3 ./cef/tools/make_distrib.py --ninja-build --minimal --no-docs --no-archive --output-dir=/app/cef
