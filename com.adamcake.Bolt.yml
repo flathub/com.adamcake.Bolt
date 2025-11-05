@@ -173,6 +173,7 @@ modules:
           - patch/tsconfig-adjust-to-be-less-strict.patch
           - patch/remove-unguarded-media-remoting-references.patch
           - patch/crabbyavif-fix-sanitize-feature.patch
+          - patch/fix-building-with-rust-nightly.patch
       - type: patch
         paths: 
           - patch/cef-fix-missing-absl-namespace.patch
