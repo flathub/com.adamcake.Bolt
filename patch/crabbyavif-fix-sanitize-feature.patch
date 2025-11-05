@@ -1,6 +1,6 @@
 diff --git a/third_party/crabbyavif/src/src/capi/io.rs b/third_party/crabbyavif/src/src/capi/io.rs
---- a/src/capi/io.rs
-+++ b/src/capi/io.rs
+--- a/third_party/crabbyavif/src/src/capi/io.rs
++++ b/third_party/crabbyavif/src/src/capi/io.rs
 @@ -172,7 +172,7 @@ impl avifIOWrapper {
  }
  
@@ -11,8 +11,8 @@ diff --git a/third_party/crabbyavif/src/src/capi/io.rs b/third_party/crabbyavif/
          let res = unsafe {
              (self.io.read)(
 diff --git a/third_party/crabbyavif/src/src/lib.rs b/third_party/crabbyavif/src/src/lib.rs
---- a/src/lib.rs
-+++ b/src/lib.rs
+--- a/third_party/crabbyavif/src/src/lib.rs
++++ b/third_party/crabbyavif/src/src/lib.rs
 @@ -13,7 +13,7 @@
  // limitations under the License.
  
@@ -23,8 +23,8 @@ diff --git a/third_party/crabbyavif/src/src/lib.rs b/third_party/crabbyavif/src/
  #[macro_use]
  mod internal_utils;
 diff --git a/third_party/crabbyavif/src/src/reformat/libyuv.rs b/third_party/crabbyavif/src/src/reformat/libyuv.rs
---- a/src/reformat/libyuv.rs
-+++ b/src/reformat/libyuv.rs
+--- a/third_party/crabbyavif/src/src/reformat/libyuv.rs
++++ b/third_party/crabbyavif/src/src/reformat/libyuv.rs
 @@ -367,7 +367,7 @@ fn find_conversion_function(
      }
  }
