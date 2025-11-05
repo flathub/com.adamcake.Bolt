@@ -180,6 +180,11 @@ modules:
           - patch/cef-fix-doesn-t-detect-aarch64.patch
         options:
           - --directory=cef
+      - type: patch
+        paths:
+          - patch/crabbyavif-fix-sanitize-feature.patch
+        options:
+          - --directory=third_party/crabbyavif/src
       # Ungoogled chromium flatpak patches
       - type: patch
         paths:
