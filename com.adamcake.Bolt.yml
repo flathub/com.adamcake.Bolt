@@ -172,6 +172,7 @@ modules:
           - patch/chromium-remove-test-fonts.patch
           - patch/tsconfig-adjust-to-be-less-strict.patch
           - patch/remove-unguarded-media-remoting-references.patch
+          - patch/crabbyavif-fix-sanitize-feature.patch
       - type: patch
         paths: 
           - patch/cef-fix-missing-absl-namespace.patch
@@ -180,11 +181,6 @@ modules:
           - patch/cef-fix-doesn-t-detect-aarch64.patch
         options:
           - --directory=cef
-      - type: patch
-        paths:
-          - patch/crabbyavif-fix-sanitize-feature.patch
-        options:
-          - --directory=third_party/crabbyavif/src
       # Ungoogled chromium flatpak patches
       - type: patch
         paths:
