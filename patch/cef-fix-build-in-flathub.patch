@@ -62,9 +62,17 @@ index 234d3a719..d74ad5ab3 100644
      cmd.extend(os.environ['GN_ARGUMENTS'].split(' '))
    RunAction(src_dir, cmd)
 diff --git a/tools/gn_args.py b/tools/gn_args.py
-index 023a90153..2427de7a3 100644
 --- a/tools/gn_args.py
 +++ b/tools/gn_args.py
+@@ -153,7 +153,7 @@ def FormatValue(val):
+   elif isinstance(val, int) or isinstance(val, float):
+     return val
+   elif isinstance(val, list):
+-    return '[' + ', '.join([FormatValue(v) for v in list]) + ']'
++    return '[' + ', '.join([FormatValue(v) for v in val]) + ']'
+   else:
+     return '"%s"' % val
+   return val
 @@ -278,8 +278,6 @@ def GetRequiredArgs():
    """
    result = {
