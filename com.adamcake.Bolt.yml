@@ -80,10 +80,14 @@ modules:
       - /share/gtk-doc
       - /share/gir-1.0
     sources:
-      - type: git
-        url: https://github.com/GNOME/libnotify.git
-        tag: 0.8.3
-        commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
+      - type: archive
+        url: https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.7.tar.xz
+        sha256: 4be15202ec4184fce1ac15997ece5530d2be32fe9573875aeb10e3b573858748
+        x-checker-data:
+          type: gnome
+          name: libnotify
+          stable-only: true
+          
   - name: luajit
     buildsystem: simple
     build-commands:
