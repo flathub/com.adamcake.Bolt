@@ -50,6 +50,7 @@ modules:
         url: https://github.com/krb5/krb5.git
         tag: krb5-1.22.1-final
         commit: 4272fb71b130e50185a7711769a6296a4e562a5d
+
   - name: openjdk
     buildsystem: simple
     build-commands:
@@ -66,24 +67,7 @@ modules:
         url: https://github.com/openssl/openssl.git
         tag: OpenSSL_1_1_1w
         commit: e04bd3433fd84e1861bf258ea37928d9845e6a86
-  - name: libnotify
-    buildsystem: meson
-    config-opts:
-      - -Dman=false
-      - -Dgtk_doc=false
-      - -Ddocbook_docs=disabled
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /lib/debug
-      - /lib/girepository-1.0
-      - /share/gtk-doc
-      - /share/gir-1.0
-    sources:
-      - type: git
-        url: https://github.com/GNOME/libnotify.git
-        tag: 0.8.3
-        commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
+
   - name: luajit
     buildsystem: simple
     build-commands:
@@ -107,6 +91,7 @@ modules:
         commit: b708aea0bc7127adf4ec643660699c8bcdde1273
         dest: llvm21
     cleanup: ['*']
+
   - name: chromium
     buildsystem: simple
     build-commands:
@@ -221,6 +206,7 @@ modules:
           version-query: .tag_name
           url-query: .assets[] | select(.name=="wine-" + $version + "-staging-amd64.tar.xz")
             | .browser_download_url
+  
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
