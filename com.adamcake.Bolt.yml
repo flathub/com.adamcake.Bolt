@@ -10,8 +10,6 @@ build_options:
   cppflags-override: true
   cxxflags: -O3
   cxxflags-override: true
-  append-path: /app/lib/sdk/llvm21/bin:/usr/lib/sdk/rust-stable/bin
-  append-ld-library-path: /usr/lib/sdk/rust-stable/lib
 finish-args:
   - --device=dri
   - --share=ipc
@@ -30,9 +28,6 @@ sdk-extensions:
 
 add-build-extensions:
   org.freedesktop.Sdk.Extension.node22:
-    version: *runtime-version
-    remove-after-build: true
-  org.freedesktop.Sdk.Extension.rust-stable:
     version: *runtime-version
     remove-after-build: true
 
@@ -66,24 +61,6 @@ modules:
         url: https://github.com/openssl/openssl.git
         tag: OpenSSL_1_1_1w
         commit: e04bd3433fd84e1861bf258ea37928d9845e6a86
-  - name: libnotify
-    buildsystem: meson
-    config-opts:
-      - -Dman=false
-      - -Dgtk_doc=false
-      - -Ddocbook_docs=disabled
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /lib/debug
-      - /lib/girepository-1.0
-      - /share/gtk-doc
-      - /share/gir-1.0
-    sources:
-      - type: git
-        url: https://github.com/GNOME/libnotify.git
-        tag: 0.8.3
-        commit: 6083790f9e0f1827147ecd8799c4dced0e86a877
   - name: luajit
     buildsystem: simple
     build-commands:
@@ -94,114 +71,6 @@ modules:
         url: https://github.com/LuaJIT/LuaJIT.git
         tag: v2.1.ROLLING
         commit: 2090842410e0ba6f81fad310a77bf5432488249a
-  - name: llvm21
-    buildsystem: simple
-    build-commands:
-      - cmake -S llvm21/llvm -B llvm21/build -G Ninja -DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt" -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host
-      - cmake --build llvm21/build -j $FLATPAK_BUILDER_N_JOBS
-      - cmake --install llvm21/build --prefix /app/lib/sdk/llvm21
-    sources:
-      - type: git
-        url: https://github.com/llvm/llvm-project.git
-        tag: llvmorg-21.1.2
-        commit: b708aea0bc7127adf4ec643660699c8bcdde1273
-        dest: llvm21
-    cleanup: ['*']
-  - name: chromium
-    buildsystem: simple
-    build-commands:
-      - ./scripts/build.sh
-    build-options:
-      env:
-        GN_DEFINES: 'dcheck_always_on=false enable_speech_service=false treat_warnings_as_errors=false angle_build_tests=false angle_enable_commit_id=false blink_symbol_level=0 build_angle_perftests=false build_dawn_tests=false build_with_tflite_lib=false chrome_enable_logging_by_default=false chrome_pgo_phase=0 dawn_enable_null=false devtools_skip_typecheck=false disable_file_support=false disable_histogram_support=true enable_background_mode=false enable_basic_print_dialog=false enable_browser_speech_service=false enable_concurrent_basic_print_dialogs=false enable_media_remoting=false enable_media_remoting_rpc=false enable_nocompile_tests=false enable_pdf_ink2=false enable_pdf_save_to_drive=false enable_perfetto_unittests=false enable_rlz=false enable_rust_png=false enable_screen_ai_browsertests=false enable_service_discovery=false enable_trace_logging=false enable_vr=false enable_widevine=false generate_about_credits=false gtest_enable_absl_printers=false headless_enable_commands=false headless_mode_policy_supported=false headless_use_policy=false headless_use_prefs=false icu_use_data_file=true include_branded_entitlements=false init_stack_vars=false media_use_openh264=false optional_trace_events_enabled=false ozone_platform_headless=false proprietary_codecs=false safe_browsing_mode=0 skia_enable_skshaper_tests=false tint_build_unittests=false use_sysroot=false use_system_libffi=true v8_deprecation_warnings=false v8_enable_test_features=false v8_enable_webassembly=true v8_imminent_deprecation_warnings=false host_toolchain=//build/toolchain/linux/unbundle:default is_official_build=true removed_rust_stdlib_libs=[unicode_width]'
-
-        AR: llvm-ar
-        CC: clang
-        CXX: clang++
-        NM: llvm-nm
-        RANLIB: llvm-ranlib
-        STRIP: llvm-strip
-
-        # Point bindgen to LLVM's libclang
-        LIBCLANG_PATH: /app/lib/sdk/llvm21/lib
-
-        # Paths to Node.js
-        NODE_HOME: /usr/lib/sdk/node22
-
-        # Allow the use of nightly features with stable Rust compiler
-        # https://github.com/ungoogled-software/ungoogled-chromium/pull/2696#issuecomment-1918173198
-        RUSTC_BOOTSTRAP: '1'
-
-        # Configure CCACHE for faster builds
-        CCACHE_NOHASHDIR: 'true'
-        CCACHE_SLOPPINESS: time_macros,include_file_ctime,include_file_mtime
-    sources:
-      - type: file
-        path: build.sh
-        dest: scripts
-      - type: git
-        url: https://github.com/chromium/chromium.git
-        tag: 139.0.7258.139
-        commit: 54b87fe5881df381307c2ef806b8e5e87e8a6790
-        disable-submodules: true
-      - type: git
-        url: https://github.com/chromiumembedded/cef.git
-        commit: 10ed9b3a9dd9f401eb2550058c6e7ebe890eda61
-        dest: cef
-      - type: git
-        url: https://gn.googlesource.com/gn
-        commit: 81b24e01531ecf0eff12ec9359a555ec3944ec4e
-        dest: gn
-      - third-party-node-modules.yaml
-      - chromium-submodules.yaml
-      - type: git
-        url: https://github.com/ungoogled-software/ungoogled-chromium.git
-        tag: 139.0.7258.138-1
-        commit: 803eb8c3f510bc70534910636acfb812b6bb9e0d
-        dest: ungoogled-chromium
-      - type: archive
-        url: https://registry.npmjs.org/mocha/-/mocha-10.0.0.tgz
-        sha256: 91c4b9e3d052d73b7cdf297d296e698e8db1137724dd4391cdc5b93ad543283f
-        dest: third_party/node/node_modules/mocha
-      - type: patch
-        paths:
-          - patch/gn-fix-building-in-flathub.patch
-          - patch/chromium-138-rust-1.86-mismatched_lifetime_syntaxes.patch
-          - patch/fix-wayland-and-disable-e2etests.patch
-          - patch/remove-speech-service-dependency.patch
-          - patch/chromium-remove-test-fonts.patch
-          - patch/tsconfig-adjust-to-be-less-strict.patch
-          - patch/remove-unguarded-media-remoting-references.patch
-          - patch/crabbyavif-fix-sanitize-feature.patch
-          - patch/fix-building-with-rust-nightly.patch
-      - type: patch
-        paths: 
-          - patch/cef-fix-missing-absl-namespace.patch
-          - patch/cef-fix-build-in-flathub.patch
-          - patch/cef-fix-arm64-requires-sysroots.patch
-          - patch/cef-fix-doesn-t-detect-aarch64.patch
-        options:
-          - --directory=cef
-      # Ungoogled chromium flatpak patches
-      - type: patch
-        paths:
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Import-chromium-71.0.3578.98-widevine-r3.patch-arm64-suppo.patch
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Only-check-the-Node-major-version-number.patch
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Remove-the-ability-to-create-desktop-shortcuts.patch
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/Use-CHROME_WRAPPER-as-the-executable-on-restart.patch
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Add-initial-sandbox-support.patch
-          - io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Expose-Widevine-into-the-sandbox.patch
-      # These need to apply after cef patches. See build.sh
-      - type: file
-        path: io.github.ungoogled_software.ungoogled_chromium/patches/chromium/flatpak-Adjust-paths-for-the-sandbox.patch
-      - type: file
-        path: patch/angle-remove-undefined-const.patch
-      - type: file
-        path: patch/ungoogled-chromium-adjust-for-cef.patch
-      - type: file
-        path: patch/ungoogled-chromium-ignore-nonexistent-binaries.patch
-      - type: file
-        path: patch/ungoogled-chromium-remove-extra-locales.patch
   - name: wine-staging
     buildsystem: simple
     build-commands:
@@ -212,26 +81,31 @@ modules:
       - cp -r wine-staging/share/* /app/share/
     sources:
       - type: file
-        url: https://github.com/Kron4ek/Wine-Builds/releases/download/10.18/wine-10.18-staging-amd64.tar.xz
+        url: https://github.com/Kron4ek/Wine-Builds/releases/download/11.1/wine-11.1-staging-amd64-wow64.tar.xz
         dest-filename: wine-staging.tar.xz
-        sha256: 466d24aa919892186fa40c374452dad549092a023fd9ab2efe0c7bfea4b23713
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/Kron4ek/Wine-Builds/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="wine-" + $version + "-staging-amd64.tar.xz")
-            | .browser_download_url
+        sha256: 65d83e5ea0fb71cc88c54e19b7d694eeba67fc25dad73a38e58acd90de9e2f5b
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DCEF_ROOT=/app/cef/dist
       - -DBOLT_META_NAME=com.adamcake.Bolt
       - -DBOLT_BINDIR=bin
       - -DBOLT_LIBDIR=lib
       - -DBOLT_SHAREDIR=share
     sources:
+      - type: archive
+        only-arches:
+          - x86_64
+        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-x86_64-minimal-ungoogled-flatpak-25.08.tar.gz 
+        sha256: a7e8ca9afef73f58cb61120653c2bb9949a229232d5df42925ca83a2abc91bd4
+        dest: cef/dist
+      - type: archive
+        only-arches:
+          - aarch64
+        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-aarch64-minimal-ungoogled-flatpak-25.08.tar.gz 
+        sha256: f2926c4de6eebb9d50c54426846d1162c53c7013381577f641ca8ef4461d405c
+        dest: cef/dist 
       - type: git
-        url: https://github.com/Adamcake/Bolt.git
-        tag: 0.20.4
-        commit: 587517383aac1fdcc4842362c25108a48232cb5b
+        url: https://codeberg.org/Adamcake/Bolt
+        tag: 0.21.1
+        commit: 267fdf10451847153769c7dec5636eee2fec8c78
