@@ -96,16 +96,16 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-x86_64-minimal-ungoogled-flatpak-25.08.tar.gz 
+        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-x86_64-minimal-ungoogled-flatpak-25.08.tar.gz
         sha256: a7e8ca9afef73f58cb61120653c2bb9949a229232d5df42925ca83a2abc91bd4
         dest: cef/dist
       - type: archive
         only-arches:
           - aarch64
-        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-aarch64-minimal-ungoogled-flatpak-25.08.tar.gz 
+        url: https://adamcake.com/cef/cef-139.0.7258.139-linux-aarch64-minimal-ungoogled-flatpak-25.08.tar.gz
         sha256: f2926c4de6eebb9d50c54426846d1162c53c7013381577f641ca8ef4461d405c
-        dest: cef/dist 
+        dest: cef/dist
       - type: git
         url: https://codeberg.org/Adamcake/Bolt
-        tag: 0.21.1
-        commit: 267fdf10451847153769c7dec5636eee2fec8c78
+        tag: 0.22.0
+        commit: 6a4630ab2e126821037ee092f9a3eaeec964772b
