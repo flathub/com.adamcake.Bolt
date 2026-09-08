@@ -107,5 +107,5 @@ modules:
         dest: cef/dist
       - type: git
         url: https://codeberg.org/Adamcake/Bolt
-        tag: 0.23.2
-        commit: 3946ce579de2a8846ade026c7ffcc20d6a39d078
+        tag: 0.24.0
+        commit: d8589d80f9849e51f121646e31daa5be7038da28
