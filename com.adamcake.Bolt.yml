@@ -69,7 +69,6 @@ modules:
     sources:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT.git
-        tag: v2.1.ROLLING
         commit: 2090842410e0ba6f81fad310a77bf5432488249a
   - name: wine-staging
     buildsystem: simple
